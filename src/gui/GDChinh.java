@@ -2,20 +2,20 @@ package gui;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
-import java.util.ArrayList;
-import java.util.List;
-import other.ChuyenManHinh;
-import other.DanhMucBean;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 import other.BienMacDinh;
 
 /**
  *
  * @author vanphatdev
  */
-public class GDChinh extends javax.swing.JFrame {
+public class GDChinh extends javax.swing.JFrame implements MouseListener{
 
     private boolean isThuGonMenu = false;
-    
+    private int manHinhDangChon = 1;
     /**
      * Creates new form NewJFrame
      */
@@ -24,20 +24,21 @@ public class GDChinh extends javax.swing.JFrame {
         this.setTitle("Quản lí khách sạn - VinaHotel");
         initComponents();
         
-        ChuyenManHinh dieuKhien = new ChuyenManHinh(pNoiDung);
-        dieuKhien.setManHinhNoiDung(pSoDoPhong, lblSoDoPhong);
+        customJPanelVaJLableKhiDuocChon(pSoDoPhong, lblSoDoPhong);
+        pNDQLDatPhong.setVisible(false);
+        pNDQLTraPhong.setVisible(false);
+        pNDQLDichVu.setVisible(false);
+        pNDQLNhanVien.setVisible(false);
+        pNDQLKhachHang.setVisible(false);
+        pNDQLHoaDon.setVisible(false);
         
-        List<DanhMucBean> listDanhMucBean = new ArrayList<>();
-        listDanhMucBean.add(new DanhMucBean("SoDoPhong", pSoDoPhong, lblSoDoPhong));
-        listDanhMucBean.add(new DanhMucBean("QLDatPhong", pQLDatPhong, lblQLDatPhong));
-        listDanhMucBean.add(new DanhMucBean("QLTraPhong", pQLTraPhong, lblQLTraPhong));
-        listDanhMucBean.add(new DanhMucBean("QLDichVu", pQLDichVu, lblQLDichVu));
-        listDanhMucBean.add(new DanhMucBean("QLNhanVien", pQLNhanVien, lblQLNhanVien));
-        listDanhMucBean.add(new DanhMucBean("QLKhachHang", pQLKhachHang, lblQLKhachHang));
-        listDanhMucBean.add(new DanhMucBean("QLHoaDon", pQLHoaDon, lblQLHoaDon));
-        
-        dieuKhien.setSuKienClickDanhMuc(listDanhMucBean);
-        
+        lblSoDoPhong.addMouseListener(this);
+        lblQLDatPhong.addMouseListener(this);
+        lblQLTraPhong.addMouseListener(this);
+        lblQLDichVu.addMouseListener(this);
+        lblQLNhanVien.addMouseListener(this);
+        lblQLKhachHang.addMouseListener(this);
+        lblQLHoaDon.addMouseListener(this);
     }
     
     public void icon() {
@@ -74,6 +75,13 @@ public class GDChinh extends javax.swing.JFrame {
         pDangXuat = new javax.swing.JPanel();
         lblDangXuat = new javax.swing.JLabel();
         pNoiDung = new javax.swing.JPanel();
+        pNDSoDoPhong = new javax.swing.JPanel();
+        pNDQLDatPhong = new javax.swing.JPanel();
+        pNDQLTraPhong = new javax.swing.JPanel();
+        pNDQLDichVu = new javax.swing.JPanel();
+        pNDQLNhanVien = new javax.swing.JPanel();
+        pNDQLKhachHang = new javax.swing.JPanel();
+        pNDQLHoaDon = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -324,16 +332,112 @@ public class GDChinh extends javax.swing.JFrame {
                 .addComponent(pDangXuat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        javax.swing.GroupLayout pNoiDungLayout = new javax.swing.GroupLayout(pNoiDung);
-        pNoiDung.setLayout(pNoiDungLayout);
-        pNoiDungLayout.setHorizontalGroup(
-            pNoiDungLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        pNoiDung.setLayout(new javax.swing.OverlayLayout(pNoiDung));
+
+        pNDSoDoPhong.setBackground(new java.awt.Color(204, 255, 255));
+
+        javax.swing.GroupLayout pNDSoDoPhongLayout = new javax.swing.GroupLayout(pNDSoDoPhong);
+        pNDSoDoPhong.setLayout(pNDSoDoPhongLayout);
+        pNDSoDoPhongLayout.setHorizontalGroup(
+            pNDSoDoPhongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 962, Short.MAX_VALUE)
         );
-        pNoiDungLayout.setVerticalGroup(
-            pNoiDungLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        pNDSoDoPhongLayout.setVerticalGroup(
+            pNDSoDoPhongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 740, Short.MAX_VALUE)
         );
+
+        pNoiDung.add(pNDSoDoPhong);
+
+        pNDQLDatPhong.setBackground(new java.awt.Color(204, 204, 255));
+
+        javax.swing.GroupLayout pNDQLDatPhongLayout = new javax.swing.GroupLayout(pNDQLDatPhong);
+        pNDQLDatPhong.setLayout(pNDQLDatPhongLayout);
+        pNDQLDatPhongLayout.setHorizontalGroup(
+            pNDQLDatPhongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 962, Short.MAX_VALUE)
+        );
+        pNDQLDatPhongLayout.setVerticalGroup(
+            pNDQLDatPhongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 740, Short.MAX_VALUE)
+        );
+
+        pNoiDung.add(pNDQLDatPhong);
+
+        pNDQLTraPhong.setBackground(new java.awt.Color(255, 204, 255));
+
+        javax.swing.GroupLayout pNDQLTraPhongLayout = new javax.swing.GroupLayout(pNDQLTraPhong);
+        pNDQLTraPhong.setLayout(pNDQLTraPhongLayout);
+        pNDQLTraPhongLayout.setHorizontalGroup(
+            pNDQLTraPhongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 962, Short.MAX_VALUE)
+        );
+        pNDQLTraPhongLayout.setVerticalGroup(
+            pNDQLTraPhongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 740, Short.MAX_VALUE)
+        );
+
+        pNoiDung.add(pNDQLTraPhong);
+
+        pNDQLDichVu.setBackground(new java.awt.Color(255, 204, 204));
+
+        javax.swing.GroupLayout pNDQLDichVuLayout = new javax.swing.GroupLayout(pNDQLDichVu);
+        pNDQLDichVu.setLayout(pNDQLDichVuLayout);
+        pNDQLDichVuLayout.setHorizontalGroup(
+            pNDQLDichVuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 962, Short.MAX_VALUE)
+        );
+        pNDQLDichVuLayout.setVerticalGroup(
+            pNDQLDichVuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 740, Short.MAX_VALUE)
+        );
+
+        pNoiDung.add(pNDQLDichVu);
+
+        pNDQLNhanVien.setBackground(new java.awt.Color(255, 255, 204));
+
+        javax.swing.GroupLayout pNDQLNhanVienLayout = new javax.swing.GroupLayout(pNDQLNhanVien);
+        pNDQLNhanVien.setLayout(pNDQLNhanVienLayout);
+        pNDQLNhanVienLayout.setHorizontalGroup(
+            pNDQLNhanVienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 962, Short.MAX_VALUE)
+        );
+        pNDQLNhanVienLayout.setVerticalGroup(
+            pNDQLNhanVienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 740, Short.MAX_VALUE)
+        );
+
+        pNoiDung.add(pNDQLNhanVien);
+
+        pNDQLKhachHang.setBackground(new java.awt.Color(204, 255, 204));
+
+        javax.swing.GroupLayout pNDQLKhachHangLayout = new javax.swing.GroupLayout(pNDQLKhachHang);
+        pNDQLKhachHang.setLayout(pNDQLKhachHangLayout);
+        pNDQLKhachHangLayout.setHorizontalGroup(
+            pNDQLKhachHangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 962, Short.MAX_VALUE)
+        );
+        pNDQLKhachHangLayout.setVerticalGroup(
+            pNDQLKhachHangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 740, Short.MAX_VALUE)
+        );
+
+        pNoiDung.add(pNDQLKhachHang);
+
+        pNDQLHoaDon.setBackground(new java.awt.Color(51, 51, 51));
+
+        javax.swing.GroupLayout pNDQLHoaDonLayout = new javax.swing.GroupLayout(pNDQLHoaDon);
+        pNDQLHoaDon.setLayout(pNDQLHoaDonLayout);
+        pNDQLHoaDonLayout.setHorizontalGroup(
+            pNDQLHoaDonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 962, Short.MAX_VALUE)
+        );
+        pNDQLHoaDonLayout.setVerticalGroup(
+            pNDQLHoaDonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 740, Short.MAX_VALUE)
+        );
+
+        pNoiDung.add(pNDQLHoaDon);
 
         javax.swing.GroupLayout pBackgroundMainLayout = new javax.swing.GroupLayout(pBackgroundMain);
         pBackgroundMain.setLayout(pBackgroundMainLayout);
@@ -402,6 +506,13 @@ public class GDChinh extends javax.swing.JFrame {
     private javax.swing.JPanel pDangXuat;
     private javax.swing.JPanel pLogo;
     private javax.swing.JPanel pMenu;
+    private javax.swing.JPanel pNDQLDatPhong;
+    private javax.swing.JPanel pNDQLDichVu;
+    private javax.swing.JPanel pNDQLHoaDon;
+    private javax.swing.JPanel pNDQLKhachHang;
+    private javax.swing.JPanel pNDQLNhanVien;
+    private javax.swing.JPanel pNDQLTraPhong;
+    private javax.swing.JPanel pNDSoDoPhong;
     private javax.swing.JPanel pNoiDung;
     private javax.swing.JPanel pQLDatPhong;
     private javax.swing.JPanel pQLDichVu;
@@ -411,4 +522,215 @@ public class GDChinh extends javax.swing.JFrame {
     private javax.swing.JPanel pQLTraPhong;
     private javax.swing.JPanel pSoDoPhong;
     // End of variables declaration//GEN-END:variables
+
+    public void customJPanelVaJLableKhiDuocChon(JPanel p, JLabel lbl) {
+        p.setBackground(BienMacDinh.mauDanhMucDangChon);
+        lbl.setForeground(BienMacDinh.mauTrang);
+        lbl.setBorder(null);
+    }
+    
+    public void customJPanelVaJLableKhiKhongDuocChon(JPanel p, JLabel lbl) {
+        p.setBackground(BienMacDinh.mauNenMenu);
+        lbl.setForeground(BienMacDinh.mauDen);
+        lbl.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, BienMacDinh.mauBorderBottomMenu));
+    }
+    
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        Object o = e.getSource();
+        if (o.equals(lblSoDoPhong)) {
+            pNDSoDoPhong.setVisible(true); // Màn hình được chọn
+            pNDQLDatPhong.setVisible(false);
+            pNDQLTraPhong.setVisible(false);
+            pNDQLDichVu.setVisible(false);
+            pNDQLNhanVien.setVisible(false);
+            pNDQLKhachHang.setVisible(false);
+            pNDQLHoaDon.setVisible(false);
+            
+            customJPanelVaJLableKhiDuocChon(pSoDoPhong, lblSoDoPhong); // Được chọn
+            customJPanelVaJLableKhiKhongDuocChon(pQLDatPhong, lblQLDatPhong);
+            customJPanelVaJLableKhiKhongDuocChon(pQLTraPhong, lblQLTraPhong);
+            customJPanelVaJLableKhiKhongDuocChon(pQLDichVu, lblQLDichVu);
+            customJPanelVaJLableKhiKhongDuocChon(pQLNhanVien, lblQLNhanVien);
+            customJPanelVaJLableKhiKhongDuocChon(pQLKhachHang, lblQLKhachHang);
+            customJPanelVaJLableKhiKhongDuocChon(pQLHoaDon, lblQLHoaDon);
+            
+            manHinhDangChon = 1;
+            
+        } else if (o.equals(lblQLDatPhong)) {
+            pNDSoDoPhong.setVisible(false);
+            pNDQLDatPhong.setVisible(true); // Màn hình được chọn
+            pNDQLTraPhong.setVisible(false);
+            pNDQLDichVu.setVisible(false);
+            pNDQLNhanVien.setVisible(false);
+            pNDQLKhachHang.setVisible(false);
+            pNDQLHoaDon.setVisible(false);
+            
+            customJPanelVaJLableKhiKhongDuocChon(pSoDoPhong, lblSoDoPhong); 
+            customJPanelVaJLableKhiDuocChon(pQLDatPhong, lblQLDatPhong); // Được chọn
+            customJPanelVaJLableKhiKhongDuocChon(pQLTraPhong, lblQLTraPhong);
+            customJPanelVaJLableKhiKhongDuocChon(pQLDichVu, lblQLDichVu);
+            customJPanelVaJLableKhiKhongDuocChon(pQLNhanVien, lblQLNhanVien);
+            customJPanelVaJLableKhiKhongDuocChon(pQLKhachHang, lblQLKhachHang);
+            customJPanelVaJLableKhiKhongDuocChon(pQLHoaDon, lblQLHoaDon);
+            
+            manHinhDangChon = 2;
+            
+        } else if (o.equals(lblQLTraPhong)) {
+            pNDSoDoPhong.setVisible(false); 
+            pNDQLDatPhong.setVisible(false);
+            pNDQLTraPhong.setVisible(true); // Màn hình được chọn
+            pNDQLDichVu.setVisible(false);
+            pNDQLNhanVien.setVisible(false);
+            pNDQLKhachHang.setVisible(false);
+            pNDQLHoaDon.setVisible(false);
+            
+            customJPanelVaJLableKhiKhongDuocChon(pSoDoPhong, lblSoDoPhong); 
+            customJPanelVaJLableKhiKhongDuocChon(pQLDatPhong, lblQLDatPhong);
+            customJPanelVaJLableKhiDuocChon(pQLTraPhong, lblQLTraPhong); // Được chọn
+            customJPanelVaJLableKhiKhongDuocChon(pQLDichVu, lblQLDichVu);
+            customJPanelVaJLableKhiKhongDuocChon(pQLNhanVien, lblQLNhanVien);
+            customJPanelVaJLableKhiKhongDuocChon(pQLKhachHang, lblQLKhachHang);
+            customJPanelVaJLableKhiKhongDuocChon(pQLHoaDon, lblQLHoaDon);;
+            
+            manHinhDangChon = 3;
+            
+        } else if (o.equals(lblQLDichVu)) {
+            pNDSoDoPhong.setVisible(false); 
+            pNDQLDatPhong.setVisible(false);
+            pNDQLTraPhong.setVisible(false); 
+            pNDQLDichVu.setVisible(true); // Màn hình được chọn
+            pNDQLNhanVien.setVisible(false);
+            pNDQLKhachHang.setVisible(false);
+            pNDQLHoaDon.setVisible(false);
+            
+            customJPanelVaJLableKhiKhongDuocChon(pSoDoPhong, lblSoDoPhong); 
+            customJPanelVaJLableKhiKhongDuocChon(pQLDatPhong, lblQLDatPhong);
+            customJPanelVaJLableKhiKhongDuocChon(pQLTraPhong, lblQLTraPhong); 
+            customJPanelVaJLableKhiDuocChon(pQLDichVu, lblQLDichVu); // Được chọn
+            customJPanelVaJLableKhiKhongDuocChon(pQLNhanVien, lblQLNhanVien);            
+            customJPanelVaJLableKhiKhongDuocChon(pQLKhachHang, lblQLKhachHang);
+            customJPanelVaJLableKhiKhongDuocChon(pQLHoaDon, lblQLHoaDon);
+            
+            manHinhDangChon = 4;
+            
+        } else if (o.equals(lblQLNhanVien)) {
+            pNDSoDoPhong.setVisible(false); 
+            pNDQLDatPhong.setVisible(false);
+            pNDQLTraPhong.setVisible(false); 
+            pNDQLDichVu.setVisible(false); 
+            pNDQLNhanVien.setVisible(true); // Màn hình được chọn
+            pNDQLKhachHang.setVisible(false);
+            pNDQLHoaDon.setVisible(false);
+            
+            customJPanelVaJLableKhiKhongDuocChon(pSoDoPhong, lblSoDoPhong); 
+            customJPanelVaJLableKhiKhongDuocChon(pQLDatPhong, lblQLDatPhong);
+            customJPanelVaJLableKhiKhongDuocChon(pQLTraPhong, lblQLTraPhong); 
+            customJPanelVaJLableKhiKhongDuocChon(pQLDichVu, lblQLDichVu);
+            customJPanelVaJLableKhiDuocChon(pQLNhanVien, lblQLNhanVien);  // Được chọn
+            customJPanelVaJLableKhiKhongDuocChon(pQLKhachHang, lblQLKhachHang);
+            customJPanelVaJLableKhiKhongDuocChon(pQLHoaDon, lblQLHoaDon);
+            
+            manHinhDangChon = 5;
+            
+        } else if (o.equals(lblQLKhachHang)) {
+            pNDSoDoPhong.setVisible(false); 
+            pNDQLDatPhong.setVisible(false);
+            pNDQLTraPhong.setVisible(false); 
+            pNDQLDichVu.setVisible(false); 
+            pNDQLNhanVien.setVisible(false);
+            pNDQLKhachHang.setVisible(true); // Màn hình được chọn
+            pNDQLHoaDon.setVisible(false);
+            
+            customJPanelVaJLableKhiKhongDuocChon(pSoDoPhong, lblSoDoPhong); 
+            customJPanelVaJLableKhiKhongDuocChon(pQLDatPhong, lblQLDatPhong);
+            customJPanelVaJLableKhiKhongDuocChon(pQLTraPhong, lblQLTraPhong); 
+            customJPanelVaJLableKhiKhongDuocChon(pQLDichVu, lblQLDichVu);
+            customJPanelVaJLableKhiKhongDuocChon(pQLNhanVien, lblQLNhanVien);  
+            customJPanelVaJLableKhiDuocChon(pQLKhachHang, lblQLKhachHang); // Được chọn
+            customJPanelVaJLableKhiKhongDuocChon(pQLHoaDon, lblQLHoaDon);
+            
+            manHinhDangChon = 6;
+            
+        } else if (o.equals(lblQLHoaDon)) {
+            pNDSoDoPhong.setVisible(false); 
+            pNDQLDatPhong.setVisible(false);
+            pNDQLTraPhong.setVisible(false); 
+            pNDQLDichVu.setVisible(false); 
+            pNDQLNhanVien.setVisible(false);
+            pNDQLKhachHang.setVisible(false); 
+            pNDQLHoaDon.setVisible(true); // Màn hình được chọn
+            
+            customJPanelVaJLableKhiKhongDuocChon(pSoDoPhong, lblSoDoPhong); 
+            customJPanelVaJLableKhiKhongDuocChon(pQLDatPhong, lblQLDatPhong);
+            customJPanelVaJLableKhiKhongDuocChon(pQLTraPhong, lblQLTraPhong); 
+            customJPanelVaJLableKhiKhongDuocChon(pQLDichVu, lblQLDichVu);
+            customJPanelVaJLableKhiKhongDuocChon(pQLNhanVien, lblQLNhanVien);  
+            customJPanelVaJLableKhiKhongDuocChon(pQLKhachHang, lblQLKhachHang); 
+            customJPanelVaJLableKhiDuocChon(pQLHoaDon, lblQLHoaDon); // Được chọn
+            
+            manHinhDangChon = 7;
+            
+        }
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+        Object o = e.getSource();
+        if (o.equals(lblSoDoPhong)) {
+            customJPanelVaJLableKhiDuocChon(pSoDoPhong, lblSoDoPhong);
+        }
+        if (o.equals(lblQLDatPhong)) {
+            customJPanelVaJLableKhiDuocChon(pQLDatPhong, lblQLDatPhong);
+        }
+        if (o.equals(lblQLTraPhong)) {
+            customJPanelVaJLableKhiDuocChon(pQLTraPhong, lblQLTraPhong);
+        }
+        if (o.equals(lblQLDichVu)) {
+            customJPanelVaJLableKhiDuocChon(pQLDichVu, lblQLDichVu);
+        }
+        if (o.equals(lblQLNhanVien)) {
+            customJPanelVaJLableKhiDuocChon(pQLNhanVien, lblQLNhanVien);
+        }
+        if (o.equals(lblQLKhachHang)) {
+            customJPanelVaJLableKhiDuocChon(pQLKhachHang, lblQLKhachHang);
+        }
+        if (o.equals(lblQLHoaDon)) {
+            customJPanelVaJLableKhiDuocChon(pQLHoaDon, lblQLHoaDon);
+        }
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+        Object o = e.getSource();
+        if (o.equals(lblSoDoPhong) && manHinhDangChon != 1) {
+            customJPanelVaJLableKhiKhongDuocChon(pSoDoPhong, lblSoDoPhong);
+        }
+        if (o.equals(lblQLDatPhong) && manHinhDangChon != 2) {
+            customJPanelVaJLableKhiKhongDuocChon(pQLDatPhong, lblQLDatPhong);
+        }
+        if (o.equals(lblQLTraPhong) && manHinhDangChon != 3) {
+            customJPanelVaJLableKhiKhongDuocChon(pQLTraPhong, lblQLTraPhong);
+        }
+        if (o.equals(lblQLDichVu) && manHinhDangChon != 4) {
+            customJPanelVaJLableKhiKhongDuocChon(pQLDichVu, lblQLDichVu);
+        }
+        if (o.equals(lblQLNhanVien) && manHinhDangChon != 5) {
+            customJPanelVaJLableKhiKhongDuocChon(pQLNhanVien, lblQLNhanVien);
+        }
+        if (o.equals(lblQLKhachHang) && manHinhDangChon != 6) {
+            customJPanelVaJLableKhiKhongDuocChon(pQLKhachHang, lblQLKhachHang);
+        }
+        if (o.equals(lblQLHoaDon) && manHinhDangChon != 7) {
+            customJPanelVaJLableKhiKhongDuocChon(pQLHoaDon, lblQLHoaDon);
+        }
+    }
 }
