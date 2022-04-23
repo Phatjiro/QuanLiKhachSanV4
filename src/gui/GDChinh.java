@@ -1,6 +1,7 @@
 package gui;
 
 import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.util.ArrayList;
 import java.util.List;
 import other.ChuyenManHinh;
@@ -19,6 +20,8 @@ public class GDChinh extends javax.swing.JFrame {
      * Creates new form NewJFrame
      */
     public GDChinh() {
+        icon();
+        this.setTitle("Quản lí khách sạn - VinaHotel");
         initComponents();
         
         ChuyenManHinh dieuKhien = new ChuyenManHinh(pNoiDung);
@@ -35,6 +38,10 @@ public class GDChinh extends javax.swing.JFrame {
         
         dieuKhien.setSuKienClickDanhMuc(listDanhMucBean);
         
+    }
+    
+    public void icon() {
+        this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/img/Logo_big.jpg")));
     }
 
     /**
