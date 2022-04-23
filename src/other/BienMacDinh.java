@@ -15,4 +15,5 @@ public interface BienMacDinh {
     Color mauDanhMucDangChon = new Color(30, 122, 141);
     Color mauNenMenu = new Color(183, 219, 243);
     Color mauBorderBottomMenu = new Color(255, 153, 102);
+    Color mauNenDangNhap = new Color(4, 135, 217);
 }
