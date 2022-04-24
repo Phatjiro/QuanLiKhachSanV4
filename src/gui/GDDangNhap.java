@@ -40,6 +40,7 @@ public class GDDangNhap extends javax.swing.JFrame {
         btnDangNhap.setBackground(BienMacDinh.mauNenDangNhap);
         btnDangNhap.setForeground(BienMacDinh.mauTrang);
         btnDangNhap.setText("ĐĂNG NHẬP");
+        btnDangNhap.setFont(BienMacDinh.fontButtonDangNhap);
         
         tfTenDangNhap.setBounds(88,20,300,36);
         tfMatKhau.setBounds(88,70,300,36);
@@ -48,7 +49,7 @@ public class GDDangNhap extends javax.swing.JFrame {
         jPanel4.add(tfTenDangNhap);
         jPanel4.add(tfMatKhau);
         jPanel4.add(btnDangNhap);
-        
+
     }
 
     public void icon() {

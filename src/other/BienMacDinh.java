@@ -1,6 +1,7 @@
 package other;
 
 import java.awt.Color;
+import java.awt.Font;
 
 /**
  *
@@ -16,4 +17,9 @@ public interface BienMacDinh {
     Color mauNenMenu = new Color(183, 219, 243);
     Color mauBorderBottomMenu = new Color(255, 153, 102);
     Color mauNenDangNhap = new Color(4, 135, 217);
+    
+    /**
+     * Biến mặc định font cho chương trình
+     */
+    Font fontButtonDangNhap = new Font("Arial", Font.PLAIN, 14);
 }

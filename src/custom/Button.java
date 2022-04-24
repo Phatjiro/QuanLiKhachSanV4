@@ -36,7 +36,7 @@ public class Button extends JButton{
     private float animatSize;
     private Point pressedPoint;
     private float alpha;
-    private Color effectColor = new Color(255, 255, 255);
+    private Color effectColor = new Color(136, 233, 242);
 
     public Button() {
         setContentAreaFilled(false);
