@@ -128,9 +128,9 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel5">
               <Properties>
-                <Property name="horizontalAlignment" type="int" value="0"/>
+                <Property name="horizontalAlignment" type="int" value="2"/>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/img/aza_cau_nguyen.png"/>
+                  <Image iconType="3" name="/img/aza_thong_tha_nobg.png"/>
                 </Property>
               </Properties>
             </Component>

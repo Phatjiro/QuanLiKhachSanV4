@@ -47,6 +47,19 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
         
         // Chỉnh tốc độ lăn thanh cuộn
         jScrollPane1.getVerticalScrollBar().setUnitIncrement(16);
+        
+        // Button group cho radio button
+        btnGroupLoaiPhong.add(rbtnLoaiPhong1);
+        btnGroupLoaiPhong.add(rbtnLoaiPhong2);
+        btnGroupLoaiPhong.add(rbtnLoaiPhong3);
+        btnGroupLoaiPhong.add(rbtnLoaiPhong4);
+        btnGroupLoaiPhong.add(rbtnLoaiPhong5);
+        
+        btnGroupTrangThai.add(rbtnTrangThaiPhong1);
+        btnGroupTrangThai.add(rbtnTrangThaiPhong2);
+        btnGroupTrangThai.add(rbtnTrangThaiPhong3);
+        btnGroupTrangThai.add(rbtnTrangThaiPhong4);
+        btnGroupTrangThai.add(rbtnTrangThaiPhong5);
     }
     
     public void icon() {
@@ -62,6 +75,8 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btnGroupLoaiPhong = new javax.swing.ButtonGroup();
+        btnGroupTrangThai = new javax.swing.ButtonGroup();
         pBackgroundMain = new javax.swing.JPanel();
         pMenu = new javax.swing.JPanel();
         pLogo = new javax.swing.JPanel();
@@ -272,7 +287,7 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
             pQLKhachHangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pQLKhachHangLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblQLKhachHang, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblQLKhachHang, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
                 .addContainerGap())
         );
         pQLKhachHangLayout.setVerticalGroup(
@@ -447,22 +462,27 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
 
         rbtnLoaiPhong1.setBackground(new java.awt.Color(4, 135, 217));
         rbtnLoaiPhong1.setText("Tất cả");
+        rbtnLoaiPhong1.setFocusable(false);
         rbtnLoaiPhong1.setFont(new java.awt.Font("Arial", 0, 17)); // NOI18N
 
         rbtnLoaiPhong2.setBackground(new java.awt.Color(4, 135, 217));
         rbtnLoaiPhong2.setText("Phòng Standard");
+        rbtnLoaiPhong2.setFocusable(false);
         rbtnLoaiPhong2.setFont(new java.awt.Font("Arial", 0, 17)); // NOI18N
 
         rbtnLoaiPhong3.setBackground(new java.awt.Color(4, 135, 217));
         rbtnLoaiPhong3.setText("Phòng Superior");
+        rbtnLoaiPhong3.setFocusable(false);
         rbtnLoaiPhong3.setFont(new java.awt.Font("Arial", 0, 17)); // NOI18N
 
         rbtnLoaiPhong4.setBackground(new java.awt.Color(4, 135, 217));
         rbtnLoaiPhong4.setText("Phòng Deluxe");
+        rbtnLoaiPhong4.setFocusable(false);
         rbtnLoaiPhong4.setFont(new java.awt.Font("Arial", 0, 17)); // NOI18N
 
         rbtnLoaiPhong5.setBackground(new java.awt.Color(4, 135, 217));
         rbtnLoaiPhong5.setText("Phòng Suite");
+        rbtnLoaiPhong5.setFocusable(false);
         rbtnLoaiPhong5.setFont(new java.awt.Font("Arial", 0, 17)); // NOI18N
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -520,22 +540,27 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
         rbtnTrangThaiPhong1.setBackground(new java.awt.Color(4, 135, 217));
         rbtnTrangThaiPhong1.setText("Tất cả");
         rbtnTrangThaiPhong1.setToolTipText("");
+        rbtnTrangThaiPhong1.setFocusable(false);
         rbtnTrangThaiPhong1.setFont(new java.awt.Font("Arial", 0, 17)); // NOI18N
 
         rbtnTrangThaiPhong2.setBackground(new java.awt.Color(4, 135, 217));
         rbtnTrangThaiPhong2.setText("Phòng trống");
+        rbtnTrangThaiPhong2.setFocusable(false);
         rbtnTrangThaiPhong2.setFont(new java.awt.Font("Arial", 0, 17)); // NOI18N
 
         rbtnTrangThaiPhong3.setBackground(new java.awt.Color(4, 135, 217));
         rbtnTrangThaiPhong3.setText("Phòng có người");
+        rbtnTrangThaiPhong3.setFocusable(false);
         rbtnTrangThaiPhong3.setFont(new java.awt.Font("Arial", 0, 17)); // NOI18N
 
         rbtnTrangThaiPhong4.setBackground(new java.awt.Color(4, 135, 217));
         rbtnTrangThaiPhong4.setText("Phòng đặt trước");
+        rbtnTrangThaiPhong4.setFocusable(false);
         rbtnTrangThaiPhong4.setFont(new java.awt.Font("Arial", 0, 17)); // NOI18N
 
         rbtnTrangThaiPhong5.setBackground(new java.awt.Color(4, 135, 217));
         rbtnTrangThaiPhong5.setText("Phòng đang sửa");
+        rbtnTrangThaiPhong5.setFocusable(false);
         rbtnTrangThaiPhong5.setFont(new java.awt.Font("Arial", 0, 17)); // NOI18N
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
@@ -795,6 +820,8 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
     }//GEN-LAST:event_button3MouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup btnGroupLoaiPhong;
+    private javax.swing.ButtonGroup btnGroupTrangThai;
     private custom.Button button1;
     private custom.Button button2;
     private custom.Button button3;
