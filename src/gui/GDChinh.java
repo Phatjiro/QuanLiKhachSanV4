@@ -7,6 +7,8 @@ import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.LinkedList;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import other.BienMacDinh;
@@ -19,6 +21,10 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
 
     private boolean isThuGonMenu = false;
     private int manHinhDangChon = 1;
+    //{datphong, traphong, dichvu, nhanvien, khachhang, hoadon}
+    private LinkedList<JPanel> lstPanel;
+    private LinkedList<JLabel> lstLabel;
+    private LinkedList<JButton> lstButton;
     /**
      * Creates new form NewJFrame
      */
@@ -28,12 +34,27 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
         initComponents();
         
         customJPanelVaJLableKhiDuocChon(pSoDoPhong, lblSoDoPhong);
-        pNDQLDatPhong.setVisible(false);
-        pNDQLTraPhong.setVisible(false);
-        pNDQLDichVu.setVisible(false);
-        pNDQLNhanVien.setVisible(false);
-        pNDQLKhachHang.setVisible(false);
-        pNDQLHoaDon.setVisible(false);
+        lstPanel = new LinkedList<>();
+        lstPanel.add(pNDSoDoPhong);
+        lstPanel.add(pNDQLDatPhong);
+        lstPanel.add(pNDQLTraPhong);
+        lstPanel.add(pNDQLDichVu);
+        lstPanel.add(pNDQLNhanVien);
+        lstPanel.add(pNDQLKhachHang);
+        lstPanel.add(pNDQLHoaDon);
+        
+        lstLabel = new LinkedList<>();
+        lstLabel.add(lblSoDoPhong);
+        lstLabel.add(lblQLDatPhong);
+        lstLabel.add(lblQLTraPhong);
+        lstLabel.add(lblQLDichVu);
+        lstLabel.add(lblQLNhanVien);
+        lstLabel.add(lblQLKhachHang);
+        lstLabel.add(lblQLHoaDon);
+        
+        setVisibleLstPanel(lstPanel, new int[]{1,0,0,0,0,0,0 });
+        
+        
         
         lblSoDoPhong.addMouseListener(this);
         lblQLDatPhong.addMouseListener(this);
@@ -61,11 +82,27 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
         btnGroupTrangThai.add(rbtnTrangThaiPhong3);
         btnGroupTrangThai.add(rbtnTrangThaiPhong4);
         btnGroupTrangThai.add(rbtnTrangThaiPhong5);
+        
+        
     }
     
     public void icon() {
         this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/img/Logo_big.jpg")));
     }
+    
+    private void setVisibleLstPanel(LinkedList<JPanel> lstPanel, int[] isOn)
+    {
+       int n = lstPanel.size();
+       int i = 0;
+       for (i=0; i<n; i++)
+       {
+           if (isOn[i] == 1)
+               lstPanel.get(i).setVisible(true);
+           else
+               lstPanel.get(i).setVisible(false);
+       }
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -1873,138 +1910,49 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
     public void mouseClicked(MouseEvent e) {
         Object o = e.getSource();
         if (o.equals(lblSoDoPhong)) {
-            pNDSoDoPhong.setVisible(true); // Màn hình được chọn
-            pNDQLDatPhong.setVisible(false);
-            pNDQLTraPhong.setVisible(false);
-            pNDQLDichVu.setVisible(false);
-            pNDQLNhanVien.setVisible(false);
-            pNDQLKhachHang.setVisible(false);
-            pNDQLHoaDon.setVisible(false);
-            
-            customJPanelVaJLableKhiDuocChon(pSoDoPhong, lblSoDoPhong); // Được chọn
-            customJPanelVaJLableKhiKhongDuocChon(pQLDatPhong, lblQLDatPhong);
-            customJPanelVaJLableKhiKhongDuocChon(pQLTraPhong, lblQLTraPhong);
-            customJPanelVaJLableKhiKhongDuocChon(pQLDichVu, lblQLDichVu);
-            customJPanelVaJLableKhiKhongDuocChon(pQLNhanVien, lblQLNhanVien);
-            customJPanelVaJLableKhiKhongDuocChon(pQLKhachHang, lblQLKhachHang);
-            customJPanelVaJLableKhiKhongDuocChon(pQLHoaDon, lblQLHoaDon);
-            
-            manHinhDangChon = 1;
+            setVisibleLstPanel(lstPanel, new int[]{1,0,0,0,0,0,0}); // So do phong
+            customMenu(lstPanel, lstLabel, new int[] {1,0,0,0,0,0,0});
             
         } else if (o.equals(lblQLDatPhong)) {
-            pNDSoDoPhong.setVisible(false);
-            pNDQLDatPhong.setVisible(true); // Màn hình được chọn
-            pNDQLTraPhong.setVisible(false);
-            pNDQLDichVu.setVisible(false);
-            pNDQLNhanVien.setVisible(false);
-            pNDQLKhachHang.setVisible(false);
-            pNDQLHoaDon.setVisible(false);
-            
-            customJPanelVaJLableKhiKhongDuocChon(pSoDoPhong, lblSoDoPhong); 
-            customJPanelVaJLableKhiDuocChon(pQLDatPhong, lblQLDatPhong); // Được chọn
-            customJPanelVaJLableKhiKhongDuocChon(pQLTraPhong, lblQLTraPhong);
-            customJPanelVaJLableKhiKhongDuocChon(pQLDichVu, lblQLDichVu);
-            customJPanelVaJLableKhiKhongDuocChon(pQLNhanVien, lblQLNhanVien);
-            customJPanelVaJLableKhiKhongDuocChon(pQLKhachHang, lblQLKhachHang);
-            customJPanelVaJLableKhiKhongDuocChon(pQLHoaDon, lblQLHoaDon);
-            
-            manHinhDangChon = 2;
+            setVisibleLstPanel(lstPanel, new int[]{0,1,0,0,0,0,0});// Datphong 
+            customMenu(lstPanel, lstLabel, new int[] {0,1,0,0,0,0,0});
             
         } else if (o.equals(lblQLTraPhong)) {
-            pNDSoDoPhong.setVisible(false); 
-            pNDQLDatPhong.setVisible(false);
-            pNDQLTraPhong.setVisible(true); // Màn hình được chọn
-            pNDQLDichVu.setVisible(false);
-            pNDQLNhanVien.setVisible(false);
-            pNDQLKhachHang.setVisible(false);
-            pNDQLHoaDon.setVisible(false);
-            
-            customJPanelVaJLableKhiKhongDuocChon(pSoDoPhong, lblSoDoPhong); 
-            customJPanelVaJLableKhiKhongDuocChon(pQLDatPhong, lblQLDatPhong);
-            customJPanelVaJLableKhiDuocChon(pQLTraPhong, lblQLTraPhong); // Được chọn
-            customJPanelVaJLableKhiKhongDuocChon(pQLDichVu, lblQLDichVu);
-            customJPanelVaJLableKhiKhongDuocChon(pQLNhanVien, lblQLNhanVien);
-            customJPanelVaJLableKhiKhongDuocChon(pQLKhachHang, lblQLKhachHang);
-            customJPanelVaJLableKhiKhongDuocChon(pQLHoaDon, lblQLHoaDon);;
-            
-            manHinhDangChon = 3;
+            setVisibleLstPanel(lstPanel, new int[]{0,0,1,0,0,0,0}); // traphong
+            customMenu(lstPanel, lstLabel, new int[] {0,0,1,0,0,0,0});
             
         } else if (o.equals(lblQLDichVu)) {
-            pNDSoDoPhong.setVisible(false); 
-            pNDQLDatPhong.setVisible(false);
-            pNDQLTraPhong.setVisible(false); 
-            pNDQLDichVu.setVisible(true); // Màn hình được chọn
-            pNDQLNhanVien.setVisible(false);
-            pNDQLKhachHang.setVisible(false);
-            pNDQLHoaDon.setVisible(false);
-            
-            customJPanelVaJLableKhiKhongDuocChon(pSoDoPhong, lblSoDoPhong); 
-            customJPanelVaJLableKhiKhongDuocChon(pQLDatPhong, lblQLDatPhong);
-            customJPanelVaJLableKhiKhongDuocChon(pQLTraPhong, lblQLTraPhong); 
-            customJPanelVaJLableKhiDuocChon(pQLDichVu, lblQLDichVu); // Được chọn
-            customJPanelVaJLableKhiKhongDuocChon(pQLNhanVien, lblQLNhanVien);            
-            customJPanelVaJLableKhiKhongDuocChon(pQLKhachHang, lblQLKhachHang);
-            customJPanelVaJLableKhiKhongDuocChon(pQLHoaDon, lblQLHoaDon);
-            
-            manHinhDangChon = 4;
+            setVisibleLstPanel(lstPanel, new int[]{0,0,0,1,0,0,0}); // dich vu
+            customMenu(lstPanel, lstLabel, new int[] {0,0,0,1,0,0,0});
             
         } else if (o.equals(lblQLNhanVien)) {
-            pNDSoDoPhong.setVisible(false); 
-            pNDQLDatPhong.setVisible(false);
-            pNDQLTraPhong.setVisible(false); 
-            pNDQLDichVu.setVisible(false); 
-            pNDQLNhanVien.setVisible(true); // Màn hình được chọn
-            pNDQLKhachHang.setVisible(false);
-            pNDQLHoaDon.setVisible(false);
-            
-            customJPanelVaJLableKhiKhongDuocChon(pSoDoPhong, lblSoDoPhong); 
-            customJPanelVaJLableKhiKhongDuocChon(pQLDatPhong, lblQLDatPhong);
-            customJPanelVaJLableKhiKhongDuocChon(pQLTraPhong, lblQLTraPhong); 
-            customJPanelVaJLableKhiKhongDuocChon(pQLDichVu, lblQLDichVu);
-            customJPanelVaJLableKhiDuocChon(pQLNhanVien, lblQLNhanVien);  // Được chọn
-            customJPanelVaJLableKhiKhongDuocChon(pQLKhachHang, lblQLKhachHang);
-            customJPanelVaJLableKhiKhongDuocChon(pQLHoaDon, lblQLHoaDon);
-            
-            manHinhDangChon = 5;
+            setVisibleLstPanel(lstPanel, new int[]{0,0,0,0,1,0,0}); // nhan vien
+            customMenu(lstPanel, lstLabel, new int[] {0,0,0,0,1,0,0});
             
         } else if (o.equals(lblQLKhachHang)) {
-            pNDSoDoPhong.setVisible(false); 
-            pNDQLDatPhong.setVisible(false);
-            pNDQLTraPhong.setVisible(false); 
-            pNDQLDichVu.setVisible(false); 
-            pNDQLNhanVien.setVisible(false);
-            pNDQLKhachHang.setVisible(true); // Màn hình được chọn
-            pNDQLHoaDon.setVisible(false);
-            
-            customJPanelVaJLableKhiKhongDuocChon(pSoDoPhong, lblSoDoPhong); 
-            customJPanelVaJLableKhiKhongDuocChon(pQLDatPhong, lblQLDatPhong);
-            customJPanelVaJLableKhiKhongDuocChon(pQLTraPhong, lblQLTraPhong); 
-            customJPanelVaJLableKhiKhongDuocChon(pQLDichVu, lblQLDichVu);
-            customJPanelVaJLableKhiKhongDuocChon(pQLNhanVien, lblQLNhanVien);  
-            customJPanelVaJLableKhiDuocChon(pQLKhachHang, lblQLKhachHang); // Được chọn
-            customJPanelVaJLableKhiKhongDuocChon(pQLHoaDon, lblQLHoaDon);
-            
-            manHinhDangChon = 6;
+            setVisibleLstPanel(lstPanel, new int[]{ 0,0,0,0,0,1,0 }); // Khach hang
+            customMenu(lstPanel, lstLabel, new int[] {0,0,0,0,0,1,0});
             
         } else if (o.equals(lblQLHoaDon)) {
-            pNDSoDoPhong.setVisible(false); 
-            pNDQLDatPhong.setVisible(false);
-            pNDQLTraPhong.setVisible(false); 
-            pNDQLDichVu.setVisible(false); 
-            pNDQLNhanVien.setVisible(false);
-            pNDQLKhachHang.setVisible(false); 
-            pNDQLHoaDon.setVisible(true); // Màn hình được chọn
+            setVisibleLstPanel(lstPanel, new int[]{ 0,0,0,0,0,0,1 }); // Hoa don
+            customMenu(lstPanel, lstLabel, new int[] {0,0,0,0,0,0,1});
             
-            customJPanelVaJLableKhiKhongDuocChon(pSoDoPhong, lblSoDoPhong); 
-            customJPanelVaJLableKhiKhongDuocChon(pQLDatPhong, lblQLDatPhong);
-            customJPanelVaJLableKhiKhongDuocChon(pQLTraPhong, lblQLTraPhong); 
-            customJPanelVaJLableKhiKhongDuocChon(pQLDichVu, lblQLDichVu);
-            customJPanelVaJLableKhiKhongDuocChon(pQLNhanVien, lblQLNhanVien);  
-            customJPanelVaJLableKhiKhongDuocChon(pQLKhachHang, lblQLKhachHang); 
-            customJPanelVaJLableKhiDuocChon(pQLHoaDon, lblQLHoaDon); // Được chọn
-            
-            manHinhDangChon = 7;
-            
+        }
+    }
+    
+    private void customMenu(LinkedList<JPanel> lstPanel, LinkedList<JLabel> lstLabel, int[] tat)
+    {
+        int n = lstPanel.size();
+        int i = 0;
+        for (i = 0; i < n; i++)
+        {
+            if (tat[i] == 0)
+                customJPanelVaJLableKhiKhongDuocChon(lstPanel.get(i), lstLabel.get(i));
+            else
+            {
+                customJPanelVaJLableKhiDuocChon(lstPanel.get(i), lstLabel.get(i));
+                this.manHinhDangChon = i+1;
+            }
         }
     }
 
