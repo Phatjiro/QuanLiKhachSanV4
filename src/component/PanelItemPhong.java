@@ -15,8 +15,8 @@ public class PanelItemPhong extends javax.swing.JPanel {
      */
     public PanelItemPhong() {
         initComponents();
-        this.setPreferredSize(new Dimension(160,80));
-        this.setBackground(BienMacDinh.mauDen);
+        this.setPreferredSize(new Dimension(200,100));
+        this.setBackground(BienMacDinh.mauBorderBottomMenu);
     }
 
     /**
