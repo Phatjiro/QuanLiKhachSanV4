@@ -146,9 +146,6 @@
                     <Property name="text" type="java.lang.String" value="VinaHotel"/>
                     <Property name="iconTextGap" type="int" value="16"/>
                   </Properties>
-                  <Events>
-                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblLogoMouseClicked"/>
-                  </Events>
                 </Component>
               </SubComponents>
             </Container>
@@ -185,6 +182,7 @@
                       <Image iconType="3" name="/img/houses_32px.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="S&#x1a1; &#x111;&#x1ed3; ph&#xf2;ng"/>
+                    <Property name="toolTipText" type="java.lang.String" value="S&#x1a1; &#x111;&#x1ed3; ph&#xf2;ng"/>
                     <Property name="iconTextGap" type="int" value="38"/>
                   </Properties>
                 </Component>
@@ -223,6 +221,7 @@
                       <Image iconType="3" name="/img/room_service_32px.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Qu&#x1ea3;n l&#xed; &#x111;&#x1eb7;t ph&#xf2;ng"/>
+                    <Property name="toolTipText" type="java.lang.String" value="Qu&#x1ea3;n l&#xed; &#x111;&#x1eb7;t ph&#xf2;ng"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
                         <MatteColorBorder bottom="2" left="0" right="0" top="0">
@@ -268,6 +267,7 @@
                       <Image iconType="3" name="/img/info_32px.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Qu&#x1ea3;n l&#xed; tr&#x1ea3; ph&#xf2;ng"/>
+                    <Property name="toolTipText" type="java.lang.String" value="Qu&#x1ea3;n l&#xed; tr&#x1ea3; ph&#xf2;ng"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
                         <MatteColorBorder bottom="2" left="0" right="0" top="0">
@@ -313,6 +313,7 @@
                       <Image iconType="3" name="/img/water_service_32px.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Qu&#x1ea3;n l&#xed; d&#x1ecb;ch v&#x1ee5;"/>
+                    <Property name="toolTipText" type="java.lang.String" value="Qu&#x1ea3;n l&#xed; d&#x1ecb;ch v&#x1ee5;"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
                         <MatteColorBorder bottom="2" left="0" right="0" top="0">
@@ -358,6 +359,7 @@
                       <Image iconType="3" name="/img/employee_32px.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Qu&#x1ea3;n l&#xed; nh&#xe2;n vi&#xea;n"/>
+                    <Property name="toolTipText" type="java.lang.String" value="Qu&#x1ea3;n l&#xed; nh&#xe2;n vi&#xea;n"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
                         <MatteColorBorder bottom="2" left="0" right="0" top="0">
@@ -403,6 +405,7 @@
                       <Image iconType="3" name="/img/customer_32px.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Qu&#x1ea3;n l&#xed; kh&#xe1;ch h&#xe0;ng"/>
+                    <Property name="toolTipText" type="java.lang.String" value="Qu&#x1ea3;n l&#xed; kh&#xe1;ch h&#xe0;ng"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
                         <MatteColorBorder bottom="2" left="0" right="0" top="0">
@@ -448,6 +451,7 @@
                       <Image iconType="3" name="/img/payment_32px.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Qu&#x1ea3;n l&#xed; ho&#xe1; h&#x1a1;n"/>
+                    <Property name="toolTipText" type="java.lang.String" value="Qu&#x1ea3;n l&#xed; ho&#xe1; h&#x1a1;n"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
                         <MatteColorBorder bottom="2" left="0" right="0" top="0">
@@ -493,6 +497,7 @@
                       <Image iconType="3" name="/img/logout_32px.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="&#x110;&#x103;ng xu&#x1ea5;t"/>
+                    <Property name="toolTipText" type="java.lang.String" value="ALT + F4"/>
                     <Property name="iconTextGap" type="int" value="38"/>
                   </Properties>
                   <Events>
@@ -552,7 +557,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="button1" min="-2" pref="38" max="-2" attributes="0"/>
+                              <Component id="btnMenuSoDoPhong" min="-2" pref="38" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jLabel2" alignment="1" min="-2" max="-2" attributes="0"/>
@@ -575,7 +580,7 @@
                                       <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="button2" pref="0" max="32767" attributes="0"/>
-                                  <Component id="button1" max="32767" attributes="0"/>
+                                  <Component id="btnMenuSoDoPhong" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
@@ -583,7 +588,7 @@
                     </DimensionLayout>
                   </Layout>
                   <SubComponents>
-                    <Component class="custom.Button" name="button1">
+                    <Component class="custom.Button" name="btnMenuSoDoPhong">
                       <Properties>
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                           <Border info="null"/>
@@ -591,10 +596,11 @@
                         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                           <Image iconType="3" name="/img/menu.png"/>
                         </Property>
+                        <Property name="toolTipText" type="java.lang.String" value="Thu g&#x1ecd;n menu"/>
                         <Property name="focusable" type="boolean" value="false"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="button1MouseClicked"/>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnMenuSoDoPhongMouseClicked"/>
                       </Events>
                     </Component>
                     <Component class="custom.Button" name="button2">
@@ -1001,15 +1007,101 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="964" max="32767" attributes="0"/>
+                      <Component id="jPanel16" alignment="0" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="740" max="32767" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="jPanel16" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="680" max="32767" attributes="0"/>
+                      </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
+              <SubComponents>
+                <Container class="javax.swing.JPanel" name="jPanel16">
+
+                  <Layout>
+                    <DimensionLayout dim="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="btnMenuQLDatPhong" min="-2" pref="38" max="-2" attributes="0"/>
+                              <EmptySpace pref="787" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLabel9" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel11" alignment="1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="button3" min="-2" pref="38" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                    </DimensionLayout>
+                    <DimensionLayout dim="1">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                      <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="button3" alignment="0" pref="0" max="32767" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
+                                          <Component id="btnMenuQLDatPhong" min="-2" pref="38" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                    </DimensionLayout>
+                  </Layout>
+                  <SubComponents>
+                    <Component class="custom.Button" name="btnMenuQLDatPhong">
+                      <Properties>
+                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="3" name="/img/menu.png"/>
+                        </Property>
+                        <Property name="toolTipText" type="java.lang.String" value="Thu g&#x1ecd;n menu"/>
+                        <Property name="focusable" type="boolean" value="false"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnMenuQLDatPhongMouseClicked"/>
+                      </Events>
+                    </Component>
+                    <Component class="custom.Button" name="button3">
+                      <Properties>
+                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="3" name="/img/profile_32px.png"/>
+                        </Property>
+                        <Property name="focusable" type="boolean" value="false"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel9">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Arial" size="12" style="0"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="T&#xea;n nh&#xe2;n vi&#xea;n"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel11">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Arial" size="12" style="0"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Ch&#x1ee9;c v&#x1ee5;"/>
+                      </Properties>
+                    </Component>
+                  </SubComponents>
+                </Container>
+              </SubComponents>
             </Container>
             <Container class="javax.swing.JPanel" name="pNDQLTraPhong">
               <Properties>
@@ -1021,15 +1113,101 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="964" max="32767" attributes="0"/>
+                      <Component id="jPanel19" alignment="0" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="740" max="32767" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="jPanel19" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="680" max="32767" attributes="0"/>
+                      </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
+              <SubComponents>
+                <Container class="javax.swing.JPanel" name="jPanel19">
+
+                  <Layout>
+                    <DimensionLayout dim="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="btnMenuQLTraPhong" min="-2" pref="38" max="-2" attributes="0"/>
+                              <EmptySpace pref="787" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLabel10" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel12" alignment="1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="button4" min="-2" pref="38" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                    </DimensionLayout>
+                    <DimensionLayout dim="1">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                      <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="button4" alignment="0" pref="0" max="32767" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
+                                          <Component id="btnMenuQLTraPhong" min="-2" pref="38" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                    </DimensionLayout>
+                  </Layout>
+                  <SubComponents>
+                    <Component class="custom.Button" name="btnMenuQLTraPhong">
+                      <Properties>
+                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="3" name="/img/menu.png"/>
+                        </Property>
+                        <Property name="toolTipText" type="java.lang.String" value="Thu g&#x1ecd;n menu"/>
+                        <Property name="focusable" type="boolean" value="false"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnMenuQLTraPhongMouseClicked"/>
+                      </Events>
+                    </Component>
+                    <Component class="custom.Button" name="button4">
+                      <Properties>
+                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="3" name="/img/profile_32px.png"/>
+                        </Property>
+                        <Property name="focusable" type="boolean" value="false"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel10">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Arial" size="12" style="0"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="T&#xea;n nh&#xe2;n vi&#xea;n"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel12">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Arial" size="12" style="0"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Ch&#x1ee9;c v&#x1ee5;"/>
+                      </Properties>
+                    </Component>
+                  </SubComponents>
+                </Container>
+              </SubComponents>
             </Container>
             <Container class="javax.swing.JPanel" name="pNDQLDichVu">
               <Properties>
@@ -1082,7 +1260,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="button4" min="-2" pref="38" max="-2" attributes="0"/>
+                              <Component id="btnMenuQLDichVu" min="-2" pref="38" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jLabel7" alignment="1" min="-2" max="-2" attributes="0"/>
@@ -1106,7 +1284,7 @@
                                   </Group>
                                   <Group type="103" groupAlignment="1" attributes="0">
                                       <Component id="button5" min="-2" pref="38" max="-2" attributes="0"/>
-                                      <Component id="button4" min="-2" pref="38" max="-2" attributes="0"/>
+                                      <Component id="btnMenuQLDichVu" min="-2" pref="38" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
@@ -1115,15 +1293,16 @@
                     </DimensionLayout>
                   </Layout>
                   <SubComponents>
-                    <Component class="custom.Button" name="button4">
+                    <Component class="custom.Button" name="btnMenuQLDichVu">
                       <Properties>
                         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                           <Image iconType="3" name="/img/menu.png"/>
                         </Property>
+                        <Property name="toolTipText" type="java.lang.String" value="Thu g&#x1ecd;n menu"/>
                         <Property name="focusable" type="boolean" value="false"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="button4MouseClicked"/>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnMenuQLDichVuMouseClicked"/>
                       </Events>
                     </Component>
                     <Component class="custom.Button" name="button5">
@@ -1435,7 +1614,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="button10" min="-2" pref="38" max="-2" attributes="0"/>
+                              <Component id="btnMenuQLNhanVien" min="-2" pref="38" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jLabel13" alignment="1" min="-2" max="-2" attributes="0"/>
@@ -1459,7 +1638,7 @@
                                   </Group>
                                   <Group type="103" alignment="0" groupAlignment="1" attributes="0">
                                       <Component id="button11" alignment="1" min="-2" pref="38" max="-2" attributes="0"/>
-                                      <Component id="button10" alignment="1" min="-2" pref="38" max="-2" attributes="0"/>
+                                      <Component id="btnMenuQLNhanVien" alignment="1" min="-2" pref="38" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
@@ -1468,15 +1647,16 @@
                     </DimensionLayout>
                   </Layout>
                   <SubComponents>
-                    <Component class="custom.Button" name="button10">
+                    <Component class="custom.Button" name="btnMenuQLNhanVien">
                       <Properties>
                         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                           <Image iconType="3" name="/img/menu.png"/>
                         </Property>
+                        <Property name="toolTipText" type="java.lang.String" value="Thu g&#x1ecd;n menu"/>
                         <Property name="focusable" type="boolean" value="false"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="button10MouseClicked"/>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnMenuQLNhanVienMouseClicked"/>
                       </Events>
                     </Component>
                     <Component class="custom.Button" name="button11">
@@ -1761,7 +1941,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="button14" min="-2" pref="38" max="-2" attributes="0"/>
+                              <Component id="btnMenuQLKhachHang" min="-2" pref="38" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jLabel24" alignment="1" min="-2" max="-2" attributes="0"/>
@@ -1784,7 +1964,7 @@
                                       <Component id="jLabel27" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="button15" min="-2" pref="38" max="-2" attributes="0"/>
-                                  <Component id="button14" min="-2" pref="38" max="-2" attributes="0"/>
+                                  <Component id="btnMenuQLKhachHang" min="-2" pref="38" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="32767" attributes="0"/>
                           </Group>
@@ -1792,15 +1972,16 @@
                     </DimensionLayout>
                   </Layout>
                   <SubComponents>
-                    <Component class="custom.Button" name="button14">
+                    <Component class="custom.Button" name="btnMenuQLKhachHang">
                       <Properties>
                         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                           <Image iconType="3" name="/img/menu.png"/>
                         </Property>
+                        <Property name="toolTipText" type="java.lang.String" value="Thu g&#x1ecd;n menu"/>
                         <Property name="focusable" type="boolean" value="false"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="button14MouseClicked"/>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnMenuQLKhachHangMouseClicked"/>
                       </Events>
                     </Component>
                     <Component class="custom.Button" name="button15">
@@ -1922,6 +2103,9 @@
                       <SubComponents>
                         <Component class="custom.RadioButtonCustom" name="radioButtonCustom5">
                           <Properties>
+                            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                              <Color blue="d9" green="87" red="4" type="rgb"/>
+                            </Property>
                             <Property name="text" type="java.lang.String" value="radioButtonCustom5"/>
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                               <Font name="Arial" size="17" style="0"/>
@@ -1997,6 +2181,9 @@
                       <SubComponents>
                         <Component class="custom.RadioButtonCustom" name="radioButtonCustom6">
                           <Properties>
+                            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                              <Color blue="d9" green="87" red="4" type="rgb"/>
+                            </Property>
                             <Property name="text" type="java.lang.String" value="radioButtonCustom6"/>
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                               <Font name="Arial" size="17" style="0"/>
@@ -2101,7 +2288,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="button13" min="-2" pref="38" max="-2" attributes="0"/>
+                              <Component id="btnMenuQLHoaDon" min="-2" pref="38" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jLabel25" alignment="1" min="-2" max="-2" attributes="0"/>
@@ -2124,7 +2311,7 @@
                                       <Component id="jLabel26" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="button16" min="-2" pref="38" max="-2" attributes="0"/>
-                                  <Component id="button13" min="-2" pref="38" max="-2" attributes="0"/>
+                                  <Component id="btnMenuQLHoaDon" min="-2" pref="38" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="32767" attributes="0"/>
                           </Group>
@@ -2132,15 +2319,16 @@
                     </DimensionLayout>
                   </Layout>
                   <SubComponents>
-                    <Component class="custom.Button" name="button13">
+                    <Component class="custom.Button" name="btnMenuQLHoaDon">
                       <Properties>
                         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                           <Image iconType="3" name="/img/menu.png"/>
                         </Property>
+                        <Property name="toolTipText" type="java.lang.String" value="Thu g&#x1ecd;n menu"/>
                         <Property name="focusable" type="boolean" value="false"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="button13MouseClicked"/>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnMenuQLHoaDonMouseClicked"/>
                       </Events>
                     </Component>
                     <Component class="custom.Button" name="button16">
@@ -2262,6 +2450,9 @@
                       <SubComponents>
                         <Component class="custom.RadioButtonCustom" name="radioButtonCustom7">
                           <Properties>
+                            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                              <Color blue="d9" green="87" red="4" type="rgb"/>
+                            </Property>
                             <Property name="text" type="java.lang.String" value="radioButtonCustom7"/>
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                               <Font name="Arial" size="17" style="0"/>
@@ -2337,6 +2528,9 @@
                       <SubComponents>
                         <Component class="custom.RadioButtonCustom" name="radioButtonCustom8">
                           <Properties>
+                            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                              <Color blue="d9" green="87" red="4" type="rgb"/>
+                            </Property>
                             <Property name="text" type="java.lang.String" value="radioButtonCustom8"/>
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                               <Font name="Arial" size="17" style="0"/>
