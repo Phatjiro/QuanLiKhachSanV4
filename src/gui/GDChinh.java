@@ -1,5 +1,6 @@
 package gui;
 
+import component.CustomConfirmDialog;
 import component.PanelItemPhong;
 import custom.MyScrollBar;
 import java.awt.Dimension;
@@ -460,6 +461,9 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
         lblDangXuat.setToolTipText("ALT + F4");
         lblDangXuat.setIconTextGap(38);
         lblDangXuat.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblDangXuatMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 lblDangXuatMouseEntered(evt);
             }
@@ -1850,6 +1854,17 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
     private void btnMenuQLTraPhongMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMenuQLTraPhongMouseClicked
         thuGonMenu();
     }//GEN-LAST:event_btnMenuQLTraPhongMouseClicked
+
+    private void lblDangXuatMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDangXuatMouseClicked
+        CustomConfirmDialog ccdDangXuat = new CustomConfirmDialog(this);
+        ccdDangXuat.showMessage("Cảnh báo đăng xuất?", "Đăng xuất sẽ thoát ứng dụng\nKiểm tra cần thận trước khi đăng xuất.");
+        
+        if (ccdDangXuat.getMessageType() == CustomConfirmDialog.MessageType.OK) {
+            System.exit(0);
+        } else {
+            
+        }
+    }//GEN-LAST:event_lblDangXuatMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup btnGroupLoaiPhong;
