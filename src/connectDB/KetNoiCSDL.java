@@ -17,12 +17,12 @@ public class KetNoiCSDL {
      * sử dụng hàm trong class này cho mục đích kết nối cơ sở dữ liệu
      * @return instance
      */
-    private static KetNoiCSDL getInstance() {
+    public static KetNoiCSDL getInstance() {
         return instance;
     }
     
     public void connect() throws SQLException {
-        String url = "jdbc:sqlserver//localhost:1433;databasename=DATPHONG_KS";
+        String url = "jdbc:sqlserver://localhost:1433;databasename=DATPHONG_KS";
         String user = "sa";
         String password = "sapassword";
         con = DriverManager.getConnection(url, user, password);
