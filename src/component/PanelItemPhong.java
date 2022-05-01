@@ -1,6 +1,6 @@
-
 package component;
 
+import dao.SoDoPhongDAO;
 import entity.Phong;
 import entity.LoaiPhong;
 import java.awt.Dimension;
@@ -22,7 +22,7 @@ public class PanelItemPhong extends javax.swing.JPanel {
         initComponents();
         this.phong = phong;
         LoaiPhong loaiPhong = phong.getLoaiPhong();
-        this.setPreferredSize(new Dimension(238,100));
+        this.setPreferredSize(new Dimension(224,100));
         
         lblMaPhong.setText(phong.getMaPhong());
         lblLoaiPhong.setText(loaiPhong.getTenLoaiPhong());
@@ -31,7 +31,7 @@ public class PanelItemPhong extends javax.swing.JPanel {
     
     public PanelItemPhong(String maPhong, String loaiPhong, String trangThaiPhong) {
         initComponents();
-        this.setPreferredSize(new Dimension(238,100));
+        this.setPreferredSize(new Dimension(224,100));
         
         this.maPhong = maPhong;
         this.loaiPhong = loaiPhong;
@@ -87,31 +87,80 @@ public class PanelItemPhong extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        pMenuPhong = new javax.swing.JPopupMenu();
-        menuDatPhong = new javax.swing.JMenuItem();
-        menuNhanPhong = new javax.swing.JMenuItem();
+        pMenuPhongTrong = new javax.swing.JPopupMenu();
+        ptDatPhong = new javax.swing.JMenuItem();
+        ptSuaChua = new javax.swing.JMenuItem();
+        pMenuPhongDatTruoc = new javax.swing.JPopupMenu();
+        pdtNhanPhong = new javax.swing.JMenuItem();
+        pdtHuyDat = new javax.swing.JMenuItem();
+        pMenuPhongCoNguoi = new javax.swing.JPopupMenu();
+        pcnDatDV = new javax.swing.JMenuItem();
+        pcnTraPhong = new javax.swing.JMenuItem();
+        pMenuPhongSuaChua = new javax.swing.JPopupMenu();
+        pdsSuaXong = new javax.swing.JMenuItem();
         pMaPhong = new javax.swing.JPanel();
         lblMaPhong = new javax.swing.JLabel();
         pLoaiThaiPhong = new javax.swing.JPanel();
         lblLoaiPhong = new javax.swing.JLabel();
         lblTrangThaiPhong = new javax.swing.JLabel();
 
-        pMenuPhong.setBackground(new java.awt.Color(255, 255, 255));
+        pMenuPhongTrong.setBackground(new java.awt.Color(255, 255, 255));
 
-        menuDatPhong.setBackground(new java.awt.Color(255, 255, 255));
-        menuDatPhong.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
-        menuDatPhong.setText("Đặt phòng");
-        menuDatPhong.addActionListener(new java.awt.event.ActionListener() {
+        ptDatPhong.setBackground(new java.awt.Color(255, 255, 255));
+        ptDatPhong.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
+        ptDatPhong.setText("Đặt phòng");
+        pMenuPhongTrong.add(ptDatPhong);
+
+        ptSuaChua.setBackground(new java.awt.Color(255, 255, 255));
+        ptSuaChua.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
+        ptSuaChua.setText("Sửa chữa");
+        ptSuaChua.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuDatPhongActionPerformed(evt);
+                ptSuaChuaActionPerformed(evt);
             }
         });
-        pMenuPhong.add(menuDatPhong);
+        pMenuPhongTrong.add(ptSuaChua);
 
-        menuNhanPhong.setBackground(new java.awt.Color(255, 255, 255));
-        menuNhanPhong.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
-        menuNhanPhong.setText("Nhận phòng");
-        pMenuPhong.add(menuNhanPhong);
+        pMenuPhongDatTruoc.setBackground(new java.awt.Color(255, 255, 255));
+
+        pdtNhanPhong.setBackground(new java.awt.Color(255, 255, 255));
+        pdtNhanPhong.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
+        pdtNhanPhong.setText("Nhận phòng");
+        pMenuPhongDatTruoc.add(pdtNhanPhong);
+
+        pdtHuyDat.setBackground(new java.awt.Color(255, 255, 255));
+        pdtHuyDat.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
+        pdtHuyDat.setText("Huỷ đặt");
+        pdtHuyDat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pdtHuyDatActionPerformed(evt);
+            }
+        });
+        pMenuPhongDatTruoc.add(pdtHuyDat);
+
+        pMenuPhongCoNguoi.setBackground(new java.awt.Color(255, 255, 255));
+
+        pcnDatDV.setBackground(new java.awt.Color(255, 255, 255));
+        pcnDatDV.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
+        pcnDatDV.setText("Đặt dịch vụ");
+        pMenuPhongCoNguoi.add(pcnDatDV);
+
+        pcnTraPhong.setBackground(new java.awt.Color(255, 255, 255));
+        pcnTraPhong.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
+        pcnTraPhong.setText("Trả phòng");
+        pMenuPhongCoNguoi.add(pcnTraPhong);
+
+        pMenuPhongSuaChua.setBackground(new java.awt.Color(255, 255, 255));
+
+        pdsSuaXong.setBackground(new java.awt.Color(255, 255, 255));
+        pdsSuaXong.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
+        pdsSuaXong.setText("Sửa xong");
+        pdsSuaXong.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pdsSuaXongActionPerformed(evt);
+            }
+        });
+        pMenuPhongSuaChua.add(pdsSuaXong);
 
         setBackground(new java.awt.Color(228, 230, 233));
         addMouseListener(new java.awt.event.MouseAdapter() {
@@ -179,24 +228,65 @@ public class PanelItemPhong extends javax.swing.JPanel {
 
     private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
         if (evt.getButton() == MouseEvent.BUTTON3) {
-            System.out.println("Ban da an vao phong: " + maPhong);
-            pMenuPhong.show(this, evt.getX(), evt.getY());
+            if (trangThaiPhong.equals("pt")) {
+                pMenuPhongTrong.show(this, evt.getX(), evt.getY());
+            }
+            
+            if (trangThaiPhong.equals("pdt")) {
+                pMenuPhongDatTruoc.show(this, evt.getX(), evt.getY());
+            }
+            
+            if (trangThaiPhong.equals("pcn")) {
+                pMenuPhongCoNguoi.show(this, evt.getX(), evt.getY());
+            }
+            
+            if (trangThaiPhong.equals("pds")) {
+                pMenuPhongSuaChua.show(this, evt.getX(), evt.getY());
+            }
         }
     }//GEN-LAST:event_formMouseClicked
+    // Sửa xong
+    private void pdsSuaXongActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pdsSuaXongActionPerformed
+        try {
+            new SoDoPhongDAO().updateTrangThaiPhong("pt", maPhong);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_pdsSuaXongActionPerformed
+    // Sửa chữa
+    private void ptSuaChuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ptSuaChuaActionPerformed
+        try {
+            new SoDoPhongDAO().updateTrangThaiPhong("pds", maPhong);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_ptSuaChuaActionPerformed
 
-    private void menuDatPhongActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuDatPhongActionPerformed
-        System.out.println("dat phong menu: " + maPhong);
-    }//GEN-LAST:event_menuDatPhongActionPerformed
+    private void pdtHuyDatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pdtHuyDatActionPerformed
+        try {
+            new SoDoPhongDAO().updateTrangThaiPhong("pt", maPhong);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_pdtHuyDatActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel lblLoaiPhong;
     private javax.swing.JLabel lblMaPhong;
     private javax.swing.JLabel lblTrangThaiPhong;
-    private javax.swing.JMenuItem menuDatPhong;
-    private javax.swing.JMenuItem menuNhanPhong;
     private javax.swing.JPanel pLoaiThaiPhong;
     private javax.swing.JPanel pMaPhong;
-    private javax.swing.JPopupMenu pMenuPhong;
+    private javax.swing.JPopupMenu pMenuPhongCoNguoi;
+    private javax.swing.JPopupMenu pMenuPhongDatTruoc;
+    private javax.swing.JPopupMenu pMenuPhongSuaChua;
+    private javax.swing.JPopupMenu pMenuPhongTrong;
+    private javax.swing.JMenuItem pcnDatDV;
+    private javax.swing.JMenuItem pcnTraPhong;
+    private javax.swing.JMenuItem pdsSuaXong;
+    private javax.swing.JMenuItem pdtHuyDat;
+    private javax.swing.JMenuItem pdtNhanPhong;
+    private javax.swing.JMenuItem ptDatPhong;
+    private javax.swing.JMenuItem ptSuaChua;
     // End of variables declaration//GEN-END:variables
 }

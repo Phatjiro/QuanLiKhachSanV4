@@ -1951,7 +1951,6 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
         panelMoHinhPhong1.add(new PanelItemPhong("P000","Mặc định","pt"));
         panelMoHinhPhong1.revalidate();
         panelMoHinhPhong1.repaint();
-        filterPhong(pMenu);
     }//GEN-LAST:event_buttonCustom1MouseClicked
     
     // Nút thu gọn menu ở panel Hoá đơn

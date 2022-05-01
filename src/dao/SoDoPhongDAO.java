@@ -156,4 +156,25 @@ public class SoDoPhongDAO {
         
         return soDoPhong;
     }
+    
+    public void updateTrangThaiPhong(String ttPhong, String maPhong) throws SQLException {
+        KetNoiCSDL.getInstance();
+        KetNoiCSDL knCSDL = new KetNoiCSDL();
+        knCSDL.connect();
+
+        Connection con = knCSDL.getConnection();
+        
+        PreparedStatement prepStmt = null;
+        String sql = "Update Phong SET trangThaiPhong = ? WHERE maPhong = ?";
+        
+        try {
+            PreparedStatement statement = con.prepareStatement(sql);
+            statement.setString(1, ttPhong);
+            statement.setString(2, maPhong);
+            statement.executeUpdate();
+        } catch (Exception e) {
+            System.err.println("updateTrangThaiPhong failed - pls check in SoDoPhongDAO");
+            e.printStackTrace();
+        }
+    }
 }
