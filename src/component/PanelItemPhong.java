@@ -5,7 +5,7 @@ import entity.Phong;
 import entity.LoaiPhong;
 import java.awt.Dimension;
 import java.awt.event.MouseEvent;
-import javax.swing.JPopupMenu;
+import other.BienMacDinh;
 
 /**
  *
@@ -44,15 +44,35 @@ public class PanelItemPhong extends javax.swing.JPanel {
     
     public String bienDoiTrangThaiPhong(String bdTrangThai) {
         if (bdTrangThai.equals("pt")) {
-            return "Phòng trống";
+            pMaPhong.setBackground(BienMacDinh.mauPhongTrong);
+            pLoaiThaiPhong.setBackground(BienMacDinh.mauPhongTrongNhat);
+            lblLoaiPhong.setForeground(BienMacDinh.mauPhongTrong);
+            lblTrangThaiPhong.setForeground(BienMacDinh.mauPhongTrong);
+            return "Trống";
         }
         
         if (bdTrangThai.equals("pcn")) {
+            pMaPhong.setBackground(BienMacDinh.mauPhongCoNguoi);
+            pLoaiThaiPhong.setBackground(BienMacDinh.mauPhongCoNguoiNhat);
+            lblLoaiPhong.setForeground(BienMacDinh.mauPhongCoNguoi);
+            lblTrangThaiPhong.setForeground(BienMacDinh.mauPhongCoNguoi);
             return "Có người";
         }
         
         if (bdTrangThai.equals("pdt")) {
+            pMaPhong.setBackground(BienMacDinh.mauPhongDatTruoc);
+            pLoaiThaiPhong.setBackground(BienMacDinh.mauPhongDatTruocNhat);
+            lblLoaiPhong.setForeground(BienMacDinh.mauPhongDatTruoc);
+            lblTrangThaiPhong.setForeground(BienMacDinh.mauPhongDatTruoc);
             return "Đặt trước";
+        }
+        
+        if (bdTrangThai.equals("pds")) {
+            pMaPhong.setBackground(BienMacDinh.mauPhongDangSua);
+            pLoaiThaiPhong.setBackground(BienMacDinh.mauPhongDangSuaNhat);
+            lblLoaiPhong.setForeground(BienMacDinh.mauPhongDangSua);
+            lblTrangThaiPhong.setForeground(BienMacDinh.mauPhongDangSua);
+            return "Đang sửa";
         }
         
         return bdTrangThai = "Ngoại lệ!";
@@ -70,8 +90,9 @@ public class PanelItemPhong extends javax.swing.JPanel {
         pMenuPhong = new javax.swing.JPopupMenu();
         menuDatPhong = new javax.swing.JMenuItem();
         menuNhanPhong = new javax.swing.JMenuItem();
-        jPanel1 = new javax.swing.JPanel();
+        pMaPhong = new javax.swing.JPanel();
         lblMaPhong = new javax.swing.JLabel();
+        pLoaiThaiPhong = new javax.swing.JPanel();
         lblLoaiPhong = new javax.swing.JLabel();
         lblTrangThaiPhong = new javax.swing.JLabel();
 
@@ -80,11 +101,6 @@ public class PanelItemPhong extends javax.swing.JPanel {
         menuDatPhong.setBackground(new java.awt.Color(255, 255, 255));
         menuDatPhong.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
         menuDatPhong.setText("Đặt phòng");
-        menuDatPhong.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                menuDatPhongMouseClicked(evt);
-            }
-        });
         menuDatPhong.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuDatPhongActionPerformed(evt);
@@ -104,21 +120,21 @@ public class PanelItemPhong extends javax.swing.JPanel {
             }
         });
 
-        jPanel1.setBackground(new java.awt.Color(4, 135, 217));
+        pMaPhong.setBackground(new java.awt.Color(4, 135, 217));
 
         lblMaPhong.setFont(new java.awt.Font("Arial", 1, 17)); // NOI18N
         lblMaPhong.setForeground(new java.awt.Color(255, 255, 255));
         lblMaPhong.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblMaPhong.setText("P001");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout pMaPhongLayout = new javax.swing.GroupLayout(pMaPhong);
+        pMaPhong.setLayout(pMaPhongLayout);
+        pMaPhongLayout.setHorizontalGroup(
+            pMaPhongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(lblMaPhong, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        pMaPhongLayout.setVerticalGroup(
+            pMaPhongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(lblMaPhong, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
@@ -128,27 +144,36 @@ public class PanelItemPhong extends javax.swing.JPanel {
 
         lblTrangThaiPhong.setFont(new java.awt.Font("Arial", 1, 17)); // NOI18N
         lblTrangThaiPhong.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTrangThaiPhong.setText("TrangThai");
+        lblTrangThaiPhong.setText("TrinhTrang");
+
+        javax.swing.GroupLayout pLoaiThaiPhongLayout = new javax.swing.GroupLayout(pLoaiThaiPhong);
+        pLoaiThaiPhong.setLayout(pLoaiThaiPhongLayout);
+        pLoaiThaiPhongLayout.setHorizontalGroup(
+            pLoaiThaiPhongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lblLoaiPhong, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lblTrangThaiPhong, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE)
+        );
+        pLoaiThaiPhongLayout.setVerticalGroup(
+            pLoaiThaiPhongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pLoaiThaiPhongLayout.createSequentialGroup()
+                .addComponent(lblLoaiPhong, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblTrangThaiPhong, javax.swing.GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblLoaiPhong, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
-                    .addComponent(lblTrangThaiPhong, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addComponent(pMaPhong, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(pLoaiThaiPhong, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(lblLoaiPhong, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblTrangThaiPhong, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(pMaPhong, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pLoaiThaiPhong, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -159,22 +184,19 @@ public class PanelItemPhong extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_formMouseClicked
 
-    private void menuDatPhongMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuDatPhongMouseClicked
-//        System.out.println("dat phong menu: " + maPhong);
-    }//GEN-LAST:event_menuDatPhongMouseClicked
-
     private void menuDatPhongActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuDatPhongActionPerformed
         System.out.println("dat phong menu: " + maPhong);
     }//GEN-LAST:event_menuDatPhongActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblLoaiPhong;
     private javax.swing.JLabel lblMaPhong;
     private javax.swing.JLabel lblTrangThaiPhong;
     private javax.swing.JMenuItem menuDatPhong;
     private javax.swing.JMenuItem menuNhanPhong;
+    private javax.swing.JPanel pLoaiThaiPhong;
+    private javax.swing.JPanel pMaPhong;
     private javax.swing.JPopupMenu pMenuPhong;
     // End of variables declaration//GEN-END:variables
 }

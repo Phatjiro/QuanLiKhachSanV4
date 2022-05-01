@@ -18,6 +18,18 @@ public interface BienMacDinh {
     Color mauBorderBottomMenu = new Color(255, 153, 102);
     Color mauNenDangNhap = new Color(4, 135, 217);
     
+    Color mauPhongTrong = new Color(67, 160, 71);
+    Color mauPhongTrongNhat = new Color(233, 247, 234);
+    
+    Color mauPhongDatTruoc = new Color(4, 135, 217);
+    Color mauPhongDatTruocNhat = new Color(187, 222, 252);
+    
+    Color mauPhongCoNguoi = new Color(238, 83, 80);
+    Color mauPhongCoNguoiNhat = new Color(255, 235, 236);
+    
+    Color mauPhongDangSua = new Color(96, 125, 139);
+    Color mauPhongDangSuaNhat = new Color(207, 216, 221);
+    
     /**
      * Biến mặc định font cho chương trình
      */

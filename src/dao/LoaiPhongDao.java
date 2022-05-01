@@ -52,7 +52,7 @@ public class LoaiPhongDao {
         Connection con = knCSDL.getConnection();
         
         try {
-            String sql = "SELECT tenLoaiPhong FROM LoaiPhong WHERE=?";
+            String sql = "SELECT tenLoaiPhong FROM LoaiPhong WHERE maLoaiPhong = ?";
             PreparedStatement prepStmt = con.prepareStatement(sql);
             prepStmt.setString(1, maLoaiPhong);
             ResultSet rs = prepStmt.executeQuery(sql);

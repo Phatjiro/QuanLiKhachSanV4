@@ -33,6 +33,8 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
     private LinkedList<JPanel> lstPanelMenu;
     private LinkedList<JLabel> lstLabel;
     private LinkedList<JButton> lstButton;
+    private ArrayList<String> lstMaLoaiPhong;
+    private ArrayList<String> lstTTPhong;
     private final ArrayList<Phong> soDoPhong;
     private final ArrayList<LoaiPhong> dsLoaiPhong;
     
@@ -73,6 +75,22 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
         lstPanelMenu.add(pQLKhachHang);
         lstPanelMenu.add(pQLHoaDon);
         
+        // Tạo list mã loại phòng
+        lstMaLoaiPhong = new ArrayList<>();
+        lstMaLoaiPhong.add("all");
+        lstMaLoaiPhong.add("standard");
+        lstMaLoaiPhong.add("superior");
+        lstMaLoaiPhong.add("deluxe");
+        lstMaLoaiPhong.add("suite");
+        
+        // Tạo list tình trạng phòng
+        lstTTPhong = new ArrayList<>();
+        lstTTPhong.add("all");
+        lstTTPhong.add("pt");
+        lstTTPhong.add("pcn");
+        lstTTPhong.add("pdt");
+        lstTTPhong.add("pds");
+        
         // Chọn panel sơ đồ phòng khi vừa khởi tạo
         setVisibleLstPanel(lstPanel, new int[]{1,0,0,0,0,0,0 });
         
@@ -97,12 +115,14 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
         btnGroupLoaiPhong.add(rbtnLoaiPhong3);
         btnGroupLoaiPhong.add(rbtnLoaiPhong4);
         btnGroupLoaiPhong.add(rbtnLoaiPhong5);
+        rbtnLoaiPhong1.setSelected(true);
         
         btnGroupTrangThai.add(rbtnTrangThaiPhong1);
         btnGroupTrangThai.add(rbtnTrangThaiPhong2);
         btnGroupTrangThai.add(rbtnTrangThaiPhong3);
         btnGroupTrangThai.add(rbtnTrangThaiPhong4);
         btnGroupTrangThai.add(rbtnTrangThaiPhong5);
+        rbtnTrangThaiPhong1.setSelected(true);
         
         // So do phong
         soDoPhong = new SoDoPhongDAO().getAllSoDoPhong();
@@ -651,26 +671,51 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
         rbtnLoaiPhong1.setText("Tất cả");
         rbtnLoaiPhong1.setFocusable(false);
         rbtnLoaiPhong1.setFont(new java.awt.Font("Arial", 0, 17)); // NOI18N
+        rbtnLoaiPhong1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbtnLoaiPhong1ActionPerformed(evt);
+            }
+        });
 
         rbtnLoaiPhong2.setBackground(new java.awt.Color(4, 135, 217));
         rbtnLoaiPhong2.setText("Phòng Standard");
         rbtnLoaiPhong2.setFocusable(false);
         rbtnLoaiPhong2.setFont(new java.awt.Font("Arial", 0, 17)); // NOI18N
+        rbtnLoaiPhong2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbtnLoaiPhong2ActionPerformed(evt);
+            }
+        });
 
         rbtnLoaiPhong3.setBackground(new java.awt.Color(4, 135, 217));
         rbtnLoaiPhong3.setText("Phòng Superior");
         rbtnLoaiPhong3.setFocusable(false);
         rbtnLoaiPhong3.setFont(new java.awt.Font("Arial", 0, 17)); // NOI18N
+        rbtnLoaiPhong3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbtnLoaiPhong3ActionPerformed(evt);
+            }
+        });
 
         rbtnLoaiPhong4.setBackground(new java.awt.Color(4, 135, 217));
         rbtnLoaiPhong4.setText("Phòng Deluxe");
         rbtnLoaiPhong4.setFocusable(false);
         rbtnLoaiPhong4.setFont(new java.awt.Font("Arial", 0, 17)); // NOI18N
+        rbtnLoaiPhong4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbtnLoaiPhong4ActionPerformed(evt);
+            }
+        });
 
         rbtnLoaiPhong5.setBackground(new java.awt.Color(4, 135, 217));
         rbtnLoaiPhong5.setText("Phòng Suite");
         rbtnLoaiPhong5.setFocusable(false);
         rbtnLoaiPhong5.setFont(new java.awt.Font("Arial", 0, 17)); // NOI18N
+        rbtnLoaiPhong5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbtnLoaiPhong5ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -729,26 +774,51 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
         rbtnTrangThaiPhong1.setToolTipText("");
         rbtnTrangThaiPhong1.setFocusable(false);
         rbtnTrangThaiPhong1.setFont(new java.awt.Font("Arial", 0, 17)); // NOI18N
+        rbtnTrangThaiPhong1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbtnTrangThaiPhong1ActionPerformed(evt);
+            }
+        });
 
         rbtnTrangThaiPhong2.setBackground(new java.awt.Color(4, 135, 217));
         rbtnTrangThaiPhong2.setText("Phòng trống");
         rbtnTrangThaiPhong2.setFocusable(false);
         rbtnTrangThaiPhong2.setFont(new java.awt.Font("Arial", 0, 17)); // NOI18N
+        rbtnTrangThaiPhong2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbtnTrangThaiPhong2ActionPerformed(evt);
+            }
+        });
 
         rbtnTrangThaiPhong3.setBackground(new java.awt.Color(4, 135, 217));
         rbtnTrangThaiPhong3.setText("Phòng có người");
         rbtnTrangThaiPhong3.setFocusable(false);
         rbtnTrangThaiPhong3.setFont(new java.awt.Font("Arial", 0, 17)); // NOI18N
+        rbtnTrangThaiPhong3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbtnTrangThaiPhong3ActionPerformed(evt);
+            }
+        });
 
         rbtnTrangThaiPhong4.setBackground(new java.awt.Color(4, 135, 217));
         rbtnTrangThaiPhong4.setText("Phòng đặt trước");
         rbtnTrangThaiPhong4.setFocusable(false);
         rbtnTrangThaiPhong4.setFont(new java.awt.Font("Arial", 0, 17)); // NOI18N
+        rbtnTrangThaiPhong4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbtnTrangThaiPhong4ActionPerformed(evt);
+            }
+        });
 
         rbtnTrangThaiPhong5.setBackground(new java.awt.Color(4, 135, 217));
         rbtnTrangThaiPhong5.setText("Phòng đang sửa");
         rbtnTrangThaiPhong5.setFocusable(false);
         rbtnTrangThaiPhong5.setFont(new java.awt.Font("Arial", 0, 17)); // NOI18N
+        rbtnTrangThaiPhong5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbtnTrangThaiPhong5ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -1878,9 +1948,10 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
 
     // Nút demo thêm phòng ở panel Sơ đồ phòng
     private void buttonCustom1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonCustom1MouseClicked
-        panelMoHinhPhong1.add(new PanelItemPhong("P000","vip","pt"));
+        panelMoHinhPhong1.add(new PanelItemPhong("P000","Mặc định","pt"));
         panelMoHinhPhong1.revalidate();
         panelMoHinhPhong1.repaint();
+        filterPhong(pMenu);
     }//GEN-LAST:event_buttonCustom1MouseClicked
     
     // Nút thu gọn menu ở panel Hoá đơn
@@ -1913,6 +1984,174 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
             
         }
     }//GEN-LAST:event_lblDangXuatMouseClicked
+
+    public void rePanel(JPanel p) {
+        p.revalidate();
+        p.repaint();
+    }
+    
+    public void tryCatchAll() {
+        try {
+            ArrayList<Phong> soDoPhongAll = new SoDoPhongDAO().getAllSoDoPhong();
+            loadSoDoPhong(soDoPhongAll);
+            rePanel(panelMoHinhPhong1);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public void tryCatchPhong1Loai(int i) {
+        try {
+            ArrayList<Phong> soDoPhongLoai = new SoDoPhongDAO().getSoDoPhongLoai(lstMaLoaiPhong.get(i-1));
+            loadSoDoPhong(soDoPhongLoai);
+            rePanel(panelMoHinhPhong1);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public void tryCatchPhong1TT(int i) {
+        try {
+            ArrayList<Phong> soDoPhongTT = new SoDoPhongDAO().getSoDoPhongTrangThai(lstTTPhong.get(i-1));
+            loadSoDoPhong(soDoPhongTT);
+            rePanel(panelMoHinhPhong1);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public void tryCatch2Bien(int i, int j) {
+        try {
+            ArrayList<Phong> soDoPhongFilter = new SoDoPhongDAO().getSoDoPhongFilter(lstMaLoaiPhong.get(i-1), lstTTPhong.get(j-1));
+            loadSoDoPhong(soDoPhongFilter);
+            rePanel(panelMoHinhPhong1);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public void filterPhong(JPanel pMoHinh) {
+        pMoHinh.removeAll();
+        if (rbtnLoaiPhong1.isSelected() && rbtnTrangThaiPhong1.isSelected()) {
+            tryCatchAll();
+        }
+        if (rbtnLoaiPhong1.isSelected() && rbtnTrangThaiPhong2.isSelected()) {
+            tryCatchPhong1TT(2);
+        }
+        if (rbtnLoaiPhong1.isSelected() && rbtnTrangThaiPhong3.isSelected()) {
+            tryCatchPhong1TT(3);
+        }
+        if (rbtnLoaiPhong1.isSelected() && rbtnTrangThaiPhong4.isSelected()) {
+            tryCatchPhong1TT(4);
+        }
+        if (rbtnLoaiPhong1.isSelected() && rbtnTrangThaiPhong5.isSelected()) {
+            tryCatchPhong1TT(5);
+        }
+        //////////////////////////////////////////////////////////////////////
+        if (rbtnLoaiPhong2.isSelected() && rbtnTrangThaiPhong1.isSelected()) {
+            tryCatchPhong1Loai(2);
+        }
+        if (rbtnLoaiPhong2.isSelected() && rbtnTrangThaiPhong2.isSelected()) {
+            tryCatch2Bien(2, 2);
+        }
+        if (rbtnLoaiPhong2.isSelected() && rbtnTrangThaiPhong3.isSelected()) {
+            tryCatch2Bien(2, 3);
+        }
+        if (rbtnLoaiPhong2.isSelected() && rbtnTrangThaiPhong4.isSelected()) {
+            tryCatch2Bien(2, 4);
+        }
+        if (rbtnLoaiPhong2.isSelected() && rbtnTrangThaiPhong5.isSelected()) {
+            tryCatch2Bien(2, 5);
+        }
+        //////////////////////////////////////////////////////////////////////
+        if (rbtnLoaiPhong3.isSelected() && rbtnTrangThaiPhong1.isSelected()) {
+            tryCatchPhong1Loai(3);
+        }
+        if (rbtnLoaiPhong3.isSelected() && rbtnTrangThaiPhong2.isSelected()) {
+            tryCatch2Bien(3, 2);
+        }
+        if (rbtnLoaiPhong3.isSelected() && rbtnTrangThaiPhong3.isSelected()) {
+            tryCatch2Bien(3, 3);
+        }
+        if (rbtnLoaiPhong3.isSelected() && rbtnTrangThaiPhong4.isSelected()) {
+            tryCatch2Bien(3, 4);
+        }
+        if (rbtnLoaiPhong3.isSelected() && rbtnTrangThaiPhong5.isSelected()) {
+            tryCatch2Bien(3, 5);
+        }
+        //////////////////////////////////////////////////////////////////////
+        if (rbtnLoaiPhong4.isSelected() && rbtnTrangThaiPhong1.isSelected()) {
+            tryCatchPhong1Loai(4);
+        }
+        if (rbtnLoaiPhong4.isSelected() && rbtnTrangThaiPhong2.isSelected()) {
+            tryCatch2Bien(4, 2);
+        }
+        if (rbtnLoaiPhong4.isSelected() && rbtnTrangThaiPhong3.isSelected()) {
+            tryCatch2Bien(4, 3);
+        }
+        if (rbtnLoaiPhong4.isSelected() && rbtnTrangThaiPhong4.isSelected()) {
+            tryCatch2Bien(4, 4);
+        }
+        if (rbtnLoaiPhong4.isSelected() && rbtnTrangThaiPhong5.isSelected()) {
+            tryCatch2Bien(4, 5);
+        }
+        //////////////////////////////////////////////////////////////////////
+        if (rbtnLoaiPhong5.isSelected() && rbtnTrangThaiPhong1.isSelected()) {
+            tryCatchPhong1Loai(5);
+        }
+        if (rbtnLoaiPhong5.isSelected() && rbtnTrangThaiPhong2.isSelected()) {
+            tryCatch2Bien(5, 2);
+        }
+        if (rbtnLoaiPhong5.isSelected() && rbtnTrangThaiPhong3.isSelected()) {
+            tryCatch2Bien(5, 3);
+        }
+        if (rbtnLoaiPhong5.isSelected() && rbtnTrangThaiPhong4.isSelected()) {
+            tryCatch2Bien(5, 4);
+        }
+        if (rbtnLoaiPhong5.isSelected() && rbtnTrangThaiPhong5.isSelected()) {
+            tryCatch2Bien(5, 5);
+        }
+    }
+    
+    private void rbtnLoaiPhong2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnLoaiPhong2ActionPerformed
+        filterPhong(panelMoHinhPhong1);
+    }//GEN-LAST:event_rbtnLoaiPhong2ActionPerformed
+
+    private void rbtnLoaiPhong1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnLoaiPhong1ActionPerformed
+        filterPhong(panelMoHinhPhong1);
+    }//GEN-LAST:event_rbtnLoaiPhong1ActionPerformed
+
+    private void rbtnLoaiPhong3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnLoaiPhong3ActionPerformed
+        filterPhong(panelMoHinhPhong1);
+    }//GEN-LAST:event_rbtnLoaiPhong3ActionPerformed
+
+    private void rbtnLoaiPhong5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnLoaiPhong5ActionPerformed
+        filterPhong(panelMoHinhPhong1);
+    }//GEN-LAST:event_rbtnLoaiPhong5ActionPerformed
+
+    private void rbtnLoaiPhong4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnLoaiPhong4ActionPerformed
+        filterPhong(panelMoHinhPhong1);
+    }//GEN-LAST:event_rbtnLoaiPhong4ActionPerformed
+
+    private void rbtnTrangThaiPhong1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnTrangThaiPhong1ActionPerformed
+        filterPhong(panelMoHinhPhong1);
+    }//GEN-LAST:event_rbtnTrangThaiPhong1ActionPerformed
+
+    private void rbtnTrangThaiPhong2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnTrangThaiPhong2ActionPerformed
+        filterPhong(panelMoHinhPhong1);
+    }//GEN-LAST:event_rbtnTrangThaiPhong2ActionPerformed
+
+    private void rbtnTrangThaiPhong3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnTrangThaiPhong3ActionPerformed
+        filterPhong(panelMoHinhPhong1);
+    }//GEN-LAST:event_rbtnTrangThaiPhong3ActionPerformed
+
+    private void rbtnTrangThaiPhong4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnTrangThaiPhong4ActionPerformed
+        filterPhong(panelMoHinhPhong1);
+    }//GEN-LAST:event_rbtnTrangThaiPhong4ActionPerformed
+
+    private void rbtnTrangThaiPhong5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnTrangThaiPhong5ActionPerformed
+        filterPhong(panelMoHinhPhong1);
+    }//GEN-LAST:event_rbtnTrangThaiPhong5ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup btnGroupLoaiPhong;
