@@ -3,10 +3,16 @@ package gui;
 import component.CustomConfirmDialog;
 import component.PanelItemPhong;
 import custom.MyScrollBar;
+import dao.LoaiPhongDao;
+import dao.SoDoPhongDAO;
+import entity.LoaiPhong;
+import entity.Phong;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -27,8 +33,10 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
     private LinkedList<JPanel> lstPanelMenu;
     private LinkedList<JLabel> lstLabel;
     private LinkedList<JButton> lstButton;
+    private final ArrayList<Phong> soDoPhong;
+    private final ArrayList<LoaiPhong> dsLoaiPhong;
     
-    public GDChinh() {
+    public GDChinh() throws SQLException {
         icon();
         this.setTitle("Quản lí khách sạn - VinaHotel");
         initComponents();
@@ -95,6 +103,15 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
         btnGroupTrangThai.add(rbtnTrangThaiPhong3);
         btnGroupTrangThai.add(rbtnTrangThaiPhong4);
         btnGroupTrangThai.add(rbtnTrangThaiPhong5);
+        
+        // So do phong
+        soDoPhong = new SoDoPhongDAO().getAllSoDoPhong();
+
+        // Loai Phong
+        dsLoaiPhong = new LoaiPhongDao().getAllLoaiPhong();
+        System.out.println("Loai phong: " + dsLoaiPhong.get(0));
+
+        loadSoDoPhong(soDoPhong);
     }
     
     public void icon() {
@@ -126,6 +143,37 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
             pMenu.repaint();
             isThuGonMenu = false;
         }
+    }
+    
+    public void loadSoDoPhong(ArrayList<Phong> dsPhong) throws SQLException {
+        System.out.println("Xin chao loadSoDoPhong");
+
+        String maPhong;
+        String maLoaiPhong;
+        String loaiPhong;
+        String trangThaiPhong;
+        Phong phong;
+        
+        for (int i=0; i<dsPhong.size(); i++) {
+            phong = dsPhong.get(i);
+            maPhong = phong.getMaPhong();
+            maLoaiPhong = phong.getLoaiPhong().getMaLoaiPhong();
+            loaiPhong = getTenLoaiPhong(maLoaiPhong, dsLoaiPhong);
+            
+            trangThaiPhong = phong.getTrangThaiPhong();
+            PanelItemPhong pItem = new PanelItemPhong(maPhong, loaiPhong, trangThaiPhong);
+            panelMoHinhPhong1.add(pItem);
+            System.out.println("testttttttttttttttttt: " +loaiPhong);
+        }
+    }
+    
+    public String getTenLoaiPhong(String maLoaiPhong, ArrayList<LoaiPhong> dsLoaiPhong) {
+        for(int i=0; i<dsLoaiPhong.size(); i++) {
+            if (maLoaiPhong.equals(dsLoaiPhong.get(i).getMaLoaiPhong())) {
+                return dsLoaiPhong.get(i).getTenLoaiPhong();
+            }
+        }
+        return "rỗng || không có mã này";
     }
     
     @SuppressWarnings("unchecked")
@@ -1830,7 +1878,7 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
 
     // Nút demo thêm phòng ở panel Sơ đồ phòng
     private void buttonCustom1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonCustom1MouseClicked
-        panelMoHinhPhong1.add(new PanelItemPhong());
+        panelMoHinhPhong1.add(new PanelItemPhong("P000","vip","pt"));
         panelMoHinhPhong1.revalidate();
         panelMoHinhPhong1.repaint();
     }//GEN-LAST:event_buttonCustom1MouseClicked
@@ -2128,4 +2176,13 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
             customJPanelVaJLableKhiKhongDuocChon(pQLHoaDon, lblQLHoaDon);
         }
     }
+    
+    /**
+     * Các entity đã check
+     * Phong
+     * LoaiPhong
+     * TaiKhoan
+     * NhanVien
+     * KhachHang
+     */
 }

@@ -1,8 +1,11 @@
 
 package component;
 
+import entity.Phong;
+import entity.LoaiPhong;
 import java.awt.Dimension;
-import other.BienMacDinh;
+import java.awt.event.MouseEvent;
+import javax.swing.JPopupMenu;
 
 /**
  *
@@ -10,13 +13,49 @@ import other.BienMacDinh;
  */
 public class PanelItemPhong extends javax.swing.JPanel {
 
+    public Phong phong;
+    public String maPhong, loaiPhong, trangThaiPhong;
     /**
      * Creates new form PanelItemPhong
      */
-    public PanelItemPhong() {
+    public PanelItemPhong(Phong phong) {
         initComponents();
-        this.setPreferredSize(new Dimension(200,100));
-        this.setBackground(BienMacDinh.mauBorderBottomMenu);
+        this.phong = phong;
+        LoaiPhong loaiPhong = phong.getLoaiPhong();
+        this.setPreferredSize(new Dimension(238,100));
+        
+        lblMaPhong.setText(phong.getMaPhong());
+        lblLoaiPhong.setText(loaiPhong.getTenLoaiPhong());
+        lblTrangThaiPhong.setText(bienDoiTrangThaiPhong(phong.getTrangThaiPhong()));
+    }
+    
+    public PanelItemPhong(String maPhong, String loaiPhong, String trangThaiPhong) {
+        initComponents();
+        this.setPreferredSize(new Dimension(238,100));
+        
+        this.maPhong = maPhong;
+        this.loaiPhong = loaiPhong;
+        this.trangThaiPhong = trangThaiPhong;
+        
+        lblMaPhong.setText(maPhong);
+        lblLoaiPhong.setText(loaiPhong);
+        lblTrangThaiPhong.setText(bienDoiTrangThaiPhong(trangThaiPhong));
+    }
+    
+    public String bienDoiTrangThaiPhong(String bdTrangThai) {
+        if (bdTrangThai.equals("pt")) {
+            return "Phòng trống";
+        }
+        
+        if (bdTrangThai.equals("pcn")) {
+            return "Có người";
+        }
+        
+        if (bdTrangThai.equals("pdt")) {
+            return "Đặt trước";
+        }
+        
+        return bdTrangThai = "Ngoại lệ!";
     }
 
     /**
@@ -28,19 +67,114 @@ public class PanelItemPhong extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        pMenuPhong = new javax.swing.JPopupMenu();
+        menuDatPhong = new javax.swing.JMenuItem();
+        menuNhanPhong = new javax.swing.JMenuItem();
+        jPanel1 = new javax.swing.JPanel();
+        lblMaPhong = new javax.swing.JLabel();
+        lblLoaiPhong = new javax.swing.JLabel();
+        lblTrangThaiPhong = new javax.swing.JLabel();
+
+        pMenuPhong.setBackground(new java.awt.Color(255, 255, 255));
+
+        menuDatPhong.setBackground(new java.awt.Color(255, 255, 255));
+        menuDatPhong.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
+        menuDatPhong.setText("Đặt phòng");
+        menuDatPhong.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menuDatPhongMouseClicked(evt);
+            }
+        });
+        menuDatPhong.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuDatPhongActionPerformed(evt);
+            }
+        });
+        pMenuPhong.add(menuDatPhong);
+
+        menuNhanPhong.setBackground(new java.awt.Color(255, 255, 255));
+        menuNhanPhong.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
+        menuNhanPhong.setText("Nhận phòng");
+        pMenuPhong.add(menuNhanPhong);
+
+        setBackground(new java.awt.Color(228, 230, 233));
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                formMouseClicked(evt);
+            }
+        });
+
+        jPanel1.setBackground(new java.awt.Color(4, 135, 217));
+
+        lblMaPhong.setFont(new java.awt.Font("Arial", 1, 17)); // NOI18N
+        lblMaPhong.setForeground(new java.awt.Color(255, 255, 255));
+        lblMaPhong.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblMaPhong.setText("P001");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lblMaPhong, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lblMaPhong, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        lblLoaiPhong.setFont(new java.awt.Font("Arial", 1, 17)); // NOI18N
+        lblLoaiPhong.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblLoaiPhong.setText("LoaiPhong");
+
+        lblTrangThaiPhong.setFont(new java.awt.Font("Arial", 1, 17)); // NOI18N
+        lblTrangThaiPhong.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTrangThaiPhong.setText("TrangThai");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblLoaiPhong, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
+                    .addComponent(lblTrangThaiPhong, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(lblLoaiPhong, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblTrangThaiPhong, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
+        if (evt.getButton() == MouseEvent.BUTTON3) {
+            System.out.println("Ban da an vao phong: " + maPhong);
+            pMenuPhong.show(this, evt.getX(), evt.getY());
+        }
+    }//GEN-LAST:event_formMouseClicked
+
+    private void menuDatPhongMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuDatPhongMouseClicked
+//        System.out.println("dat phong menu: " + maPhong);
+    }//GEN-LAST:event_menuDatPhongMouseClicked
+
+    private void menuDatPhongActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuDatPhongActionPerformed
+        System.out.println("dat phong menu: " + maPhong);
+    }//GEN-LAST:event_menuDatPhongActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lblLoaiPhong;
+    private javax.swing.JLabel lblMaPhong;
+    private javax.swing.JLabel lblTrangThaiPhong;
+    private javax.swing.JMenuItem menuDatPhong;
+    private javax.swing.JMenuItem menuNhanPhong;
+    private javax.swing.JPopupMenu pMenuPhong;
     // End of variables declaration//GEN-END:variables
 }

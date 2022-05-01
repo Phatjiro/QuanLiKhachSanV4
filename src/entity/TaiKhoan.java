@@ -14,6 +14,10 @@ public class TaiKhoan {
     public TaiKhoan() {
     }
 
+    public TaiKhoan(String tenDN) {
+        this.tenDN = tenDN;
+    }
+
     public TaiKhoan(String tenDN, String matKhau, NhanVien nhanVien) {
         this.tenDN = tenDN;
         this.matKhau = matKhau;
@@ -51,8 +55,8 @@ public class TaiKhoan {
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 79 * hash + Objects.hashCode(this.tenDN);
+        int hash = 7;
+        hash = 97 * hash + Objects.hashCode(this.tenDN);
         return hash;
     }
 
@@ -73,6 +77,4 @@ public class TaiKhoan {
         }
         return true;
     }
-    
-    
 }

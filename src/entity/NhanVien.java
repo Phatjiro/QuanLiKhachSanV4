@@ -4,7 +4,7 @@ import java.util.Objects;
 
 /**
  *
- * @author nguye
+ * @author vanphatdev
  */
 public class NhanVien {
     private String maNV;
@@ -16,6 +16,10 @@ public class NhanVien {
     private boolean isQuanLi;
 
     public NhanVien() {
+    }
+
+    public NhanVien(String maNV) {
+        this.maNV = maNV;
     }
 
     public NhanVien(String maNV, String hoTen, String soDT, String soCMND, String diaChi, boolean gioiTinh, boolean isQuanLi) {
@@ -91,8 +95,8 @@ public class NhanVien {
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 47 * hash + Objects.hashCode(this.maNV);
+        int hash = 3;
+        hash = 79 * hash + Objects.hashCode(this.maNV);
         return hash;
     }
 
@@ -113,6 +117,4 @@ public class NhanVien {
         }
         return true;
     }
-    
-    
 }

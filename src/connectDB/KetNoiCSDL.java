@@ -10,22 +10,24 @@ import java.sql.SQLException;
  */
 public class KetNoiCSDL {
     public static Connection con = null;
-    private static KetNoiCSDL instance = new KetNoiCSDL();
+    public static KetNoiCSDL instance = new KetNoiCSDL();
     
     /**
      * Tạo hàm static getInstance() để các class khác có thể
      * sử dụng hàm trong class này cho mục đích kết nối cơ sở dữ liệu
      * @return instance
      */
-    private static KetNoiCSDL getInstance() {
+    public static KetNoiCSDL getInstance() {
         return instance;
     }
     
     public void connect() throws SQLException {
-        String url = "jdbc:sqlserver//localhost:1433;databasename=DATPHONG_KS";
+        String url = "jdbc:sqlserver://localhost:1433;databasename=DPKS";
         String user = "sa";
         String password = "sapassword";
+        System.out.println("chao chao");
         con = DriverManager.getConnection(url, user, password);
+        System.out.println(con);
         System.out.println("Kết nối thành công với cơ sở dữ liệu");
     }
     
@@ -34,13 +36,15 @@ public class KetNoiCSDL {
             try {
                 con.close();
             } catch (Exception e) {
-                System.out.println("Bắt lỗi ở function disconnect() -> dòng 25, file connectDB/KetNoiCSDL");
+                System.out.println("Bắt lỗi ở function disconnect() -> dòng 37, file connectDB/KetNoiCSDL");
                 e.printStackTrace();
             }
         }
     }
     
     public static Connection getConnection() {
+        System.out.println("getConnet");
+        System.out.println(con);
         return con;
     }
 }

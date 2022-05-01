@@ -2,38 +2,42 @@ package entity;
 
 /**
  *
- * @author nguye
+ * @author vanphatdev
  */
 public class DichVu {
     private int maDV;
-    private String tenNV;
+    private String tenDV;
     private double donGia;
-    private boolean loaiDV;
+    private LoaiDichVu loaiDV;
 
     public DichVu() {
     }
 
-    public DichVu(int maDV, String tenNV, double donGia, boolean loaiDV) {
+    public DichVu(int maDV) {
         this.maDV = maDV;
-        this.tenNV = tenNV;
+    }
+
+    public DichVu(int maDV, String tenDV, double donGia, LoaiDichVu loaiDV) {
+        this.maDV = maDV;
+        this.tenDV = tenDV;
         this.donGia = donGia;
         this.loaiDV = loaiDV;
     }
 
-    public int getMaNV() {
+    public int getMaDV() {
         return maDV;
     }
 
-    public void setMaNV(int maNV) {
-        this.maDV = maNV;
+    public void setMaDV(int maDV) {
+        this.maDV = maDV;
     }
 
-    public String getTenNV() {
-        return tenNV;
+    public String getTenDV() {
+        return tenDV;
     }
 
-    public void setTenNV(String tenNV) {
-        this.tenNV = tenNV;
+    public void setTenDV(String tenDV) {
+        this.tenDV = tenDV;
     }
 
     public double getDonGia() {
@@ -44,18 +48,41 @@ public class DichVu {
         this.donGia = donGia;
     }
 
-    public boolean isLoaiDV() {
+    public LoaiDichVu getLoaiDV() {
         return loaiDV;
     }
 
-    public void setLoaiDV(boolean loaiDV) {
+    public void setLoaiDV(LoaiDichVu loaiDV) {
         this.loaiDV = loaiDV;
     }
 
     @Override
     public String toString() {
-        return "DichVu{" + "maNV=" + maDV + ", tenNV=" + tenNV + ", donGia=" + donGia + ", loaiDV=" + loaiDV + '}';
+        return "DichVu{" + "maDV=" + maDV + ", tenDV=" + tenDV + ", donGia=" + donGia + ", loaiDV=" + loaiDV + '}';
     }
-    
-    
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 41 * hash + this.maDV;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final DichVu other = (DichVu) obj;
+        if (this.maDV != other.maDV) {
+            return false;
+        }
+        return true;
+    }
 }

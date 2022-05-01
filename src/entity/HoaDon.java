@@ -1,33 +1,31 @@
 package entity;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 /**
  *
- * @author nguye
+ * @author vanphatdev
  */
 public class HoaDon {
     private int maHD;
-    private LocalDate thoiGianLapHoaDon;
-    private NhanVien tenNVLapHD;
-    private KhachHang tenKH;
-    private ChiTietHoaDon chiTietHoaDon;
+    private LocalDateTime thoiGianLapHD;
     private double tienKhachDua;
-    private double tienChuaThue;
-    private double thueGiaTriGiaTang;
+    private NhanVien nhanVien;
+    private KhachHang khachHang;
 
     public HoaDon() {
     }
 
-    public HoaDon(int maHD, LocalDate thoiGianLapHoaDon, NhanVien tenNVLapHD, KhachHang tenKH, ChiTietHoaDon chiTietHoaDon, double tienKhachDua, double tienChuaThue, double thueGiaTriGiaTang) {
+    public HoaDon(int maHD) {
         this.maHD = maHD;
-        this.thoiGianLapHoaDon = thoiGianLapHoaDon;
-        this.tenNVLapHD = tenNVLapHD;
-        this.tenKH = tenKH;
-        this.chiTietHoaDon = chiTietHoaDon;
+    }
+
+    public HoaDon(int maHD, LocalDateTime thoiGianLapHD, double tienKhachDua, NhanVien nhanVien, KhachHang khachHang) {
+        this.maHD = maHD;
+        this.thoiGianLapHD = thoiGianLapHD;
         this.tienKhachDua = tienKhachDua;
-        this.tienChuaThue = tienChuaThue;
-        this.thueGiaTriGiaTang = thueGiaTriGiaTang;
+        this.nhanVien = nhanVien;
+        this.khachHang = khachHang;
     }
 
     public int getMaHD() {
@@ -38,36 +36,12 @@ public class HoaDon {
         this.maHD = maHD;
     }
 
-    public LocalDate getThoiGianLapHoaDon() {
-        return thoiGianLapHoaDon;
+    public LocalDateTime getThoiGianLapHD() {
+        return thoiGianLapHD;
     }
 
-    public void setThoiGianLapHoaDon(LocalDate thoiGianLapHoaDon) {
-        this.thoiGianLapHoaDon = thoiGianLapHoaDon;
-    }
-
-    public NhanVien getTenNVLapHD() {
-        return tenNVLapHD;
-    }
-
-    public void setTenNVLapHD(NhanVien tenNVLapHD) {
-        this.tenNVLapHD = tenNVLapHD;
-    }
-
-    public KhachHang getTenKH() {
-        return tenKH;
-    }
-
-    public void setTenKH(KhachHang tenKH) {
-        this.tenKH = tenKH;
-    }
-
-    public ChiTietHoaDon getChiTietHoaDon() {
-        return chiTietHoaDon;
-    }
-
-    public void setChiTietHoaDon(ChiTietHoaDon chiTietHoaDon) {
-        this.chiTietHoaDon = chiTietHoaDon;
+    public void setThoiGianLapHD(LocalDateTime thoiGianLapHD) {
+        this.thoiGianLapHD = thoiGianLapHD;
     }
 
     public double getTienKhachDua() {
@@ -78,31 +52,31 @@ public class HoaDon {
         this.tienKhachDua = tienKhachDua;
     }
 
-    public double getTienChuaThue() {
-        return tienChuaThue;
+    public NhanVien getNhanVien() {
+        return nhanVien;
     }
 
-    public void setTienChuaThue(double tienChuaThue) {
-        this.tienChuaThue = tienChuaThue;
+    public void setNhanVien(NhanVien nhanVien) {
+        this.nhanVien = nhanVien;
     }
 
-    public double getThueGiaTriGiaTang() {
-        return thueGiaTriGiaTang;
+    public KhachHang getKhachHang() {
+        return khachHang;
     }
 
-    public void setThueGiaTriGiaTang(double thueGiaTriGiaTang) {
-        this.thueGiaTriGiaTang = thueGiaTriGiaTang;
+    public void setKhachHang(KhachHang khachHang) {
+        this.khachHang = khachHang;
     }
 
     @Override
     public String toString() {
-        return "HoaDon{" + "maHD=" + maHD + ", thoiGianLapHoaDon=" + thoiGianLapHoaDon + ", tenNVLapHD=" + tenNVLapHD + ", tenKH=" + tenKH + ", chiTietHoaDon=" + chiTietHoaDon + ", tienKhachDua=" + tienKhachDua + ", tienChuaThue=" + tienChuaThue + ", thueGiaTriGiaTang=" + thueGiaTriGiaTang + '}';
+        return "HoaDon{" + "maHD=" + maHD + ", thoiGianLapHD=" + thoiGianLapHD + ", tienKhachDua=" + tienKhachDua + ", nhanVien=" + nhanVien + ", khachHang=" + khachHang + '}';
     }
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 31 * hash + this.maHD;
+        int hash = 7;
+        hash = 97 * hash + this.maHD;
         return hash;
     }
 
@@ -123,6 +97,4 @@ public class HoaDon {
         }
         return true;
     }
-    
-    
 }

@@ -1,90 +1,108 @@
 package entity;
 
-import java.util.Objects;
-
 /**
  *
- * @author nguye
+ * @author vanphatdev
  */
 public class KhachHang {
     private int maKH;
-    private String hoTenKH;
+    private String hoTen;
     private String soDT;
     private String soCMND;
     private String diaChi;
     private boolean gioiTinh;
-    private boolean loaiKH;
-    public int getMaKH() {
-            return maKH;
-    }
-    public void setMaKH(int maKH) {
-            this.maKH = maKH;
-    }
-    public String getHoTenKH() {
-            return hoTenKH;
-    }
-    public void setHoTenKH(String hoTenKH) {
-            this.hoTenKH = hoTenKH;
-    }
-    public String getSoDT() {
-            return soDT;
-    }
-    public void setSoDT(String soDT) {
-            this.soDT = soDT;
-    }
-    public String getSoCMND() {
-            return soCMND;
-    }
-    public void setSoCMND(String soCMND) {
-            this.soCMND = soCMND;
-    }
-    public String getDiaChi() {
-            return diaChi;
-    }
-    public void setDiaChi(String diaChi) {
-            this.diaChi = diaChi;
-    }
-    public boolean isGioiTinh() {
-            return gioiTinh;
-    }
-    public void setGioiTinh(boolean gioiTinh) {
-            this.gioiTinh = gioiTinh;
-    }
-    public boolean isLoaiKH() {
-            return loaiKH;
-    }
-    public void setLoaiKH(boolean loaiKH) {
-            this.loaiKH = loaiKH;
-    }
-    public KhachHang(int maKH, String hoTenKH, String soDT, String soCMND, String diaChi, boolean gioiTinh,
-                    boolean loaiKH) {
-            super();
-            this.maKH = maKH;
-            this.hoTenKH = hoTenKH;
-            this.soDT = soDT;
-            this.soCMND = soCMND;
-            this.diaChi = diaChi;
-            this.gioiTinh = gioiTinh;
-            this.loaiKH = loaiKH;
-    }
+
     public KhachHang() {
-            super();
     }
+
     public KhachHang(int maKH) {
-            super();
-            this.maKH = maKH;
+        this.maKH = maKH;
     }
+
+    public KhachHang(int maKH, String hoTen, String soDT, String soCMND, String diaChi, boolean gioiTinh) {
+        this.maKH = maKH;
+        this.hoTen = hoTen;
+        this.soDT = soDT;
+        this.soCMND = soCMND;
+        this.diaChi = diaChi;
+        this.gioiTinh = gioiTinh;
+    }
+
+    public int getMaKH() {
+        return maKH;
+    }
+
+    public void setMaKH(int maKH) {
+        this.maKH = maKH;
+    }
+
+    public String getHoTen() {
+        return hoTen;
+    }
+
+    public void setHoTen(String hoTen) {
+        this.hoTen = hoTen;
+    }
+
+    public String getSoDT() {
+        return soDT;
+    }
+
+    public void setSoDT(String soDT) {
+        this.soDT = soDT;
+    }
+
+    public String getSoCMND() {
+        return soCMND;
+    }
+
+    public void setSoCMND(String soCMND) {
+        this.soCMND = soCMND;
+    }
+
+    public String getDiaChi() {
+        return diaChi;
+    }
+
+    public void setDiaChi(String diaChi) {
+        this.diaChi = diaChi;
+    }
+
+    public boolean isGioiTinh() {
+        return gioiTinh;
+    }
+
+    public void setGioiTinh(boolean gioiTinh) {
+        this.gioiTinh = gioiTinh;
+    }
+
+    @Override
+    public String toString() {
+        return "KhachHang{" + "maKH=" + maKH + ", hoTen=" + hoTen + ", soDT=" + soDT + ", soCMND=" + soCMND + ", diaChi=" + diaChi + ", gioiTinh=" + gioiTinh + '}';
+    }
+
     @Override
     public int hashCode() {
-            return Objects.hash(maKH);
+        int hash = 7;
+        hash = 89 * hash + this.maKH;
+        return hash;
     }
+
     @Override
     public boolean equals(Object obj) {
-            if (this == obj)
-                    return true;
-            if (!(obj instanceof KhachHang))
-                    return false;
-            KhachHang other = (KhachHang) obj;
-            return maKH == other.maKH;
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final KhachHang other = (KhachHang) obj;
+        if (this.maKH != other.maKH) {
+            return false;
+        }
+        return true;
     }
 }

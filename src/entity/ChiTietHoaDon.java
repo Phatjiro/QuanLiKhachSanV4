@@ -1,41 +1,41 @@
 package entity;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 /**
  *
  * @author nguye
  */
 public class ChiTietHoaDon {
-    private int soLuongDichVu;
+    private int soLuongDV;
     private double donGiaPhong;
     private double donGiaDichVu;
+    private LocalDateTime ngayDatPhong;
+    private LocalDateTime ngayNhanPhong;
     private Phong phong;
-    private HoaDon hoaDon;
     private DichVu dichVu;
-    private LocalDate ngayNhanPhong;
-    private LocalDate ngayDatPhong;
+    private HoaDon hoaDon;
 
     public ChiTietHoaDon() {
     }
 
-    public ChiTietHoaDon(int soLuongDichVu, double donGiaPhong, double donGiaDichVu, Phong phong, HoaDon hoaDon, DichVu dichVu, LocalDate ngayNhanPhong, LocalDate ngayDatPhong) {
-        this.soLuongDichVu = soLuongDichVu;
+    public ChiTietHoaDon(int soLuongDV, double donGiaPhong, double donGiaDichVu, LocalDateTime ngayDatPhong, LocalDateTime ngayNhanPhong, Phong phong, DichVu dichVu, HoaDon hoaDon) {
+        this.soLuongDV = soLuongDV;
         this.donGiaPhong = donGiaPhong;
         this.donGiaDichVu = donGiaDichVu;
-        this.phong = phong;
-        this.hoaDon = hoaDon;
-        this.dichVu = dichVu;
-        this.ngayNhanPhong = ngayNhanPhong;
         this.ngayDatPhong = ngayDatPhong;
+        this.ngayNhanPhong = ngayNhanPhong;
+        this.phong = phong;
+        this.dichVu = dichVu;
+        this.hoaDon = hoaDon;
     }
 
-    public int getSoLuongDichVu() {
-        return soLuongDichVu;
+    public int getSoLuongDV() {
+        return soLuongDV;
     }
 
-    public void setSoLuongDichVu(int soLuongDichVu) {
-        this.soLuongDichVu = soLuongDichVu;
+    public void setSoLuongDV(int soLuongDV) {
+        this.soLuongDV = soLuongDV;
     }
 
     public double getDonGiaPhong() {
@@ -54,20 +54,28 @@ public class ChiTietHoaDon {
         this.donGiaDichVu = donGiaDichVu;
     }
 
+    public LocalDateTime getNgayDatPhong() {
+        return ngayDatPhong;
+    }
+
+    public void setNgayDatPhong(LocalDateTime ngayDatPhong) {
+        this.ngayDatPhong = ngayDatPhong;
+    }
+
+    public LocalDateTime getNgayNhanPhong() {
+        return ngayNhanPhong;
+    }
+
+    public void setNgayNhanPhong(LocalDateTime ngayNhanPhong) {
+        this.ngayNhanPhong = ngayNhanPhong;
+    }
+
     public Phong getPhong() {
         return phong;
     }
 
     public void setPhong(Phong phong) {
         this.phong = phong;
-    }
-
-    public HoaDon getHoaDon() {
-        return hoaDon;
-    }
-
-    public void setHoaDon(HoaDon hoaDon) {
-        this.hoaDon = hoaDon;
     }
 
     public DichVu getDichVu() {
@@ -78,25 +86,16 @@ public class ChiTietHoaDon {
         this.dichVu = dichVu;
     }
 
-    public LocalDate getNgayNhanPhong() {
-        return ngayNhanPhong;
+    public HoaDon getHoaDon() {
+        return hoaDon;
     }
 
-    public void setNgayNhanPhong(LocalDate ngayNhanPhong) {
-        this.ngayNhanPhong = ngayNhanPhong;
-    }
-
-    public LocalDate getNgayDatPhong() {
-        return ngayDatPhong;
-    }
-
-    public void setNgayDatPhong(LocalDate ngayDatPhong) {
-        this.ngayDatPhong = ngayDatPhong;
+    public void setHoaDon(HoaDon hoaDon) {
+        this.hoaDon = hoaDon;
     }
 
     @Override
     public String toString() {
-        return "ChiTietHoaDon{" + "soLuongDichVu=" + soLuongDichVu + ", donGiaPhong=" + donGiaPhong + ", donGiaDichVu=" + donGiaDichVu + ", phong=" + phong + ", hoaDon=" + hoaDon + ", dichVu=" + dichVu + ", ngayNhanPhong=" + ngayNhanPhong + ", ngayDatPhong=" + ngayDatPhong + '}';
+        return "ChiTietHoaDon{" + "soLuongDV=" + soLuongDV + ", donGiaPhong=" + donGiaPhong + ", donGiaDichVu=" + donGiaDichVu + ", ngayDatPhong=" + ngayDatPhong + ", ngayNhanPhong=" + ngayNhanPhong + ", phong=" + phong + ", dichVu=" + dichVu + ", hoaDon=" + hoaDon + '}';
     }
-
 }
