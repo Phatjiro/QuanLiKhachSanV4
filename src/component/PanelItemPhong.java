@@ -5,7 +5,6 @@ import dao.NhanPhongDAO;
 import dao.SoDoPhongDAO;
 import entity.Phong;
 import entity.LoaiPhong;
-import gui.GDChinh;
 import java.awt.Dimension;
 import java.awt.event.MouseEvent;
 import java.sql.SQLException;
@@ -30,7 +29,7 @@ public class PanelItemPhong extends javax.swing.JPanel {
         initComponents();
         this.phong = phong;
         LoaiPhong loaiPhong = phong.getLoaiPhong();
-        this.setPreferredSize(new Dimension(224,100));
+        this.setPreferredSize(new Dimension(222,100));
         
         lblMaPhong.setText(phong.getMaPhong());
         lblLoaiPhong.setText(loaiPhong.getTenLoaiPhong());
@@ -39,7 +38,7 @@ public class PanelItemPhong extends javax.swing.JPanel {
     
     public PanelItemPhong(String maPhong, String loaiPhong, String trangThaiPhong) {
         initComponents();
-        this.setPreferredSize(new Dimension(224,100));
+        this.setPreferredSize(new Dimension(222,100));
         
         this.maPhong = maPhong;
         this.loaiPhong = loaiPhong;
@@ -101,9 +100,11 @@ public class PanelItemPhong extends javax.swing.JPanel {
         pMenuPhongDatTruoc = new javax.swing.JPopupMenu();
         pdtNhanPhong = new javax.swing.JMenuItem();
         pdtHuyDat = new javax.swing.JMenuItem();
+        pdtXemTTNguoiDat = new javax.swing.JMenuItem();
         pMenuPhongCoNguoi = new javax.swing.JPopupMenu();
         pcnDatDV = new javax.swing.JMenuItem();
         pcnTraPhong = new javax.swing.JMenuItem();
+        pcnTTNguoiThue = new javax.swing.JMenuItem();
         pMenuPhongSuaChua = new javax.swing.JPopupMenu();
         pdsSuaXong = new javax.swing.JMenuItem();
         pMaPhong = new javax.swing.JPanel();
@@ -156,6 +157,16 @@ public class PanelItemPhong extends javax.swing.JPanel {
         });
         pMenuPhongDatTruoc.add(pdtHuyDat);
 
+        pdtXemTTNguoiDat.setBackground(new java.awt.Color(255, 255, 255));
+        pdtXemTTNguoiDat.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
+        pdtXemTTNguoiDat.setText("Xem thông tin người đặt");
+        pdtXemTTNguoiDat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pdtXemTTNguoiDatActionPerformed(evt);
+            }
+        });
+        pMenuPhongDatTruoc.add(pdtXemTTNguoiDat);
+
         pMenuPhongCoNguoi.setBackground(new java.awt.Color(255, 255, 255));
 
         pcnDatDV.setBackground(new java.awt.Color(255, 255, 255));
@@ -167,6 +178,16 @@ public class PanelItemPhong extends javax.swing.JPanel {
         pcnTraPhong.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
         pcnTraPhong.setText("Trả phòng");
         pMenuPhongCoNguoi.add(pcnTraPhong);
+
+        pcnTTNguoiThue.setBackground(new java.awt.Color(255, 255, 255));
+        pcnTTNguoiThue.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
+        pcnTTNguoiThue.setText("Xem thông tin người thuê");
+        pcnTTNguoiThue.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pcnTTNguoiThueActionPerformed(evt);
+            }
+        });
+        pMenuPhongCoNguoi.add(pcnTTNguoiThue);
 
         pMenuPhongSuaChua.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -310,6 +331,26 @@ public class PanelItemPhong extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_pdtNhanPhongActionPerformed
 
+    private void pdtXemTTNguoiDatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pdtXemTTNguoiDatActionPerformed
+        Main.gdChinh.chuyenManHinh(6);
+        try {
+            int maKHDatPhong = new DatPhongDAO().nguoiDatPhong(maPhong);
+            Main.gdChinh.selectedTheoMaKH(maKHDatPhong);
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }//GEN-LAST:event_pdtXemTTNguoiDatActionPerformed
+
+    private void pcnTTNguoiThueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pcnTTNguoiThueActionPerformed
+        Main.gdChinh.chuyenManHinh(6);
+        try {
+            int maKHNhanPhong = new NhanPhongDAO().nguoiNhanPhong(maPhong);
+            Main.gdChinh.selectedTheoMaKH(maKHNhanPhong);
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }//GEN-LAST:event_pcnTTNguoiThueActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel lblLoaiPhong;
@@ -322,10 +363,12 @@ public class PanelItemPhong extends javax.swing.JPanel {
     private javax.swing.JPopupMenu pMenuPhongSuaChua;
     private javax.swing.JPopupMenu pMenuPhongTrong;
     private javax.swing.JMenuItem pcnDatDV;
+    private javax.swing.JMenuItem pcnTTNguoiThue;
     private javax.swing.JMenuItem pcnTraPhong;
     private javax.swing.JMenuItem pdsSuaXong;
     private javax.swing.JMenuItem pdtHuyDat;
     private javax.swing.JMenuItem pdtNhanPhong;
+    private javax.swing.JMenuItem pdtXemTTNguoiDat;
     private javax.swing.JMenuItem ptDatPhong;
     private javax.swing.JMenuItem ptSuaChua;
     // End of variables declaration//GEN-END:variables

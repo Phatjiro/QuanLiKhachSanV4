@@ -63,4 +63,31 @@ public class NhanPhongDAO {
             e.printStackTrace();
         }
     }
+    
+    public int nguoiNhanPhong(String maPhong) throws SQLException {
+        int maNguoiNhanPhong = 0;
+        KetNoiCSDL.getInstance();
+        KetNoiCSDL knCSDL = new KetNoiCSDL();
+        knCSDL.connect();
+
+        Connection con = knCSDL.getConnection();
+        
+        try {
+            String sql = "SELECT maKH FROM NhanPhong Where maPhong = ?";
+            PreparedStatement prepStmt = con.prepareStatement(sql);
+            
+            prepStmt.setString(1, maPhong);
+            
+            ResultSet rs = prepStmt.executeQuery(); 
+            
+            rs.next();
+            maNguoiNhanPhong = rs.getInt(1);
+            
+        } catch (Exception e) {
+            System.err.println("Kiểm tra nguoiNhanPhong - DatPhongDAO");
+            e.printStackTrace();
+        }
+        
+        return maNguoiNhanPhong;
+    }
 }
