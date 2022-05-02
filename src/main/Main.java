@@ -9,12 +9,15 @@ import java.sql.SQLException;
  */
 public class Main {
 
+    public static GDChinh gdChinh;
+    
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) throws SQLException {
         System.out.println("Cay cú tạo nên khác biệt!");
-        new GDChinh().setVisible(true);
+        gdChinh = new GDChinh();
+        gdChinh.setVisible(true);
     }
     
 }

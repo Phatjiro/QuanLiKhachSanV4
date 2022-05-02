@@ -3,8 +3,10 @@ package component;
 import dao.SoDoPhongDAO;
 import entity.Phong;
 import entity.LoaiPhong;
+import gui.GDChinh;
 import java.awt.Dimension;
 import java.awt.event.MouseEvent;
+import main.Main;
 import other.BienMacDinh;
 
 /**
@@ -109,6 +111,11 @@ public class PanelItemPhong extends javax.swing.JPanel {
         ptDatPhong.setBackground(new java.awt.Color(255, 255, 255));
         ptDatPhong.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
         ptDatPhong.setText("Đặt phòng");
+        ptDatPhong.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ptDatPhongActionPerformed(evt);
+            }
+        });
         pMenuPhongTrong.add(ptDatPhong);
 
         ptSuaChua.setBackground(new java.awt.Color(255, 255, 255));
@@ -249,6 +256,8 @@ public class PanelItemPhong extends javax.swing.JPanel {
     private void pdsSuaXongActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pdsSuaXongActionPerformed
         try {
             new SoDoPhongDAO().updateTrangThaiPhong("pt", maPhong);
+            Main.gdChinh.refreshSoDoPhong();
+            Main.gdChinh.loadSoDoPhong(Main.gdChinh.getSoDoPhong());
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -257,6 +266,8 @@ public class PanelItemPhong extends javax.swing.JPanel {
     private void ptSuaChuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ptSuaChuaActionPerformed
         try {
             new SoDoPhongDAO().updateTrangThaiPhong("pds", maPhong);
+            Main.gdChinh.refreshSoDoPhong();
+            Main.gdChinh.loadSoDoPhong(Main.gdChinh.getSoDoPhong());
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -265,10 +276,17 @@ public class PanelItemPhong extends javax.swing.JPanel {
     private void pdtHuyDatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pdtHuyDatActionPerformed
         try {
             new SoDoPhongDAO().updateTrangThaiPhong("pt", maPhong);
+            Main.gdChinh.refreshSoDoPhong();
+            Main.gdChinh.loadSoDoPhong(Main.gdChinh.getSoDoPhong());
         } catch (Exception e) {
             e.printStackTrace();
         }
     }//GEN-LAST:event_pdtHuyDatActionPerformed
+
+    private void ptDatPhongActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ptDatPhongActionPerformed
+        Main.gdChinh.chuyenManHinh(2);
+        Main.gdChinh.setTextTTDatPhong(maPhong, loaiPhong);
+    }//GEN-LAST:event_ptDatPhongActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

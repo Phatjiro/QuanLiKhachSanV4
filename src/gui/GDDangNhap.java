@@ -3,7 +3,13 @@ package gui;
 import custom.Button;
 import custom.MyPasswordField;
 import custom.MyTextField;
+import dao.TaiKhoanDAO;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import other.BienMacDinh;
 
@@ -11,11 +17,11 @@ import other.BienMacDinh;
  *
  * @author vanphatdev
  */
-public class GDDangNhap extends javax.swing.JFrame {
+public class GDDangNhap extends javax.swing.JFrame implements ActionListener {
 
-    private final MyTextField tfTenDangNhap;
-    private final MyPasswordField tfMatKhau;
-    private final Button btnDangNhap;
+    private MyTextField tfTenDangNhap;
+    private MyPasswordField tfMatKhau;
+    private Button btnDangNhap;
 
     /**
      * Creates new form GDDangNhap
@@ -49,12 +55,37 @@ public class GDDangNhap extends javax.swing.JFrame {
         jPanel4.add(tfTenDangNhap);
         jPanel4.add(tfMatKhau);
         jPanel4.add(btnDangNhap);
-
+        
+        btnDangNhap.addActionListener(this);
     }
 
     public void icon() {
         this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/img/Logo_big.jpg")));
     }
+    
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        Object o = e.getSource();
+        if (o.equals(btnDangNhap)) {
+            try {
+                String taiKhoan = tfTenDangNhap.getText();
+                String matKhau = tfMatKhau.getText();
+                System.out.println(taiKhoan + "   " + matKhau);
+                boolean kiemTraTaiKhoan = new TaiKhoanDAO().kiemTraTaiKhoan(taiKhoan, matKhau);
+                if (kiemTraTaiKhoan) {
+                    System.out.println("Dang nhap thanh cong");
+                }
+                else {
+                    System.out.println("Dang nhap that bai");
+                }
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        }
+    }
+    
+                                      
+    
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -225,4 +256,5 @@ public class GDDangNhap extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     // End of variables declaration//GEN-END:variables
+
 }

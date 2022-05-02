@@ -25,10 +25,8 @@ public class KetNoiCSDL {
         String url = "jdbc:sqlserver://localhost:1433;databasename=DPKS";
         String user = "sa";
         String password = "sapassword";
-        System.out.println("chao chao");
         con = DriverManager.getConnection(url, user, password);
-        System.out.println(con);
-        System.out.println("Kết nối thành công với cơ sở dữ liệu");
+//        System.out.println("Kết nối thành công với cơ sở dữ liệu");
     }
     
     public void disconnect() {
@@ -43,7 +41,6 @@ public class KetNoiCSDL {
     }
     
     public static Connection getConnection() {
-        System.out.println("getConnet");
         System.out.println(con);
         return con;
     }

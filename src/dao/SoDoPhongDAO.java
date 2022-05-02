@@ -177,4 +177,68 @@ public class SoDoPhongDAO {
             e.printStackTrace();
         }
     }
+    
+    public ArrayList<Phong> getSoDoPhongTimKiem(String maPhongTimKiem) throws SQLException {
+        ArrayList<Phong> soDoPhong = new ArrayList<Phong>();
+        KetNoiCSDL.getInstance();
+        KetNoiCSDL knCSDL = new KetNoiCSDL();
+        knCSDL.connect();
+
+        Connection con = knCSDL.getConnection();
+        
+        PreparedStatement prepStmt = null;
+        String sql = "SELECT * FROM Phong WHERE maPhong LIKE ?";
+        
+        try {
+            
+            prepStmt = con.prepareStatement(sql);
+            prepStmt.setString(1, maPhongTimKiem);
+            ResultSet rs = prepStmt.executeQuery();
+            
+            while (rs.next()) {
+                String maPhong = rs.getString(1);
+                double giaPhong = rs.getDouble(2);
+                double dienTich = rs.getDouble(3);
+                int soGiuong = rs.getInt(4);
+                String trangThaiPhong = rs.getString(5);
+                LoaiPhong loaiPhong = new LoaiPhong(rs.getString(6));
+                Phong phong = new Phong(maPhong, giaPhong, dienTich, soGiuong, trangThaiPhong, loaiPhong);
+                soDoPhong.add(phong);
+            }
+            
+        } catch (Exception e) {
+            System.err.println("getSoDoPhongTimKiem failed - pls check in SoDoPhongDAO");
+            e.printStackTrace();
+        }
+        
+        return soDoPhong;
+    }
+    
+    public int getCountPhongTheoTT(String ttPhong) throws SQLException {
+        int count = 0;
+        KetNoiCSDL.getInstance();
+        KetNoiCSDL knCSDL = new KetNoiCSDL();
+        knCSDL.connect();
+
+        Connection con = knCSDL.getConnection();
+        
+        PreparedStatement prepStmt = null;
+        String sql = "SELECT COUNT(*) AS Total FROM Phong WHERE trangThaiPhong = ?";
+        
+        try {
+            
+            prepStmt = con.prepareStatement(sql);
+            prepStmt.setString(1, ttPhong);
+            ResultSet rs = prepStmt.executeQuery();
+            
+            rs.next();
+            count = rs.getInt("Total");
+            
+        } catch (Exception e) {
+            System.err.println("getCountPhongTheoTT failed - pls check in SoDoPhongDAO");
+            e.printStackTrace();
+        }
+        
+        return count;
+    }
 }

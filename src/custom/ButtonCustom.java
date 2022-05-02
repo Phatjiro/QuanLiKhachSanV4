@@ -214,5 +214,6 @@ public class ButtonCustom extends JButton {
                 animator.stop();
             }
         }
+        
     }
 }
