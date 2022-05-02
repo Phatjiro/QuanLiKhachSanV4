@@ -64,4 +64,31 @@ public class DatPhongDAO {
             e.printStackTrace();
         }
     }
+    
+    public int nguoiDatPhong(String maPhong) throws SQLException {
+        int maNguoiDatPhong = 0;
+        KetNoiCSDL.getInstance();
+        KetNoiCSDL knCSDL = new KetNoiCSDL();
+        knCSDL.connect();
+
+        Connection con = knCSDL.getConnection();
+        
+        try {
+            String sql = "SELECT maKH FROM DatPhong Where maPhong = ?";
+            PreparedStatement prepStmt = con.prepareStatement(sql);
+            
+            prepStmt.setString(1, maPhong);
+            
+            ResultSet rs = prepStmt.executeQuery(); 
+            
+            rs.next();
+            maNguoiDatPhong = rs.getInt(1);
+            
+        } catch (Exception e) {
+            System.err.println("Kiểm tra nguoiDatPhong - DatPhongDAO");
+            e.printStackTrace();
+        }
+        
+        return maNguoiDatPhong;
+    }
 }

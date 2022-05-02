@@ -4,8 +4,10 @@ import component.CustomConfirmDialog;
 import component.PanelItemPhong;
 import custom.MyScrollBar;
 import dao.DatPhongDAO;
+import dao.KhachHangDAO;
 import dao.LoaiPhongDao;
 import dao.SoDoPhongDAO;
+import entity.KhachHang;
 import entity.LoaiPhong;
 import entity.Phong;
 import java.awt.Dimension;
@@ -13,8 +15,11 @@ import java.awt.Toolkit;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -149,7 +154,6 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
 
         // Loai Phong
         dsLoaiPhong = new LoaiPhongDao().getAllLoaiPhong();
-        System.out.println("Loai phong: " + dsLoaiPhong.get(0));
 
         loadSoDoPhong(soDoPhong);
     }
@@ -305,7 +309,6 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
         jPanel27 = new javax.swing.JPanel();
         jLabel31 = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
-        jLabel33 = new javax.swing.JLabel();
         jLabel34 = new javax.swing.JLabel();
         jPanel44 = new javax.swing.JPanel();
         buttonCustom4 = new custom.ButtonCustom();
@@ -1264,12 +1267,9 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
         jLabel32.setFont(new java.awt.Font("Arial", 0, 17)); // NOI18N
         jLabel32.setText("Mã phòng:");
 
-        jLabel33.setFont(new java.awt.Font("Arial", 0, 17)); // NOI18N
-        jLabel33.setText("Ngày đặt:");
-
         jLabel34.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel34.setForeground(new java.awt.Color(204, 0, 51));
-        jLabel34.setText("*Nếu đặt phòng ngay thì không cần chọn ngày đặt");
+        jLabel34.setText("*Đặt ngay là nhận phòng luôn");
 
         jPanel44.setBackground(new java.awt.Color(255, 255, 255));
         jPanel44.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 64, 32));
@@ -1278,6 +1278,11 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
         buttonCustom4.setFocusable(false);
         buttonCustom4.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         buttonCustom4.setStyle(custom.ButtonCustom.ButtonStyle.DESTRUCTIVE);
+        buttonCustom4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonCustom4ActionPerformed(evt);
+            }
+        });
         jPanel44.add(buttonCustom4);
 
         buttonCustom5.setText("Đặt ngay");
@@ -1307,13 +1312,12 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
                         .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(tfMaPhongDat, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel34)
                     .addGroup(jPanel27Layout.createSequentialGroup()
                         .addComponent(jLabel35, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(tfLoaiPhongDat, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
         jPanel27Layout.setVerticalGroup(
             jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1328,10 +1332,8 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
                     .addComponent(jLabel35, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tfLoaiPhongDat, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel34)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 94, Short.MAX_VALUE)
                 .addComponent(jPanel44, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -2540,6 +2542,38 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
         tryCatch1MaPhong(tfTimKiemPhong.getText());
     }//GEN-LAST:event_buttonCustom2ActionPerformed
 
+    public String getDate(String lcDate) {
+        return lcDate.substring(0,10);
+    }
+    
+    private void buttonCustom4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCustom4ActionPerformed
+        String tenKH = tfHoTenKH.getText().trim();
+        String soDT = tfSDTKH.getText().trim();
+        String soCMND = tfSoCMNDKH.getText().trim();
+        String diaChi = tfDiaChiKH.getText().trim();
+        boolean gioiTinh = rbtnKHNu.isSelected();
+//        String date = LocalDateTime.now().toString();
+//        System.out.println(getDate(date));
+        KhachHang kh = new KhachHang(0, tenKH, soDT, soCMND, diaChi, gioiTinh);
+        try {
+            new KhachHangDAO().themKhachHang(kh);
+            
+            int maCuoi = new KhachHangDAO().getLastMaKH();
+            String maPhong = tfMaPhongDat.getText().trim();
+            LocalDateTime ngayDatPhong = LocalDateTime.now();
+            String ngayDatFormat = getDate(ngayDatPhong.toString());
+            new DatPhongDAO().themDatPhong(ngayDatFormat, maPhong, maCuoi);
+            
+            new SoDoPhongDAO().updateTrangThaiPhong("pdt", maPhong);
+            
+            refreshSoDoPhong();
+            loadSoDoPhong(getSoDoPhong());
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }//GEN-LAST:event_buttonCustom4ActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup btnGroupGioiTinhKH;
     private javax.swing.ButtonGroup btnGroupLoaiPhong;
@@ -2588,7 +2622,6 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
-    private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;

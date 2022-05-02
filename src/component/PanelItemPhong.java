@@ -1,11 +1,17 @@
 package component;
 
+import dao.DatPhongDAO;
+import dao.NhanPhongDAO;
 import dao.SoDoPhongDAO;
 import entity.Phong;
 import entity.LoaiPhong;
 import gui.GDChinh;
 import java.awt.Dimension;
 import java.awt.event.MouseEvent;
+import java.sql.SQLException;
+import java.time.LocalDateTime;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import main.Main;
 import other.BienMacDinh;
 
@@ -133,6 +139,11 @@ public class PanelItemPhong extends javax.swing.JPanel {
         pdtNhanPhong.setBackground(new java.awt.Color(255, 255, 255));
         pdtNhanPhong.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
         pdtNhanPhong.setText("Nhận phòng");
+        pdtNhanPhong.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pdtNhanPhongActionPerformed(evt);
+            }
+        });
         pMenuPhongDatTruoc.add(pdtNhanPhong);
 
         pdtHuyDat.setBackground(new java.awt.Color(255, 255, 255));
@@ -274,19 +285,30 @@ public class PanelItemPhong extends javax.swing.JPanel {
     }//GEN-LAST:event_ptSuaChuaActionPerformed
 
     private void pdtHuyDatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pdtHuyDatActionPerformed
-        try {
-            new SoDoPhongDAO().updateTrangThaiPhong("pt", maPhong);
-            Main.gdChinh.refreshSoDoPhong();
-            Main.gdChinh.loadSoDoPhong(Main.gdChinh.getSoDoPhong());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        
     }//GEN-LAST:event_pdtHuyDatActionPerformed
 
     private void ptDatPhongActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ptDatPhongActionPerformed
         Main.gdChinh.chuyenManHinh(2);
         Main.gdChinh.setTextTTDatPhong(maPhong, loaiPhong);
     }//GEN-LAST:event_ptDatPhongActionPerformed
+
+    private void pdtNhanPhongActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pdtNhanPhongActionPerformed
+        try {
+            int maKHDatPhong = new DatPhongDAO().nguoiDatPhong(maPhong);
+            
+            LocalDateTime ngayNhanPhong = LocalDateTime.now();
+            String ngayNhanFormat = Main.gdChinh.getDate(ngayNhanPhong.toString());
+            new NhanPhongDAO().themNhanPhong(ngayNhanFormat, maPhong, maKHDatPhong);
+            
+            new SoDoPhongDAO().updateTrangThaiPhong(Phong.PHONG_CO_NGUOI, maPhong);
+            Main.gdChinh.refreshSoDoPhong();
+            Main.gdChinh.loadSoDoPhong(Main.gdChinh.getSoDoPhong());
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }//GEN-LAST:event_pdtNhanPhongActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

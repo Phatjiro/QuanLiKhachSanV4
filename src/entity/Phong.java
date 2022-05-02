@@ -15,6 +15,11 @@ public class Phong {
     private String trangThaiPhong;
     private LoaiPhong loaiPhong;
 
+    public static String PHONG_TRONG = "pt";
+    public static String PHONG_DAT_TRUOC = "pdt";
+    public static String PHONG_CO_NGUOI = "pcn";
+    public static String PHONG_DANG_SUA = "pds";
+    
     public Phong() {
     }
 

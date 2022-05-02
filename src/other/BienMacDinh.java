@@ -34,4 +34,5 @@ public interface BienMacDinh {
      * Biến mặc định font cho chương trình
      */
     Font fontButtonDangNhap = new Font("Arial", Font.PLAIN, 14);
+    
 }
