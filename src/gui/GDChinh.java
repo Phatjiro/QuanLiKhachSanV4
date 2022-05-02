@@ -1,6 +1,7 @@
 package gui;
 
 import component.CustomConfirmDialog;
+import component.CustomMessageDialog;
 import component.PanelItemPhong;
 import custom.MyScrollBar;
 import dao.DatPhongDAO;
@@ -2099,6 +2100,7 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
         );
 
         scrKhachHang.setBackground(new java.awt.Color(255, 255, 255));
+        scrKhachHang.setBorder(null);
         scrKhachHang.setFocusable(false);
 
         tableKH.setModel(new javax.swing.table.DefaultTableModel(
@@ -2659,6 +2661,12 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
             dsKhachHang = new KhachHangDAO().getAllKhachHang();
             loadDSKhachHangLenUI(dsKhachHang);
             
+            CustomMessageDialog cmdDatPhong = new CustomMessageDialog(this);
+            cmdDatPhong.showMessage("Đặt phòng thành công!", "Chúc mừng bạn đặt phòng thành công ^^\nQua sơ đồ phòng kiểm tra");
+
+            if (cmdDatPhong.getMessageType() == CustomMessageDialog.MessageType.OK) {  
+            }
+            
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -3055,6 +3063,7 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
     }
     
     public void loadDSKhachHangLenUI(ArrayList<KhachHang> dsKH) {
+        modelKhachHang.setRowCount(0);
         for (KhachHang item : dsKH) {
             String gioiTinh = "Nam";
             if (item.isGioiTinh()) {
