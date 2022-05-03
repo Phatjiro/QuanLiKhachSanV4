@@ -18,7 +18,7 @@ public interface BienMacDinh {
     Color mauBorderBottomMenu = new Color(255, 153, 102);
     Color mauNenDangNhap = new Color(4, 135, 217);
     Color mauTieuDeTable = new Color(57, 86, 151);
-    Color mauSelectTable = new Color(217, 209, 213);
+    Color mauSelectTable = new Color(255, 138, 48);
     Color mauGridTable = new Color(204, 204, 204);
     
     Color mauPhongTrong = new Color(67, 160, 71);

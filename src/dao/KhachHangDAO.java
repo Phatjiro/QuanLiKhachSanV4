@@ -92,4 +92,45 @@ public class KhachHangDAO {
         
         return maCuoi;
     }
+    
+    public void xoaKhachHang(int maKhach) throws SQLException {
+        KetNoiCSDL.getInstance();
+        KetNoiCSDL knCSDL = new KetNoiCSDL();
+        knCSDL.connect();
+        Connection con = knCSDL.getConnection();
+        
+        try {
+            String sql = "DELETE FROM KhachHang WHERE maKH = ?;";
+            PreparedStatement prepStmt = con.prepareStatement(sql);
+            prepStmt.setInt(1, maKhach);
+            prepStmt.executeUpdate();
+        } catch (Exception e) {
+            System.err.println("xoaKhachHang - KhachHangDAO");
+            e.printStackTrace();
+        }
+    }
+    
+    public String getHoTenByMaKH(int maKhach) throws SQLException {
+        String tenKhach= "";
+        KetNoiCSDL.getInstance();
+        KetNoiCSDL knCSDL = new KetNoiCSDL();
+        knCSDL.connect();
+        Connection con = knCSDL.getConnection();
+        
+        try {
+            String sql = "SELECT hoTen FROM KhachHang WHERE maKH = ?";
+            PreparedStatement prepStmt = con.prepareStatement(sql);
+            prepStmt.setInt(1, maKhach);
+            
+            ResultSet rs = prepStmt.executeQuery();
+            rs.next();
+            tenKhach = rs.getString(1);
+            
+        } catch (Exception e) {
+            System.err.println("getHoTenByMaKH - KhachHangDAO");
+            e.printStackTrace();
+        }
+        
+        return tenKhach;
+    }
 }

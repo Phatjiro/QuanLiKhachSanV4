@@ -1,10 +1,12 @@
 package component;
 
 import dao.DatPhongDAO;
+import dao.KhachHangDAO;
 import dao.NhanPhongDAO;
 import dao.SoDoPhongDAO;
 import entity.Phong;
 import entity.LoaiPhong;
+import gui.GDChinh;
 import java.awt.Dimension;
 import java.awt.event.MouseEvent;
 import java.sql.SQLException;
@@ -172,11 +174,21 @@ public class PanelItemPhong extends javax.swing.JPanel {
         pcnDatDV.setBackground(new java.awt.Color(255, 255, 255));
         pcnDatDV.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
         pcnDatDV.setText("Đặt dịch vụ");
+        pcnDatDV.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pcnDatDVActionPerformed(evt);
+            }
+        });
         pMenuPhongCoNguoi.add(pcnDatDV);
 
         pcnTraPhong.setBackground(new java.awt.Color(255, 255, 255));
         pcnTraPhong.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
         pcnTraPhong.setText("Trả phòng");
+        pcnTraPhong.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pcnTraPhongActionPerformed(evt);
+            }
+        });
         pMenuPhongCoNguoi.add(pcnTraPhong);
 
         pcnTTNguoiThue.setBackground(new java.awt.Color(255, 255, 255));
@@ -306,7 +318,14 @@ public class PanelItemPhong extends javax.swing.JPanel {
     }//GEN-LAST:event_ptSuaChuaActionPerformed
 
     private void pdtHuyDatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pdtHuyDatActionPerformed
-        
+        try {
+            new DatPhongDAO().xoaDatPhong(maPhong);
+            new SoDoPhongDAO().updateTrangThaiPhong(Phong.PHONG_TRONG, maPhong);
+            Main.gdChinh.refreshSoDoPhong();
+            Main.gdChinh.loadSoDoPhong(Main.gdChinh.getSoDoPhong());
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
     }//GEN-LAST:event_pdtHuyDatActionPerformed
 
     private void ptDatPhongActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ptDatPhongActionPerformed
@@ -321,7 +340,7 @@ public class PanelItemPhong extends javax.swing.JPanel {
             LocalDateTime ngayNhanPhong = LocalDateTime.now();
             String ngayNhanFormat = Main.gdChinh.getDate(ngayNhanPhong.toString());
             new NhanPhongDAO().themNhanPhong(ngayNhanFormat, maPhong, maKHDatPhong);
-            
+            new DatPhongDAO().xoaDatPhong(maPhong);
             new SoDoPhongDAO().updateTrangThaiPhong(Phong.PHONG_CO_NGUOI, maPhong);
             Main.gdChinh.refreshSoDoPhong();
             Main.gdChinh.loadSoDoPhong(Main.gdChinh.getSoDoPhong());
@@ -350,6 +369,33 @@ public class PanelItemPhong extends javax.swing.JPanel {
             ex.printStackTrace();
         }
     }//GEN-LAST:event_pcnTTNguoiThueActionPerformed
+
+    private void pcnTraPhongActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pcnTraPhongActionPerformed
+        try {
+            int maKhach = new NhanPhongDAO().nguoiNhanPhong(maPhong);
+            new NhanPhongDAO().xoaNhanPhong(maPhong);
+            new KhachHangDAO().xoaKhachHang(maKhach);
+            new SoDoPhongDAO().updateTrangThaiPhong(Phong.PHONG_TRONG, maPhong);
+            Main.gdChinh.refreshSoDoPhong();
+            Main.gdChinh.loadSoDoPhong(Main.gdChinh.getSoDoPhong());
+            Main.gdChinh.loadDSKhachHangLenUI(new KhachHangDAO().getAllKhachHang());
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }//GEN-LAST:event_pcnTraPhongActionPerformed
+
+    private void pcnDatDVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pcnDatDVActionPerformed
+        Main.gdChinh.chuyenManHinh(4);
+        try {
+            int maKhachHang = new NhanPhongDAO().nguoiNhanPhong(maPhong);
+            String hoTenKH = new KhachHangDAO().getHoTenByMaKH(maKhachHang);
+            
+            Main.gdChinh.setTextDatDichVu(maKhachHang, hoTenKH, maPhong);
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }//GEN-LAST:event_pcnDatDVActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

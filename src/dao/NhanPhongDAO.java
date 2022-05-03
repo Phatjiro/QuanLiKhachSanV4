@@ -90,4 +90,21 @@ public class NhanPhongDAO {
         
         return maNguoiNhanPhong;
     }
+    
+    public void xoaNhanPhong(String maPhongThue) throws SQLException {
+        KetNoiCSDL.getInstance();
+        KetNoiCSDL knCSDL = new KetNoiCSDL();
+        knCSDL.connect();
+        Connection con = knCSDL.getConnection();
+        
+        try {
+            String sql = "DELETE FROM NhanPhong WHERE maPhong = ?;";
+            PreparedStatement prepStmt = con.prepareStatement(sql);
+            prepStmt.setString(1, maPhongThue);
+            prepStmt.executeUpdate();
+        } catch (Exception e) {
+            System.err.println("xoaNhanPhong - NhanPhongDAO");
+            e.printStackTrace();
+        }
+    }
 }

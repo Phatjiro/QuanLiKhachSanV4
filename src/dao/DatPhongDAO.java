@@ -91,4 +91,21 @@ public class DatPhongDAO {
         
         return maNguoiDatPhong;
     }
+    
+    public void xoaDatPhong(String maPhongDat) throws SQLException {
+        KetNoiCSDL.getInstance();
+        KetNoiCSDL knCSDL = new KetNoiCSDL();
+        knCSDL.connect();
+        Connection con = knCSDL.getConnection();
+        
+        try {
+            String sql = "DELETE FROM DatPhong WHERE maPhong = ?;";
+            PreparedStatement prepStmt = con.prepareStatement(sql);
+            prepStmt.setString(1, maPhongDat);
+            prepStmt.executeUpdate();
+        } catch (Exception e) {
+            System.err.println("xoaDatPhong - DatPhongDAO");
+            e.printStackTrace();
+        }
+    }
 }
