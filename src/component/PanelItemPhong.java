@@ -1,9 +1,12 @@
 package component;
 
+import dao.DatDichVuDAO;
 import dao.DatPhongDAO;
 import dao.KhachHangDAO;
 import dao.NhanPhongDAO;
 import dao.SoDoPhongDAO;
+import entity.DatDichVu;
+import entity.HoaDon;
 import entity.Phong;
 import entity.LoaiPhong;
 import gui.GDChinh;
@@ -11,6 +14,9 @@ import java.awt.Dimension;
 import java.awt.event.MouseEvent;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
+import java.time.Month;
+import static java.time.temporal.ChronoUnit.DAYS;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import main.Main;
@@ -24,6 +30,7 @@ public class PanelItemPhong extends javax.swing.JPanel {
 
     public Phong phong;
     public String maPhong, loaiPhong, trangThaiPhong;
+    public HoaDon hd;
     /**
      * Creates new form PanelItemPhong
      */
@@ -371,14 +378,54 @@ public class PanelItemPhong extends javax.swing.JPanel {
     }//GEN-LAST:event_pcnTTNguoiThueActionPerformed
 
     private void pcnTraPhongActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pcnTraPhongActionPerformed
+
         try {
             int maKhach = new NhanPhongDAO().nguoiNhanPhong(maPhong);
+            String hoTenKH = new KhachHangDAO().getHoTenByMaKH(maKhach);
+            String ngayNhanPhong = new NhanPhongDAO().getNgayNhan(maPhong);
+            ArrayList<DatDichVu> dsDichVuByKH = new DatDichVuDAO().getByMaKH(maKhach);
+            int soLuongBuffetAn = 0;
+            int soLuongBuffetUong = 0;
+            for (int i=0; i< dsDichVuByKH.size(); i++) {
+                if (dsDichVuByKH.get(i).getMaDV() == 1) {
+                    soLuongBuffetAn = dsDichVuByKH.get(i).getSoLuongDV();
+                }
+                if (dsDichVuByKH.get(i).getMaDV() == 2) {
+                    soLuongBuffetUong = dsDichVuByKH.get(i).getSoLuongDV();
+                }
+            }
+            
+            LocalDateTime ngayHienTai = LocalDateTime.now();
+            int nam, thang, ngay;
+            String[] splitNganNhanPhong = ngayNhanPhong.substring(0,10).split("-");
+            nam = Integer.parseInt(splitNganNhanPhong[0]);
+            thang = Integer.parseInt(splitNganNhanPhong[1]);
+            ngay = Integer.parseInt(splitNganNhanPhong[2]);
+            LocalDateTime ngayNhanPhongLCD = LocalDateTime.of(nam, thang, ngay, 0, 0);
+            int soNgayThue = (int) DAYS.between(ngayNhanPhongLCD, ngayHienTai);
+            double giaPhongDangThue = new SoDoPhongDAO().getTienGiaPhong(maPhong);
+            double tienPhu = 0;
+            if (soNgayThue == 0) {
+                tienPhu = 500000;
+            }
+            
+            double tongTienHT = giaPhongDangThue*soNgayThue + soLuongBuffetAn*500000 + soLuongBuffetUong*200000 + tienPhu;
+            
+            Main.gdChinh.setTextTraPhong(maKhach, hoTenKH, maPhong, ngayNhanPhong, soLuongBuffetAn, soLuongBuffetUong, tongTienHT);
+            
+            hd = new HoaDon(0, giaPhongDangThue*soNgayThue, soLuongBuffetAn*500000 + soLuongBuffetUong*200000, tongTienHT, ngayNhanPhongLCD, ngayHienTai, Main.gdChinh.maNhanVien, maKhach, maPhong);
+            
+            Main.gdChinh.hd = hd;
+            
             new NhanPhongDAO().xoaNhanPhong(maPhong);
-            new KhachHangDAO().xoaKhachHang(maKhach);
-            new SoDoPhongDAO().updateTrangThaiPhong(Phong.PHONG_TRONG, maPhong);
-            Main.gdChinh.refreshSoDoPhong();
-            Main.gdChinh.loadSoDoPhong(Main.gdChinh.getSoDoPhong());
-            Main.gdChinh.loadDSKhachHangLenUI(new KhachHangDAO().getAllKhachHang());
+//            new KhachHangDAO().xoaKhachHang(maKhach);
+//            new SoDoPhongDAO().updateTrangThaiPhong(Phong.PHONG_TRONG, maPhong);
+            
+//            Main.gdChinh.refreshSoDoPhong();
+//            Main.gdChinh.loadSoDoPhong(Main.gdChinh.getSoDoPhong());
+//            Main.gdChinh.loadDSKhachHangLenUI(new KhachHangDAO().getAllKhachHang());
+            Main.gdChinh.chuyenManHinh(3);
+            
         } catch (SQLException ex) {
             ex.printStackTrace();
         }

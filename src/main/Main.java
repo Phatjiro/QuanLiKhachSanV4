@@ -1,6 +1,7 @@
 package main;
 
 import gui.GDChinh;
+import gui.GDDangNhap;
 import java.sql.SQLException;
 
 /**
@@ -17,8 +18,7 @@ public class Main {
      */
     public static void main(String[] args) throws SQLException {
         System.out.println("Cay cú tạo nên khác biệt!");
-        gdChinh = new GDChinh();
-        gdChinh.setVisible(true);
+        new GDDangNhap().setVisible(true);
     }
     
 }

@@ -8,24 +8,28 @@ import java.time.LocalDateTime;
  */
 public class HoaDon {
     private int maHD;
-    private LocalDateTime thoiGianLapHD;
-    private double tienKhachDua;
-    private NhanVien nhanVien;
-    private KhachHang khachHang;
+    private double tienPhong;
+    private double tienDichVu;
+    private double tongTien;
+    private LocalDateTime ngayNhanPhong;
+    private LocalDateTime ngayTraPhong;
+    private String maNV;
+    private int maKH;
+    private String maPhong;
 
     public HoaDon() {
     }
 
-    public HoaDon(int maHD) {
+    public HoaDon(int maHD, double tienPhong, double tienDichVu, double tongTien, LocalDateTime ngayNhanPhong, LocalDateTime ngayTraPhong, String maNV, int maKH, String maPhong) {
         this.maHD = maHD;
-    }
-
-    public HoaDon(int maHD, LocalDateTime thoiGianLapHD, double tienKhachDua, NhanVien nhanVien, KhachHang khachHang) {
-        this.maHD = maHD;
-        this.thoiGianLapHD = thoiGianLapHD;
-        this.tienKhachDua = tienKhachDua;
-        this.nhanVien = nhanVien;
-        this.khachHang = khachHang;
+        this.tienPhong = tienPhong;
+        this.tienDichVu = tienDichVu;
+        this.tongTien = tongTien;
+        this.ngayNhanPhong = ngayNhanPhong;
+        this.ngayTraPhong = ngayTraPhong;
+        this.maNV = maNV;
+        this.maKH = maKH;
+        this.maPhong = maPhong;
     }
 
     public int getMaHD() {
@@ -36,65 +40,84 @@ public class HoaDon {
         this.maHD = maHD;
     }
 
-    public LocalDateTime getThoiGianLapHD() {
-        return thoiGianLapHD;
+    public double getTienPhong() {
+        return tienPhong;
     }
 
-    public void setThoiGianLapHD(LocalDateTime thoiGianLapHD) {
-        this.thoiGianLapHD = thoiGianLapHD;
+    public void setTienPhong(double tienPhong) {
+        this.tienPhong = tienPhong;
     }
 
-    public double getTienKhachDua() {
-        return tienKhachDua;
+    public double getTienDichVu() {
+        return tienDichVu;
     }
 
-    public void setTienKhachDua(double tienKhachDua) {
-        this.tienKhachDua = tienKhachDua;
+    public void setTienDichVu(double tienDichVu) {
+        this.tienDichVu = tienDichVu;
     }
 
-    public NhanVien getNhanVien() {
-        return nhanVien;
+    public double getTongTien() {
+        return tongTien;
     }
 
-    public void setNhanVien(NhanVien nhanVien) {
-        this.nhanVien = nhanVien;
+    public void setTongTien(double tongTien) {
+        this.tongTien = tongTien;
     }
 
-    public KhachHang getKhachHang() {
-        return khachHang;
+    public LocalDateTime getNgayNhanPhong() {
+        return ngayNhanPhong;
     }
 
-    public void setKhachHang(KhachHang khachHang) {
-        this.khachHang = khachHang;
+    public void setNgayNhanPhong(LocalDateTime ngayNhanPhong) {
+        this.ngayNhanPhong = ngayNhanPhong;
+    }
+
+    public LocalDateTime getNgayTraPhong() {
+        return ngayTraPhong;
+    }
+
+    public void setNgayTraPhong(LocalDateTime ngayTraPhong) {
+        this.ngayTraPhong = ngayTraPhong;
+    }
+
+    public String getMaNV() {
+        return maNV;
+    }
+
+    public void setMaNV(String maNV) {
+        this.maNV = maNV;
+    }
+
+    public int getMaKH() {
+        return maKH;
+    }
+
+    public void setMaKH(int maKH) {
+        this.maKH = maKH;
+    }
+
+    public String getMaPhong() {
+        return maPhong;
+    }
+
+    public void setMaPhong(String maPhong) {
+        this.maPhong = maPhong;
     }
 
     @Override
     public String toString() {
-        return "HoaDon{" + "maHD=" + maHD + ", thoiGianLapHD=" + thoiGianLapHD + ", tienKhachDua=" + tienKhachDua + ", nhanVien=" + nhanVien + ", khachHang=" + khachHang + '}';
+        return "HoaDon{" + "maHD=" + maHD + ", tienPhong=" + tienPhong + ", tienDichVu=" + tienDichVu + ", tongTien=" + tongTien + ", ngayNhanPhong=" + ngayNhanPhong + ", ngayTraPhong=" + ngayTraPhong + ", maNV=" + maNV + ", maKH=" + maKH + ", maPhong=" + maPhong + '}';
     }
-
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 97 * hash + this.maHD;
-        return hash;
+    
+    public String get10char(String s) {
+        return s.substring(0, 10);
     }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final HoaDon other = (HoaDon) obj;
-        if (this.maHD != other.maHD) {
-            return false;
-        }
-        return true;
+    
+    public String getNgayNhanString() {
+        return get10char(this.ngayNhanPhong.toString());
+    }
+    
+    public String getNgayTraString() {
+        return get10char(this.ngayTraPhong.toString());
     }
 }

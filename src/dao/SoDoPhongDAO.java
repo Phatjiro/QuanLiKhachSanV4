@@ -241,4 +241,28 @@ public class SoDoPhongDAO {
         
         return count;
     }
+    
+    public double getTienGiaPhong(String maPhong) throws SQLException {
+        double giaPhong = 0;
+        KetNoiCSDL.getInstance();
+        KetNoiCSDL knCSDL = new KetNoiCSDL();
+        knCSDL.connect();
+
+        Connection con = knCSDL.getConnection();
+        
+        try {
+            
+            String sql = "SELECT giaPhong FROM Phong WHERE maPhong = ?";
+            PreparedStatement prepStmt = con.prepareStatement(sql);
+            prepStmt.setString(1, maPhong);
+            ResultSet rs = prepStmt.executeQuery();
+            rs.next();
+            giaPhong = rs.getDouble(1);
+            
+        } catch (Exception e) {
+            
+        }
+        
+        return giaPhong;
+    }
 }

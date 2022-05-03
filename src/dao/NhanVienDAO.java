@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.sql.PreparedStatement;
 
 /**
  *
@@ -45,5 +46,28 @@ public class NhanVienDAO {
         }
         
         return dsNhanVien;
+    }
+    
+    public String getTenNhanVienByMaNV(String maNV) throws SQLException {
+        String tenNhanVien = "";
+        KetNoiCSDL.getInstance();
+        KetNoiCSDL knCSDL = new KetNoiCSDL();
+        knCSDL.connect();
+
+        Connection con = knCSDL.getConnection();
+        
+        try {
+            String sql = "Select hoTen from NhanVien WHERE maNV = ?";
+            PreparedStatement prepStmt = con.prepareStatement(sql);
+            prepStmt.setString(1, maNV);
+            
+            ResultSet rs = prepStmt.executeQuery();
+            rs.next();
+            tenNhanVien = rs.getString(1);
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return tenNhanVien;
     }
 }

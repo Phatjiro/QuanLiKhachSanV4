@@ -3,6 +3,7 @@ package gui;
 import custom.Button;
 import custom.MyPasswordField;
 import custom.MyTextField;
+import dao.NhanVienDAO;
 import dao.TaiKhoanDAO;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
@@ -11,6 +12,8 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import main.Main;
+import static main.Main.gdChinh;
 import other.BienMacDinh;
 
 /**
@@ -56,6 +59,9 @@ public class GDDangNhap extends javax.swing.JFrame implements ActionListener {
         jPanel4.add(tfMatKhau);
         jPanel4.add(btnDangNhap);
         
+        tfTenDangNhap.setText("user");
+        tfMatKhau.setText("123456");
+        
         btnDangNhap.addActionListener(this);
     }
 
@@ -73,7 +79,12 @@ public class GDDangNhap extends javax.swing.JFrame implements ActionListener {
                 System.out.println(taiKhoan + "   " + matKhau);
                 boolean kiemTraTaiKhoan = new TaiKhoanDAO().kiemTraTaiKhoan(taiKhoan, matKhau);
                 if (kiemTraTaiKhoan) {
+                    Main.gdChinh = new GDChinh();
+                    Main.gdChinh.setTextTenNhanVienDN(new NhanVienDAO().getTenNhanVienByMaNV(new TaiKhoanDAO().getMaNVDangNhap(taiKhoan, matKhau)));
                     System.out.println("Dang nhap thanh cong");
+                    Main.gdChinh.setVisible(true);
+                    Main.gdChinh.maNhanVien = new TaiKhoanDAO().getMaNVDangNhap(taiKhoan, matKhau);
+                    this.setVisible(false);
                 }
                 else {
                     System.out.println("Dang nhap that bai");

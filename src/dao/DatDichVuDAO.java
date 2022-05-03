@@ -27,7 +27,7 @@ public class DatDichVuDAO {
             PreparedStatement prepStmt = con.prepareStatement(sql);
             prepStmt.setInt(1, maKhach);
             
-            ResultSet rs = prepStmt.executeQuery(sql);
+            ResultSet rs = prepStmt.executeQuery();
             
             while (rs.next()) {
                 int maDatDV = rs.getInt(1);
@@ -118,4 +118,5 @@ public class DatDichVuDAO {
         
         return dsDichVuTheoKH;
     }
+    
 }

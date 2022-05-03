@@ -41,4 +41,35 @@ public class TaiKhoanDAO {
         
         return false;
     }
+    
+    public String getMaNVDangNhap(String taiKhoan, String matKhau) throws SQLException {
+        KetNoiCSDL.getInstance();
+        KetNoiCSDL knCSDL = new KetNoiCSDL();
+        knCSDL.connect();
+
+        Connection con = knCSDL.getConnection();
+        
+        PreparedStatement prepStmt = null;
+        String sql = "SELECT maNV FROM TaiKhoan WHERE tenDN = ? AND matKhau = ?";
+        
+        try {
+            
+            prepStmt = con.prepareStatement(sql);
+            prepStmt.setString(1, taiKhoan);
+            prepStmt.setString(2, matKhau);
+            ResultSet rs = prepStmt.executeQuery();
+            
+            if (rs.next()) {
+                return rs.getString(1);
+            } else {
+                return "Không có nhân viên này!";
+            }
+            
+        } catch (Exception e) {
+            System.err.println("getMaNVDangNhap failed - pls check in TaiKhoanDAO");
+            e.printStackTrace();
+        }
+        
+        return "Tên nhân viên";
+    }
 }
