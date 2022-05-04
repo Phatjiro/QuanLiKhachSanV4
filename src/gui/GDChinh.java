@@ -329,7 +329,7 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
         btnMenuSoDoPhong = new custom.Button();
         button2 = new custom.Button();
         lblTenNVSoDoPhong = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        lblChucVuNhanVien1 = new javax.swing.JLabel();
         jLabel37 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
@@ -368,7 +368,7 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
         btnMenuQLDatPhong = new custom.Button();
         button3 = new custom.Button();
         lblTenNVQLDP = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
+        lblChucVuNhanVien2 = new javax.swing.JLabel();
         jLabel38 = new javax.swing.JLabel();
         jPanel20 = new javax.swing.JPanel();
         jPanel21 = new javax.swing.JPanel();
@@ -400,7 +400,7 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
         btnMenuQLTraPhong = new custom.Button();
         button4 = new custom.Button();
         lblTenNVQLTP = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
+        lblChucVuNhanVien3 = new javax.swing.JLabel();
         jLabel39 = new javax.swing.JLabel();
         jPanel35 = new javax.swing.JPanel();
         jLabel33 = new javax.swing.JLabel();
@@ -430,7 +430,7 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
         btnMenuQLDichVu = new custom.Button();
         button5 = new custom.Button();
         lblTenNVQLDV = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
+        lblChucVuNhanVien4 = new javax.swing.JLabel();
         jLabel40 = new javax.swing.JLabel();
         jPanel50 = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
@@ -455,7 +455,7 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
         btnMenuQLNhanVien = new custom.Button();
         button11 = new custom.Button();
         lblTenNVQLNhanVien = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
+        lblChucVuNhanVien5 = new javax.swing.JLabel();
         jLabel41 = new javax.swing.JLabel();
         jPanel17 = new javax.swing.JPanel();
         jPanel23 = new javax.swing.JPanel();
@@ -478,7 +478,7 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
         btnMenuQLKhachHang = new custom.Button();
         button15 = new custom.Button();
         lblTenNVQLKhachHang = new javax.swing.JLabel();
-        jLabel27 = new javax.swing.JLabel();
+        lblChucVuNhanVien6 = new javax.swing.JLabel();
         jLabel42 = new javax.swing.JLabel();
         jPanel29 = new javax.swing.JPanel();
         jPanel31 = new javax.swing.JPanel();
@@ -502,7 +502,7 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
         btnMenuQLHoaDon = new custom.Button();
         button16 = new custom.Button();
         lblTenNhanVienQLHoaDon = new javax.swing.JLabel();
-        jLabel26 = new javax.swing.JLabel();
+        lblChucVuNhanVien7 = new javax.swing.JLabel();
         jLabel43 = new javax.swing.JLabel();
         jPanel37 = new javax.swing.JPanel();
         jPanel40 = new javax.swing.JPanel();
@@ -796,8 +796,8 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
         lblTenNVSoDoPhong.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         lblTenNVSoDoPhong.setText("Tên nhân viên");
 
-        jLabel4.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel4.setText("Chức vụ");
+        lblChucVuNhanVien1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        lblChucVuNhanVien1.setText("Chức vụ");
 
         jLabel37.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabel37.setForeground(new java.awt.Color(204, 0, 51));
@@ -816,7 +816,7 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblTenNVSoDoPhong, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(lblChucVuNhanVien1, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(button2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -829,7 +829,7 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(lblTenNVSoDoPhong)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
-                        .addComponent(jLabel4))
+                        .addComponent(lblChucVuNhanVien1))
                     .addComponent(button2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addComponent(btnMenuSoDoPhong, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel37, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -1256,8 +1256,8 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
         lblTenNVQLDP.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         lblTenNVQLDP.setText("Tên nhân viên");
 
-        jLabel11.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel11.setText("Chức vụ");
+        lblChucVuNhanVien2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        lblChucVuNhanVien2.setText("Chức vụ");
 
         jLabel38.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabel38.setForeground(new java.awt.Color(204, 0, 51));
@@ -1276,7 +1276,7 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblTenNVQLDP, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(lblChucVuNhanVien2, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(button3, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -1289,7 +1289,7 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
                     .addComponent(jLabel38, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel16Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel11))
+                        .addComponent(lblChucVuNhanVien2))
                     .addComponent(button3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addGroup(jPanel16Layout.createSequentialGroup()
                         .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1543,8 +1543,8 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
         lblTenNVQLTP.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         lblTenNVQLTP.setText("Tên nhân viên");
 
-        jLabel12.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel12.setText("Chức vụ");
+        lblChucVuNhanVien3.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        lblChucVuNhanVien3.setText("Chức vụ");
 
         jLabel39.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabel39.setForeground(new java.awt.Color(204, 0, 51));
@@ -1563,7 +1563,7 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblTenNVQLTP, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(lblChucVuNhanVien3, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(button4, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -1576,7 +1576,7 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
                     .addComponent(jLabel39, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel19Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel12))
+                        .addComponent(lblChucVuNhanVien3))
                     .addComponent(button4, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addGroup(jPanel19Layout.createSequentialGroup()
                         .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1800,8 +1800,8 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
         lblTenNVQLDV.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         lblTenNVQLDV.setText("Tên nhân viên");
 
-        jLabel8.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel8.setText("Chức vụ");
+        lblChucVuNhanVien4.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        lblChucVuNhanVien4.setText("Chức vụ");
 
         jLabel40.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabel40.setForeground(new java.awt.Color(204, 0, 51));
@@ -1820,7 +1820,7 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblTenNVQLDV, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(lblChucVuNhanVien4, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(button5, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -1833,7 +1833,7 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
                     .addGroup(jPanel8Layout.createSequentialGroup()
                         .addComponent(lblTenNVQLDV)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel8))
+                        .addComponent(lblChucVuNhanVien4))
                     .addComponent(button5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnMenuQLDichVu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel40, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -2023,8 +2023,8 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
         lblTenNVQLNhanVien.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         lblTenNVQLNhanVien.setText("Tên nhân viên");
 
-        jLabel14.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel14.setText("Chức vụ");
+        lblChucVuNhanVien5.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        lblChucVuNhanVien5.setText("Chức vụ");
 
         jLabel41.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabel41.setForeground(new java.awt.Color(204, 0, 51));
@@ -2043,7 +2043,7 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblTenNVQLNhanVien, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(lblChucVuNhanVien5, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(button11, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -2056,7 +2056,7 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
                     .addGroup(jPanel22Layout.createSequentialGroup()
                         .addComponent(lblTenNVQLNhanVien)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel14))
+                        .addComponent(lblChucVuNhanVien5))
                     .addComponent(button11, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnMenuQLNhanVien, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel41, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -2270,8 +2270,8 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
         lblTenNVQLKhachHang.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         lblTenNVQLKhachHang.setText("Tên nhân viên");
 
-        jLabel27.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel27.setText("Chức vụ");
+        lblChucVuNhanVien6.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        lblChucVuNhanVien6.setText("Chức vụ");
 
         jLabel42.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabel42.setForeground(new java.awt.Color(204, 0, 51));
@@ -2290,7 +2290,7 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblTenNVQLKhachHang, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel27, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(lblChucVuNhanVien6, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(button15, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -2303,7 +2303,7 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
                     .addGroup(jPanel28Layout.createSequentialGroup()
                         .addComponent(lblTenNVQLKhachHang)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel27))
+                        .addComponent(lblChucVuNhanVien6))
                     .addComponent(button15, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnMenuQLKhachHang, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel42, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -2556,8 +2556,8 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
         lblTenNhanVienQLHoaDon.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         lblTenNhanVienQLHoaDon.setText("Tên nhân viên");
 
-        jLabel26.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel26.setText("Chức vụ");
+        lblChucVuNhanVien7.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        lblChucVuNhanVien7.setText("Chức vụ");
 
         jLabel43.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabel43.setForeground(new java.awt.Color(204, 0, 51));
@@ -2576,7 +2576,7 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel36Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblTenNhanVienQLHoaDon, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel26, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(lblChucVuNhanVien7, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(button16, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -2589,7 +2589,7 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
                     .addGroup(jPanel36Layout.createSequentialGroup()
                         .addComponent(lblTenNhanVienQLHoaDon)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel26))
+                        .addComponent(lblChucVuNhanVien7))
                     .addComponent(button16, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnMenuQLHoaDon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel43, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -2869,12 +2869,14 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
 
     private void lblDangXuatMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDangXuatMouseClicked
         CustomConfirmDialog ccdDangXuat = new CustomConfirmDialog(this);
-        ccdDangXuat.showMessage("Cảnh báo đăng xuất?", "Đăng xuất sẽ thoát ứng dụng\nKiểm tra cần thận trước khi đăng xuất.");
+        ccdDangXuat.showMessage("Cảnh báo đăng xuất?", "Đăng xuất sẽ trở về giao diện đăng nhập\nKiểm tra cần thận trước khi đăng xuất.");
         
         if (ccdDangXuat.getMessageType() == CustomConfirmDialog.MessageType.OK) {
-            System.exit(0);
+            GDDangNhap gdDangNhap = new GDDangNhap();
+            gdDangNhap.setVisible(true);
+            Main.gdChinh.setVisible(false);
         } else {
-            
+            return;
         }
     }//GEN-LAST:event_lblDangXuatMouseClicked
 
@@ -3065,39 +3067,57 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
     }
     
     private void btnNDDatPhongActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNDDatPhongActionPerformed
-        String tenKH = tfHoTenKH.getText().trim();
-        String soDT = tfSDTKH.getText().trim();
-        String soCMND = tfSoCMNDKH.getText().trim();
-        String diaChi = tfDiaChiKH.getText().trim();
-        boolean gioiTinh = rbtnKHNu.isSelected();
-//        String date = LocalDateTime.now().toString();
-//        System.out.println(getDate(date));
-        KhachHang kh = new KhachHang(0, tenKH, soDT, soCMND, diaChi, gioiTinh);
-        try {
-            new KhachHangDAO().themKhachHang(kh);
-            
-            int maCuoi = new KhachHangDAO().getLastMaKH();
-            String maPhong = tfMaPhongDat.getText().trim();
-            LocalDateTime ngayDatPhong = LocalDateTime.now();
-            String ngayDatFormat = getDate(ngayDatPhong.toString());
-            new DatPhongDAO().themDatPhong(ngayDatFormat, maPhong, maCuoi);
-            
-            new SoDoPhongDAO().updateTrangThaiPhong("pdt", maPhong);
-            
-            refreshSoDoPhong();
-            loadSoDoPhong(getSoDoPhong());
-            
-            dsKhachHang = new KhachHangDAO().getAllKhachHang();
-            loadDSKhachHangLenUI(dsKhachHang);
-            
-            CustomMessageDialog cmdDatPhong = new CustomMessageDialog(this);
-            cmdDatPhong.showMessage("Đặt phòng thành công!", "Cảm ơn quý khách đã đặt phòng ^^\nQua sơ đồ phòng kiểm tra");
+        
+        boolean dungSaiTrong = kiemTraTTKhachTrong(tfHoTenKH.getText().trim(), tfSDTKH.getText().trim(), tfSoCMNDKH.getText().trim(), tfDiaChiKH.getText().trim());
+        if (dungSaiTrong == false) {
+            return;
+        }
+        
+        boolean dungSaiRegex = kiemTraTTKhachRegex(tfHoTenKH.getText().trim(), tfSDTKH.getText().trim(), tfSoCMNDKH.getText().trim(), tfDiaChiKH.getText().trim());
+        if (dungSaiRegex == false) {
+            return;
+        }
+        
+        CustomConfirmDialog ccdDatPhong = new CustomConfirmDialog(this);
+        ccdDatPhong.showMessage("Xác nhận đặt phòng?", "Hãy kiểm tra kĩ thông tin khách hàng trước khi đặt!\nChúc bạn làm việc tốt ^^");
+        
+        if (ccdDatPhong.getMessageType() == CustomConfirmDialog.MessageType.OK) {
+            String tenKH = tfHoTenKH.getText().trim();
+            String soDT = tfSDTKH.getText().trim();
+            String soCMND = tfSoCMNDKH.getText().trim();
+            String diaChi = tfDiaChiKH.getText().trim();
+            boolean gioiTinh = rbtnKHNu.isSelected();
+    //        String date = LocalDateTime.now().toString();
+    //        System.out.println(getDate(date));
+            KhachHang kh = new KhachHang(0, tenKH, soDT, soCMND, diaChi, gioiTinh);
+            try {
+                new KhachHangDAO().themKhachHang(kh);
 
-            if (cmdDatPhong.getMessageType() == CustomMessageDialog.MessageType.OK) {  
+                int maCuoi = new KhachHangDAO().getLastMaKH();
+                String maPhong = tfMaPhongDat.getText().trim();
+                LocalDateTime ngayDatPhong = LocalDateTime.now();
+                String ngayDatFormat = getDate(ngayDatPhong.toString());
+                new DatPhongDAO().themDatPhong(ngayDatFormat, maPhong, maCuoi);
+
+                new SoDoPhongDAO().updateTrangThaiPhong("pdt", maPhong);
+
+                refreshSoDoPhong();
+                loadSoDoPhong(getSoDoPhong());
+
+                dsKhachHang = new KhachHangDAO().getAllKhachHang();
+                loadDSKhachHangLenUI(dsKhachHang);
+
+                CustomMessageDialog cmdDatPhong = new CustomMessageDialog(this);
+                cmdDatPhong.showMessage("Đặt phòng thành công!", "Có thể qua sơ đồ phòng để kiểm tra!\nChúc bạn làm việc tốt ^^");
+
+                if (cmdDatPhong.getMessageType() == CustomMessageDialog.MessageType.OK) {  
+                }
+
+            } catch (SQLException ex) {
+                ex.printStackTrace();
             }
-            
-        } catch (SQLException ex) {
-            ex.printStackTrace();
+        } else {
+            return;
         }
     }//GEN-LAST:event_btnNDDatPhongActionPerformed
 
@@ -3133,86 +3153,128 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
     }//GEN-LAST:event_btnNDXoaTrangActionPerformed
 
     private void btnNDDatNgayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNDDatNgayActionPerformed
-        String tenKH = tfHoTenKH.getText().trim();
-        String soDT = tfSDTKH.getText().trim();
-        String soCMND = tfSoCMNDKH.getText().trim();
-        String diaChi = tfDiaChiKH.getText().trim();
-        boolean gioiTinh = rbtnKHNu.isSelected();
-//        String date = LocalDateTime.now().toString();
-//        System.out.println(getDate(date));
-        KhachHang kh = new KhachHang(0, tenKH, soDT, soCMND, diaChi, gioiTinh);
-        try {
-            new KhachHangDAO().themKhachHang(kh);
-            
-            int maCuoi = new KhachHangDAO().getLastMaKH();
-            String maPhong = tfMaPhongDat.getText().trim();
-            LocalDateTime ngayDatPhong = LocalDateTime.now();
-            String ngayDatFormat = getDate(ngayDatPhong.toString());
-            
-            new NhanPhongDAO().themNhanPhong(ngayDatFormat, maPhong, maCuoi);
-            new SoDoPhongDAO().updateTrangThaiPhong(Phong.PHONG_CO_NGUOI, maPhong);
-            
-            refreshSoDoPhong();
-            loadSoDoPhong(getSoDoPhong());
-            
-            dsKhachHang = new KhachHangDAO().getAllKhachHang();
-            loadDSKhachHangLenUI(dsKhachHang);
-            
-            CustomMessageDialog cmdDatPhong = new CustomMessageDialog(this);
-            cmdDatPhong.showMessage("Đặt và nhận phòng thành công!", "Chúc mừng quý khách tới khách sạn ^^\nQua sơ đồ phòng kiểm tra");
+        
+        boolean dungSai = kiemTraTTKhachRegex(tfHoTenKH.getText().trim(), tfSDTKH.getText().trim(), tfSoCMNDKH.getText().trim(), tfDiaChiKH.getText().trim());
+        if (dungSai == false) {
+            return;
+        }
+        
+        CustomConfirmDialog ccdDatNgay = new CustomConfirmDialog(this);
+        ccdDatNgay.showMessage("Xác nhận đặt phòng ngay?", "Hãy kiểm tra kĩ thông tin khách hàng trước khi đặt!\nChúc bạn làm việc tốt ^^");
+        
+        if (ccdDatNgay.getMessageType() == CustomConfirmDialog.MessageType.OK) {
+            String tenKH = tfHoTenKH.getText().trim();
+            String soDT = tfSDTKH.getText().trim();
+            String soCMND = tfSoCMNDKH.getText().trim();
+            String diaChi = tfDiaChiKH.getText().trim();
+            boolean gioiTinh = rbtnKHNu.isSelected();
+    //        String date = LocalDateTime.now().toString();
+    //        System.out.println(getDate(date));
+            KhachHang kh = new KhachHang(0, tenKH, soDT, soCMND, diaChi, gioiTinh);
+            try {
+                new KhachHangDAO().themKhachHang(kh);
 
-            if (cmdDatPhong.getMessageType() == CustomMessageDialog.MessageType.OK) {  
+                int maCuoi = new KhachHangDAO().getLastMaKH();
+                String maPhong = tfMaPhongDat.getText().trim();
+                LocalDateTime ngayDatPhong = LocalDateTime.now();
+                String ngayDatFormat = getDate(ngayDatPhong.toString());
+
+                new NhanPhongDAO().themNhanPhong(ngayDatFormat, maPhong, maCuoi);
+                new SoDoPhongDAO().updateTrangThaiPhong(Phong.PHONG_CO_NGUOI, maPhong);
+
+                refreshSoDoPhong();
+                loadSoDoPhong(getSoDoPhong());
+
+                dsKhachHang = new KhachHangDAO().getAllKhachHang();
+                loadDSKhachHangLenUI(dsKhachHang);
+
+                CustomMessageDialog cmdDatPhong = new CustomMessageDialog(this);
+                cmdDatPhong.showMessage("Đặt và nhận phòng thành công!", "Có thể qua sơ đồ phòng để kiểm tra!\nChúc bạn làm việc tốt ^^");
+
+                if (cmdDatPhong.getMessageType() == CustomMessageDialog.MessageType.OK) {  
+                }
+
+            } catch (SQLException ex) {
+                ex.printStackTrace();
             }
-            
-        } catch (SQLException ex) {
-            ex.printStackTrace();
+        } else {
+            return;
         }
     }//GEN-LAST:event_btnNDDatNgayActionPerformed
 
     private void tfChotDonDVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfChotDonDVActionPerformed
-        int maKhachHang = Integer.parseInt(tfDDVMaKH.getText().trim());
-        int SLPhanAn = 0;
-        int SLPhanUong = 0;
-        if (!tfSLBuffetAn.getText().equals("")) {
-            SLPhanAn = Integer.parseInt(tfSLBuffetAn.getText().trim());
-        }
-        if (!tfSLBuffetNuoc.getText().equals("")) {
-            SLPhanUong = Integer.parseInt(tfSLBuffetNuoc.getText().trim());
-        }
-        if (SLPhanAn == 0 && SLPhanUong == 0) {
-            CustomMessageDialog cmdDatPhong = new CustomMessageDialog(this);
-            cmdDatPhong.showMessage("Chưa nhập số lượng buffet!", "Hãy kiểm tra lại số lượng ở trên!\nXin cảm ơn ^^");
-            if (cmdDatPhong.getMessageType() == CustomMessageDialog.MessageType.OK) {  
-                return;
+        
+        CustomConfirmDialog ccdChotDon = new CustomConfirmDialog(this);
+        ccdChotDon.showMessage("Xác nhận đặt dịch vụ?", "Kiểm tra kĩ số lượng nhập vào\nThao tác không thể hoàn tác!");
+        
+        if (ccdChotDon.getMessageType() == CustomConfirmDialog.MessageType.OK) {
+            int maKhachHang = Integer.parseInt(tfDDVMaKH.getText().trim());
+            int SLPhanAn = 0;
+            int SLPhanUong = 0;
+            if (!tfSLBuffetAn.getText().equals("")) {
+                SLPhanAn = Integer.parseInt(tfSLBuffetAn.getText().trim());
             }
-        }
+            if (!tfSLBuffetNuoc.getText().equals("")) {
+                SLPhanUong = Integer.parseInt(tfSLBuffetNuoc.getText().trim());
+            }
+            if (SLPhanAn == 0 && SLPhanUong == 0) {
+                CustomMessageDialog cmdDatPhong = new CustomMessageDialog(this);
+                cmdDatPhong.showMessage("Chưa nhập số lượng buffet!", "Hãy kiểm tra lại số lượng ở trên!\nChúc bạn làm việc tốt ^^");
+                if (cmdDatPhong.getMessageType() == CustomMessageDialog.MessageType.OK) {  
+                    return;
+                }
+            }
 
-        DatDichVu ddvAn = new DatDichVu(0, maKhachHang, 1, SLPhanAn);
-        DatDichVu ddvUong = new DatDichVu(0, maKhachHang, 2, SLPhanUong);
-        
-        try {
-            new DatDichVuDAO().themDatDichVu(ddvAn);
-            new DatDichVuDAO().themDatDichVu(ddvUong);
-        } catch (SQLException ex) {
-            Logger.getLogger(GDChinh.class.getName()).log(Level.SEVERE, null, ex);
+            if (SLPhanAn < 0 || SLPhanUong < 0) {
+                CustomMessageDialog cmdDatPhong = new CustomMessageDialog(this);
+                cmdDatPhong.showMessage("Số lượng buffet lỗi!", "Số lượng buffet không được âm!\nVui lòng nhập lại ^^");
+                if (cmdDatPhong.getMessageType() == CustomMessageDialog.MessageType.OK) {  
+                    return;
+                }
+            }
+
+            DatDichVu ddvAn = new DatDichVu(0, maKhachHang, 1, SLPhanAn);
+            DatDichVu ddvUong = new DatDichVu(0, maKhachHang, 2, SLPhanUong);
+
+            try {
+                new DatDichVuDAO().themDatDichVu(ddvAn);
+                new DatDichVuDAO().themDatDichVu(ddvUong);
+            } catch (SQLException ex) {
+                Logger.getLogger(GDChinh.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+            CustomMessageDialog cmdThanhToanDichVu = new CustomMessageDialog(this);
+            cmdThanhToanDichVu.showMessage("Thanh toán thành công!", "Tiền sẽ được thanh toán chung khi trả phòng!\nChúc bạn làm việc tốt ^^");
+        } else {
+            return;
         }
-        
-        CustomMessageDialog cmdThanhToanDichVu = new CustomMessageDialog(this);
-        cmdThanhToanDichVu.showMessage("Thanh toán thành công!", "Tiền sẽ được thanh toán chung khi trả phòng!\nXin cảm ơn ^^");
     }//GEN-LAST:event_tfChotDonDVActionPerformed
 
     private void btnThanhToanTraPhongActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThanhToanTraPhongActionPerformed
-        try {
-            new HoaDonDAO().themHoaDon(hd);
-            new SoDoPhongDAO().updateTrangThaiPhong(Phong.PHONG_TRONG, hd.getMaPhong());
-            
-            CustomMessageDialog cmdThanhToanTraPhong = new CustomMessageDialog(this);
-            cmdThanhToanTraPhong.showMessage("Thanh toán thành công!", "Hãy kiểm tra tiền trước khi tạm biệt!\nXin cảm ơn ^^");
-            
-            refreshSoDoPhong();
-            loadSoDoPhong(soDoPhong);
-        } catch (SQLException ex) {
-            ex.printStackTrace();
+        
+        CustomConfirmDialog ccdThanhToanPhong = new CustomConfirmDialog(this);
+        ccdThanhToanPhong.showMessage("Xác nhận thanh toán phòng?", "Xác nhận kĩ khách hàng khi muốn thanh toán!\nThao tác không thể hoàn tác.");
+        
+        if (ccdThanhToanPhong.getMessageType() == CustomConfirmDialog.MessageType.OK) {
+            try {
+                new HoaDonDAO().themHoaDon(hd);
+                new SoDoPhongDAO().updateTrangThaiPhong(Phong.PHONG_TRONG, hd.getMaPhong());
+
+                CustomMessageDialog cmdThanhToanTraPhong = new CustomMessageDialog(this);
+                cmdThanhToanTraPhong.showMessage("Thanh toán thành công!", "Hãy kiểm tra tiền trước khi khách đi!\nChúc bạn làm việc tốt ^^");
+
+                new DatDichVuDAO().xoaDatDichVu(tfTraPhongMaKH.getText());
+                
+                dsHoaDon = new HoaDonDAO().getAllHoaDon();
+                loadDSHoaDonLenUI(dsHoaDon);
+                
+                refreshSoDoPhong();
+                loadSoDoPhong(soDoPhong);
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        } else {
+            return;
         }
     }//GEN-LAST:event_btnThanhToanTraPhongActionPerformed
 
@@ -3245,9 +3307,6 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
     private custom.ButtonCustom buttonCustom1;
     private custom.ButtonCustom buttonCustom2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
@@ -3257,8 +3316,6 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
@@ -3272,7 +3329,6 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
@@ -3295,7 +3351,6 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
     private javax.swing.JLabel jLabel58;
     private javax.swing.JLabel jLabel59;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
@@ -3349,6 +3404,13 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
     private javax.swing.JLabel lblChuThichPDS;
     private javax.swing.JLabel lblChuThichPDT;
     private javax.swing.JLabel lblChuThichPT;
+    private javax.swing.JLabel lblChucVuNhanVien1;
+    private javax.swing.JLabel lblChucVuNhanVien2;
+    private javax.swing.JLabel lblChucVuNhanVien3;
+    private javax.swing.JLabel lblChucVuNhanVien4;
+    private javax.swing.JLabel lblChucVuNhanVien5;
+    private javax.swing.JLabel lblChucVuNhanVien6;
+    private javax.swing.JLabel lblChucVuNhanVien7;
     private javax.swing.JLabel lblDangXuat;
     private javax.swing.JLabel lblLogo;
     private javax.swing.JLabel lblQLDatPhong;
@@ -3714,6 +3776,28 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
         lblTenNhanVienQLHoaDon.setText(tenNhanVien);
     }
     
+    public void setTextChucVuNhanVien(boolean isQL) {
+        String chucVu = "Lễ tân";
+        if(isQL == true) {
+            chucVu = "Quản lí";
+            lblChucVuNhanVien1.setText(chucVu);
+            lblChucVuNhanVien2.setText(chucVu);
+            lblChucVuNhanVien3.setText(chucVu);
+            lblChucVuNhanVien4.setText(chucVu);
+            lblChucVuNhanVien5.setText(chucVu);
+            lblChucVuNhanVien6.setText(chucVu);
+            lblChucVuNhanVien7.setText(chucVu);
+        } else {
+            lblChucVuNhanVien1.setText(chucVu);
+            lblChucVuNhanVien2.setText(chucVu);
+            lblChucVuNhanVien3.setText(chucVu);
+            lblChucVuNhanVien4.setText(chucVu);
+            lblChucVuNhanVien5.setText(chucVu);
+            lblChucVuNhanVien6.setText(chucVu);
+            lblChucVuNhanVien7.setText(chucVu);
+        }
+    }
+    
     public void loadDuLieuTomTatSoDoPhong() {
         
         lblChuThichPT.setText(lblChuThichPT.getText() + " (" + lstDemLoaiPhong.get(0) + ")");
@@ -3737,4 +3821,132 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
      * NhanVien
      * KhachHang
      */
+    
+    public boolean kiemTraTTKhachTrong(String hoTen, String soDT, String soCMND, String diaChi) {
+        boolean dungSai = true;
+        int boTrong = 0;
+        int viTriTrong = 0;
+        
+        if (hoTen.equals("")) {
+            viTriTrong = 1;
+            boTrong++;
+        }
+        if (soDT.equals("")) {
+            viTriTrong = 2;
+            boTrong++;
+        }
+        if (soCMND.equals("")) {
+            viTriTrong = 3;
+            boTrong++;
+        }
+        if (diaChi.equals("")) {
+            viTriTrong = 4;
+            boTrong++;
+        }
+        
+        if (boTrong == 0) {
+            return dungSai;
+        }
+        
+        if (boTrong > 1) {
+            CustomMessageDialog cmdThanhToanTraPhong = new CustomMessageDialog(this);
+            cmdThanhToanTraPhong.showMessage("Cảnh báo nhập dữ liệu!", "Còn nhiều trường chưa điền đầy đủ thông tin!\nVui lòng không để trống và nhập đúng cú pháp");
+            dungSai = false;
+            return dungSai;
+        }
+        
+        switch(viTriTrong) {
+                case 1:
+                    CustomMessageDialog cmdCanhBaoHoTen = new CustomMessageDialog(this);
+                    cmdCanhBaoHoTen.showMessage("Cảnh báo tên khách hàng!", "Dữ liệu tên khách hàng chưa được nhập!\nVui lòng không để trống và nhập đúng cú pháp");
+                    dungSai = false;
+                    break;
+                case 2:
+                    CustomMessageDialog cmdCanhBaoSoDT = new CustomMessageDialog(this);
+                    cmdCanhBaoSoDT.showMessage("Cảnh báo số điện thoại!", "Dữ liệu số điện thoại chưa được nhập!\nVui lòng không để trống và nhập đúng cú pháp");
+                    dungSai = false;
+                    break;
+                case 3:
+                    CustomMessageDialog cmdCanhBaoSoCMND = new CustomMessageDialog(this);
+                    cmdCanhBaoSoCMND.showMessage("Cảnh báo số CMND!", "Dữ liệu số CMND chưa được nhập!\nVui lòng không để trống và nhập đúng cú pháp");
+                    dungSai = false;
+                    break;
+                case 4:
+                    CustomMessageDialog cmdCanhBaoDiaChi = new CustomMessageDialog(this);
+                    cmdCanhBaoDiaChi.showMessage("Cảnh báo địa chỉ!", "Dữ liệu địa chỉ chưa được nhập!\nVui lòng không để trống và nhập đúng cú pháp");
+                    dungSai = false;
+                    break;
+                    
+                default:
+                    System.out.println(viTriTrong + boTrong);
+                    System.out.println("Chạy vào khối default - trống");
+                    dungSai = false;
+                    break;
+        }
+
+        return dungSai;
+    }
+    
+    public boolean kiemTraTTKhachRegex(String hoTen, String soDT, String soCMND, String diaChi) {
+        boolean dungSai = true;
+        int viTriLoi = 0;
+        int soLoi = 0;
+        
+        String regexHoTen = "^[A-Z][a-z]*(\\s[A-Z][a-z]*)*";
+        String regexSDT = "^(032|033|034|035|036|037|038|039|086|096|097|098|" +
+                "070|079|077|076|078|089|090|093|" +
+                "083|084|085|081|082|088|091|094|" +
+                "056|058|092|" +
+                "059|099)[0-9]{7}$";
+        String regexSoCMND = "[0-9]{9}|[0-9]{12}";
+        
+        if (hoTen.matches(regexHoTen) == false) {
+            viTriLoi = 1;
+            soLoi++;
+        }
+        if (soDT.matches(regexSDT) == false) {
+            viTriLoi = 2;
+            soLoi++;
+        }
+        if (soCMND.matches(regexSoCMND) == false) {
+            viTriLoi = 3;
+            soLoi++;
+        }
+        
+        if (soLoi == 0) {
+            return dungSai;
+        }
+        
+        if (soLoi > 1) {
+            CustomMessageDialog cmdThanhToanTraPhongRegex = new CustomMessageDialog(this);
+            cmdThanhToanTraPhongRegex.showMessage("Cảnh báo cú pháp dữ liệu!", "Còn nhiều trường chưa điền sai cú pháp!\nVui lòng không để trống và nhập đúng cú pháp");
+            dungSai = false;
+            return dungSai;
+        }
+        
+        switch(viTriLoi) {
+                case 1:
+                    CustomMessageDialog cmdCanhBaoHoTenRegex = new CustomMessageDialog(this);
+                    cmdCanhBaoHoTenRegex.showMessage("Cảnh báo cú pháp tên khách hàng!", "Dữ liệu tên khách hàng sai cú pháp!\nCú pháp (Chữ và viết hoa chữ cái đầu)");
+                    dungSai = false;
+                    break;
+                case 2:
+                    CustomMessageDialog cmdCanhBaoSoDTRegex = new CustomMessageDialog(this);
+                    cmdCanhBaoSoDTRegex.showMessage("Cảnh báo cú pháp số điện thoại!", "Dữ liệu số điện thoại sai cú pháp!\nCú pháp (Đầu số VN + 7 số sau)");
+                    dungSai = false;
+                    break;
+                case 3:
+                    CustomMessageDialog cmdCanhBaoSoCMNDRegex = new CustomMessageDialog(this);
+                    cmdCanhBaoSoCMNDRegex.showMessage("Cảnh báo cú pháp số CMND!", "Dữ liệu số CMND sai cú pháp!\nCú pháp (9 hoặc 12 số)");
+                    dungSai = false;
+                    break;
+                    
+                default:
+                    System.out.println("Chạy vào khối default - regex");
+                    dungSai = false;
+                    break;
+        }
+        
+        return dungSai;
+    }
 }

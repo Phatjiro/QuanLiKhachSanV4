@@ -574,7 +574,7 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="lblTenNVSoDoPhong" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel4" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblChucVuNhanVien1" alignment="1" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="button2" min="-2" pref="38" max="-2" attributes="0"/>
@@ -590,7 +590,7 @@
                                   <Group type="102" attributes="0">
                                       <Component id="lblTenNVSoDoPhong" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace pref="10" max="32767" attributes="0"/>
-                                      <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblChucVuNhanVien1" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="button2" pref="0" max="32767" attributes="0"/>
                                   <Component id="btnMenuSoDoPhong" max="32767" attributes="0"/>
@@ -633,7 +633,7 @@
                         <Property name="text" type="java.lang.String" value="T&#xea;n nh&#xe2;n vi&#xea;n"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="jLabel4">
+                    <Component class="javax.swing.JLabel" name="lblChucVuNhanVien1">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Arial" size="12" style="0"/>
@@ -1293,7 +1293,7 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="lblTenNVQLDP" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel11" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblChucVuNhanVien2" alignment="1" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="button3" min="-2" pref="38" max="-2" attributes="0"/>
@@ -1309,7 +1309,7 @@
                                   <Component id="jLabel38" max="32767" attributes="0"/>
                                   <Group type="102" alignment="1" attributes="0">
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                      <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblChucVuNhanVien2" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="button3" alignment="0" pref="0" max="32767" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
@@ -1354,7 +1354,7 @@
                         <Property name="text" type="java.lang.String" value="T&#xea;n nh&#xe2;n vi&#xea;n"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="jLabel11">
+                    <Component class="javax.swing.JLabel" name="lblChucVuNhanVien2">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Arial" size="12" style="0"/>
@@ -1792,7 +1792,7 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="lblTenNVQLTP" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel12" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblChucVuNhanVien3" alignment="1" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="button4" min="-2" pref="38" max="-2" attributes="0"/>
@@ -1808,7 +1808,7 @@
                                   <Component id="jLabel39" max="32767" attributes="0"/>
                                   <Group type="102" alignment="1" attributes="0">
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                      <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblChucVuNhanVien3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="button4" alignment="0" pref="0" max="32767" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
@@ -1853,7 +1853,7 @@
                         <Property name="text" type="java.lang.String" value="T&#xea;n nh&#xe2;n vi&#xea;n"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="jLabel12">
+                    <Component class="javax.swing.JLabel" name="lblChucVuNhanVien3">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Arial" size="12" style="0"/>
@@ -2245,7 +2245,7 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="lblTenNVQLDV" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel8" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblChucVuNhanVien4" alignment="1" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="button5" min="-2" pref="38" max="-2" attributes="0"/>
@@ -2261,7 +2261,7 @@
                                   <Group type="102" attributes="0">
                                       <Component id="lblTenNVQLDV" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="32767" attributes="0"/>
-                                      <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblChucVuNhanVien4" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="button5" alignment="1" min="-2" pref="38" max="-2" attributes="0"/>
                                   <Component id="btnMenuQLDichVu" alignment="0" max="32767" attributes="0"/>
@@ -2300,7 +2300,7 @@
                         <Property name="text" type="java.lang.String" value="T&#xea;n nh&#xe2;n vi&#xea;n"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="jLabel8">
+                    <Component class="javax.swing.JLabel" name="lblChucVuNhanVien4">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Arial" size="12" style="0"/>
@@ -2650,7 +2650,7 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="lblTenNVQLNhanVien" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel14" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblChucVuNhanVien5" alignment="1" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="button11" min="-2" pref="38" max="-2" attributes="0"/>
@@ -2666,7 +2666,7 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="lblTenNVQLNhanVien" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="32767" attributes="0"/>
-                                      <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblChucVuNhanVien5" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="button11" alignment="1" min="-2" pref="38" max="-2" attributes="0"/>
                                   <Component id="btnMenuQLNhanVien" alignment="0" max="32767" attributes="0"/>
@@ -2705,7 +2705,7 @@
                         <Property name="text" type="java.lang.String" value="T&#xea;n nh&#xe2;n vi&#xea;n"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="jLabel14">
+                    <Component class="javax.swing.JLabel" name="lblChucVuNhanVien5">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Arial" size="12" style="0"/>
@@ -3063,7 +3063,7 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="lblTenNVQLKhachHang" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel27" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblChucVuNhanVien6" alignment="1" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="button15" min="-2" pref="38" max="-2" attributes="0"/>
@@ -3079,7 +3079,7 @@
                                   <Group type="102" attributes="0">
                                       <Component id="lblTenNVQLKhachHang" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="32767" attributes="0"/>
-                                      <Component id="jLabel27" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblChucVuNhanVien6" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="button15" min="-2" pref="38" max="-2" attributes="0"/>
                                   <Component id="btnMenuQLKhachHang" max="32767" attributes="0"/>
@@ -3118,7 +3118,7 @@
                         <Property name="text" type="java.lang.String" value="T&#xea;n nh&#xe2;n vi&#xea;n"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="jLabel27">
+                    <Component class="javax.swing.JLabel" name="lblChucVuNhanVien6">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Arial" size="12" style="0"/>
@@ -3540,7 +3540,7 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="lblTenNhanVienQLHoaDon" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel26" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblChucVuNhanVien7" alignment="1" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="button16" min="-2" pref="38" max="-2" attributes="0"/>
@@ -3556,7 +3556,7 @@
                                   <Group type="102" attributes="0">
                                       <Component id="lblTenNhanVienQLHoaDon" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="32767" attributes="0"/>
-                                      <Component id="jLabel26" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblChucVuNhanVien7" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="button16" min="-2" pref="38" max="-2" attributes="0"/>
                                   <Component id="btnMenuQLHoaDon" max="32767" attributes="0"/>
@@ -3595,7 +3595,7 @@
                         <Property name="text" type="java.lang.String" value="T&#xea;n nh&#xe2;n vi&#xea;n"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="jLabel26">
+                    <Component class="javax.swing.JLabel" name="lblChucVuNhanVien7">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Arial" size="12" style="0"/>

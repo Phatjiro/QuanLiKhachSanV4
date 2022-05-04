@@ -119,4 +119,21 @@ public class DatDichVuDAO {
         return dsDichVuTheoKH;
     }
     
+    
+    public void xoaDatDichVu(String maKhach) throws SQLException {
+        KetNoiCSDL.getInstance();
+        KetNoiCSDL knCSDL = new KetNoiCSDL();
+        knCSDL.connect();
+        Connection con = knCSDL.getConnection();
+        
+        try {
+            String sql = "DELETE FROM DatDichVu WHERE maKH = ?;";
+            PreparedStatement prepStmt = con.prepareStatement(sql);
+            prepStmt.setString(1, maKhach);
+            prepStmt.executeUpdate();
+        } catch (Exception e) {
+            System.err.println("xoaDatDichVu - DatDichVuDAO");
+            e.printStackTrace();
+        }
+    }
 }

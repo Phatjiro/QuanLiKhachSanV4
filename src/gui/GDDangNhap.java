@@ -81,6 +81,7 @@ public class GDDangNhap extends javax.swing.JFrame implements ActionListener {
                 if (kiemTraTaiKhoan) {
                     Main.gdChinh = new GDChinh();
                     Main.gdChinh.setTextTenNhanVienDN(new NhanVienDAO().getTenNhanVienByMaNV(new TaiKhoanDAO().getMaNVDangNhap(taiKhoan, matKhau)));
+                    Main.gdChinh.setTextChucVuNhanVien(new NhanVienDAO().getChucVuNhanVienByMaNV(new TaiKhoanDAO().getMaNVDangNhap(taiKhoan, matKhau)));
                     System.out.println("Dang nhap thanh cong");
                     Main.gdChinh.setVisible(true);
                     Main.gdChinh.maNhanVien = new TaiKhoanDAO().getMaNVDangNhap(taiKhoan, matKhau);

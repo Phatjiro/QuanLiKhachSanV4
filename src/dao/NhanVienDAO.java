@@ -70,4 +70,27 @@ public class NhanVienDAO {
         }
         return tenNhanVien;
     }
+    
+    public boolean getChucVuNhanVienByMaNV(String maNV) throws SQLException {
+        boolean chucVuNhanVien = false;
+        KetNoiCSDL.getInstance();
+        KetNoiCSDL knCSDL = new KetNoiCSDL();
+        knCSDL.connect();
+
+        Connection con = knCSDL.getConnection();
+        
+        try {
+            String sql = "Select isQuanLi from NhanVien WHERE maNV = ?";
+            PreparedStatement prepStmt = con.prepareStatement(sql);
+            prepStmt.setString(1, maNV);
+            
+            ResultSet rs = prepStmt.executeQuery();
+            rs.next();
+            chucVuNhanVien = rs.getBoolean(1);
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return chucVuNhanVien;
+    }
 }
