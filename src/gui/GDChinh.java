@@ -3068,6 +3068,12 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
     
     private void btnNDDatPhongActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNDDatPhongActionPerformed
         
+        if (tfDDVMaKH.getText().equals("")) {
+            CustomMessageDialog cmdPhongChotDon = new CustomMessageDialog(this);
+            cmdPhongChotDon.showMessage("Cảnh báo chưa chọn phòng!", "Bạn chưa lấy dữ liệu từ phòng thuê qua!\nVui lòng qua sơ đồ phòng để chọn ^^");
+            return;
+        }
+        
         boolean dungSaiTrong = kiemTraTTKhachTrong(tfHoTenKH.getText().trim(), tfSDTKH.getText().trim(), tfSoCMNDKH.getText().trim(), tfDiaChiKH.getText().trim());
         if (dungSaiTrong == false) {
             return;
@@ -3154,6 +3160,17 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
 
     private void btnNDDatNgayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNDDatNgayActionPerformed
         
+        if (tfMaPhongDat.getText().equals("")) {
+            CustomMessageDialog cmdKiemTraPhongDatNgay = new CustomMessageDialog(this);
+            cmdKiemTraPhongDatNgay.showMessage("Cảnh báo chưa chọn phòng!", "Bạn chưa lấy dữ liệu từ phòng qua!\nVui lòng qua sơ đồ phòng để chọn ^^");
+            return;
+        }
+        
+        boolean dungSaiTrong = kiemTraTTKhachTrong(tfHoTenKH.getText().trim(), tfSDTKH.getText().trim(), tfSoCMNDKH.getText().trim(), tfDiaChiKH.getText().trim());
+        if (dungSaiTrong == false) {
+            return;
+        }
+        
         boolean dungSai = kiemTraTTKhachRegex(tfHoTenKH.getText().trim(), tfSDTKH.getText().trim(), tfSoCMNDKH.getText().trim(), tfDiaChiKH.getText().trim());
         if (dungSai == false) {
             return;
@@ -3188,10 +3205,10 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
                 dsKhachHang = new KhachHangDAO().getAllKhachHang();
                 loadDSKhachHangLenUI(dsKhachHang);
 
-                CustomMessageDialog cmdDatPhong = new CustomMessageDialog(this);
-                cmdDatPhong.showMessage("Đặt và nhận phòng thành công!", "Có thể qua sơ đồ phòng để kiểm tra!\nChúc bạn làm việc tốt ^^");
+                CustomMessageDialog cmdDatPhongThanhCong = new CustomMessageDialog(this);
+                cmdDatPhongThanhCong.showMessage("Đặt và nhận phòng thành công!", "Có thể qua sơ đồ phòng để kiểm tra!\nChúc bạn làm việc tốt ^^");
 
-                if (cmdDatPhong.getMessageType() == CustomMessageDialog.MessageType.OK) {  
+                if (cmdDatPhongThanhCong.getMessageType() == CustomMessageDialog.MessageType.OK) {  
                 }
 
             } catch (SQLException ex) {
@@ -3204,34 +3221,47 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
 
     private void tfChotDonDVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfChotDonDVActionPerformed
         
+        if (tfDDVMaKH.getText().equals("")) {
+            CustomMessageDialog cmdPhongChotDon = new CustomMessageDialog(this);
+            cmdPhongChotDon.showMessage("Cảnh báo chưa chọn phòng!", "Bạn chưa lấy dữ liệu từ phòng thuê qua!\nVui lòng qua sơ đồ phòng để chọn ^^");
+            return;
+        }
+        
+        if (tfSLBuffetAn.getText().matches("[0-9]") == false || tfSLBuffetNuoc.getText().matches("[0-9]") == false) {
+            CustomMessageDialog cmdSLBuffetRegex = new CustomMessageDialog(this);
+            cmdSLBuffetRegex.showMessage("Cảnh báo dữ liệu SL buffet!", "Số lượng buffet có dữ liệu số!\nVui lòng nhập lại đúng cú pháp ^^");
+            return;
+        }
+        
+        int maKhachHang = Integer.parseInt(tfDDVMaKH.getText().trim());
+        int SLPhanAn = 0;
+        int SLPhanUong = 0;
+        if (!tfSLBuffetAn.getText().equals("")) {
+            SLPhanAn = Integer.parseInt(tfSLBuffetAn.getText().trim());
+        }
+        if (!tfSLBuffetNuoc.getText().equals("")) {
+            SLPhanUong = Integer.parseInt(tfSLBuffetNuoc.getText().trim());
+        }
+        if (SLPhanAn == 0 && SLPhanUong == 0) {
+            CustomMessageDialog cmdChuaNhapSLBuffet = new CustomMessageDialog(this);
+            cmdChuaNhapSLBuffet.showMessage("Chưa nhập số lượng buffet!", "Hãy kiểm tra lại số lượng ở trên!\nChúc bạn làm việc tốt ^^");
+            if (cmdChuaNhapSLBuffet.getMessageType() == CustomMessageDialog.MessageType.OK) {  
+                return;
+            }
+        }
+
+        if (SLPhanAn < 0 || SLPhanUong < 0) {
+            CustomMessageDialog cmdSLBuffetAm = new CustomMessageDialog(this);
+            cmdSLBuffetAm.showMessage("Số lượng buffet lỗi!", "Số lượng buffet không được âm!\nVui lòng nhập lại ^^");
+            if (cmdSLBuffetAm.getMessageType() == CustomMessageDialog.MessageType.OK) {  
+                return;
+            }
+        }
+        
         CustomConfirmDialog ccdChotDon = new CustomConfirmDialog(this);
         ccdChotDon.showMessage("Xác nhận đặt dịch vụ?", "Kiểm tra kĩ số lượng nhập vào\nThao tác không thể hoàn tác!");
         
         if (ccdChotDon.getMessageType() == CustomConfirmDialog.MessageType.OK) {
-            int maKhachHang = Integer.parseInt(tfDDVMaKH.getText().trim());
-            int SLPhanAn = 0;
-            int SLPhanUong = 0;
-            if (!tfSLBuffetAn.getText().equals("")) {
-                SLPhanAn = Integer.parseInt(tfSLBuffetAn.getText().trim());
-            }
-            if (!tfSLBuffetNuoc.getText().equals("")) {
-                SLPhanUong = Integer.parseInt(tfSLBuffetNuoc.getText().trim());
-            }
-            if (SLPhanAn == 0 && SLPhanUong == 0) {
-                CustomMessageDialog cmdDatPhong = new CustomMessageDialog(this);
-                cmdDatPhong.showMessage("Chưa nhập số lượng buffet!", "Hãy kiểm tra lại số lượng ở trên!\nChúc bạn làm việc tốt ^^");
-                if (cmdDatPhong.getMessageType() == CustomMessageDialog.MessageType.OK) {  
-                    return;
-                }
-            }
-
-            if (SLPhanAn < 0 || SLPhanUong < 0) {
-                CustomMessageDialog cmdDatPhong = new CustomMessageDialog(this);
-                cmdDatPhong.showMessage("Số lượng buffet lỗi!", "Số lượng buffet không được âm!\nVui lòng nhập lại ^^");
-                if (cmdDatPhong.getMessageType() == CustomMessageDialog.MessageType.OK) {  
-                    return;
-                }
-            }
 
             DatDichVu ddvAn = new DatDichVu(0, maKhachHang, 1, SLPhanAn);
             DatDichVu ddvUong = new DatDichVu(0, maKhachHang, 2, SLPhanUong);
@@ -3251,6 +3281,12 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
     }//GEN-LAST:event_tfChotDonDVActionPerformed
 
     private void btnThanhToanTraPhongActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThanhToanTraPhongActionPerformed
+
+        if (tfTraPhongMaPhong.getText().equals("")) {
+            CustomMessageDialog cmdPhongChotDon = new CustomMessageDialog(this);
+            cmdPhongChotDon.showMessage("Cảnh báo chưa chọn phòng!", "Bạn chưa lấy dữ liệu từ phòng thuê qua!\nVui lòng qua sơ đồ phòng để chọn ^^");
+            return;
+        }
         
         CustomConfirmDialog ccdThanhToanPhong = new CustomConfirmDialog(this);
         ccdThanhToanPhong.showMessage("Xác nhận thanh toán phòng?", "Xác nhận kĩ khách hàng khi muốn thanh toán!\nThao tác không thể hoàn tác.");
