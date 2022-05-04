@@ -1760,8 +1760,8 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
                 .addGroup(jPanel49Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel59, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tfTraPhongNVLapHD, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
-                .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, 81, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout pNDQLTraPhongLayout = new javax.swing.GroupLayout(pNDQLTraPhong);
@@ -2062,6 +2062,8 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
                     .addComponent(jLabel41, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
+
+        jPanel17.setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel23.setBackground(new java.awt.Color(4, 135, 217));
 
@@ -3194,6 +3196,9 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
         } catch (SQLException ex) {
             Logger.getLogger(GDChinh.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        CustomMessageDialog cmdThanhToanDichVu = new CustomMessageDialog(this);
+        cmdThanhToanDichVu.showMessage("Thanh toán thành công!", "Tiền sẽ được thanh toán chung khi trả phòng!\nXin cảm ơn ^^");
     }//GEN-LAST:event_tfChotDonDVActionPerformed
 
     private void btnThanhToanTraPhongActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThanhToanTraPhongActionPerformed
