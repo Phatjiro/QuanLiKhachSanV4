@@ -3068,7 +3068,7 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
     
     private void btnNDDatPhongActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNDDatPhongActionPerformed
         
-        if (tfDDVMaKH.getText().equals("")) {
+        if (tfMaPhongDat.getText().equals("")) {
             CustomMessageDialog cmdPhongChotDon = new CustomMessageDialog(this);
             cmdPhongChotDon.showMessage("Cảnh báo chưa chọn phòng!", "Bạn chưa lấy dữ liệu từ phòng thuê qua!\nVui lòng qua sơ đồ phòng để chọn ^^");
             return;
