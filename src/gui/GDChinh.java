@@ -66,6 +66,8 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
     private ArrayList<KhachHang> dsKhachHang;
     private DefaultTableModel modelNhanVien;
     private ArrayList<NhanVien> dsNhanVien;
+    private DefaultTableModel modelHoaDon;
+    private ArrayList<HoaDon> dsHoaDon;
     
     public GDChinh() throws SQLException {
         icon();
@@ -190,10 +192,7 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
         // Tom tat phong
         lstDemLoaiPhong = new ArrayList<>(4);
         demTTPhong();
-        lblChuThichPT.setText(lblChuThichPT.getText() + " (" + lstDemLoaiPhong.get(0) + ")");
-        lblChuThichPDT.setText(lblChuThichPDT.getText() + " (" + lstDemLoaiPhong.get(1) + ")");
-        lblChuThichPCN.setText(lblChuThichPCN.getText() + " (" + lstDemLoaiPhong.get(2) + ")");
-        lblChuThichPDS.setText(lblChuThichPDS.getText() + " (" + lstDemLoaiPhong.get(3) + ")");
+        loadDuLieuTomTatSoDoPhong();
         
         // So do phong
         soDoPhong = new SoDoPhongDAO().getAllSoDoPhong();
@@ -220,6 +219,15 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
         dsNhanVien = new NhanVienDAO().getAllNhanVien();
         loadDSNhanVienLenUI(dsNhanVien);
         CustomTableBeautiful(tableNV, 6);
+        
+        // Table Hoa don 
+        String[] headerHD = {"Mã hoá đơn", "Tổng tiền", "Ngày nhận", "Ngày trả", "Mã nhân viên", "Mã khách hàng", "Mã phòng"};
+        modelHoaDon = new DefaultTableModel(headerHD, 0);
+        tableHoaDon.setModel(modelHoaDon);
+        
+        dsHoaDon = new HoaDonDAO().getAllHoaDon();
+        loadDSHoaDonLenUI(dsHoaDon);
+        CustomTableBeautiful(tableHoaDon, 7);
     }
     
     public void icon() {
@@ -501,13 +509,16 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
         jLabel22 = new javax.swing.JLabel();
         jPanel41 = new javax.swing.JPanel();
         radioButtonCustom7 = new custom.RadioButtonCustom();
+        radioButtonCustom3 = new custom.RadioButtonCustom();
         jPanel42 = new javax.swing.JPanel();
         jLabel23 = new javax.swing.JLabel();
         jPanel43 = new javax.swing.JPanel();
         radioButtonCustom8 = new custom.RadioButtonCustom();
+        radioButtonCustom1 = new custom.RadioButtonCustom();
+        radioButtonCustom2 = new custom.RadioButtonCustom();
         jPanel38 = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
-        jPanel39 = new javax.swing.JPanel();
+        tableHoaDon = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -1639,7 +1650,7 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
 
         jLabel57.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel57.setForeground(new java.awt.Color(204, 0, 51));
-        jLabel57.setText("<html>\n<body/>\n*Tổng tiền hiện tại =<br>\nTiền phòng * (ngày hiện tại - ngày thuê phòng) +<br>\nTiền buffet ăn * số lượng phần ăn +<br>\nTiền Buffet nước * số lượng phần nước\n</body>\n</html>");
+        jLabel57.setText("<html>\n<body/>\n*Tổng tiền hiện tại =<br>\nTiền phòng * (ngày hiện tại - ngày nhận phòng) +<br>\nTiền buffet ăn * số lượng phần ăn +<br>\nTiền Buffet nước * số lượng phần nước<br>\n*Nếu ngày thuê chưa qua 1 ngày, thì tiền phòng là 500.000 vnd\n</body>\n</html>");
 
         jPanel12.setBackground(new java.awt.Color(255, 255, 255));
         jPanel12.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 64, 16));
@@ -1749,8 +1760,8 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
                 .addGroup(jPanel49Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel59, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tfTraPhongNVLapHD, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout pNDQLTraPhongLayout = new javax.swing.GroupLayout(pNDQLTraPhong);
@@ -1772,8 +1783,6 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
         );
 
         pNoiDung.add(pNDQLTraPhong);
-
-        pNDQLDichVu.setBackground(new java.awt.Color(255, 204, 204));
 
         jPanel8.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -1997,8 +2006,6 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
         );
 
         pNoiDung.add(pNDQLDichVu);
-
-        pNDQLNhanVien.setBackground(new java.awt.Color(255, 255, 204));
 
         jPanel22.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -2531,8 +2538,6 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
 
         pNoiDung.add(pNDQLKhachHang);
 
-        pNDQLHoaDon.setBackground(new java.awt.Color(51, 51, 51));
-
         jPanel36.setBackground(new java.awt.Color(255, 255, 255));
 
         btnMenuQLHoaDon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/menu.png"))); // NOI18N
@@ -2589,12 +2594,14 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jPanel37.setBackground(new java.awt.Color(255, 255, 255));
+
         jPanel40.setBackground(new java.awt.Color(4, 135, 217));
 
         jLabel22.setFont(new java.awt.Font("Arial", 1, 17)); // NOI18N
         jLabel22.setForeground(new java.awt.Color(255, 255, 255));
         jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel22.setText("jLabel22");
+        jLabel22.setText("Ngày trả phòng");
 
         javax.swing.GroupLayout jPanel40Layout = new javax.swing.GroupLayout(jPanel40);
         jPanel40.setLayout(jPanel40Layout);
@@ -2613,8 +2620,13 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
         jPanel41.setBackground(new java.awt.Color(255, 255, 255));
 
         radioButtonCustom7.setBackground(new java.awt.Color(4, 135, 217));
-        radioButtonCustom7.setText("radioButtonCustom7");
+        radioButtonCustom7.setSelected(true);
+        radioButtonCustom7.setText("Mặc định (tăng dần)");
         radioButtonCustom7.setFont(new java.awt.Font("Arial", 0, 17)); // NOI18N
+
+        radioButtonCustom3.setBackground(new java.awt.Color(4, 135, 217));
+        radioButtonCustom3.setText("Giảm dần");
+        radioButtonCustom3.setFont(new java.awt.Font("Arial", 0, 17)); // NOI18N
 
         javax.swing.GroupLayout jPanel41Layout = new javax.swing.GroupLayout(jPanel41);
         jPanel41.setLayout(jPanel41Layout);
@@ -2622,14 +2634,18 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
             jPanel41Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel41Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(radioButtonCustom7, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
+                .addGroup(jPanel41Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(radioButtonCustom7, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
+                    .addComponent(radioButtonCustom3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel41Layout.setVerticalGroup(
             jPanel41Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel41Layout.createSequentialGroup()
                 .addComponent(radioButtonCustom7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 151, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(radioButtonCustom3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 119, Short.MAX_VALUE))
         );
 
         jPanel42.setBackground(new java.awt.Color(4, 135, 217));
@@ -2637,7 +2653,7 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
         jLabel23.setFont(new java.awt.Font("Arial", 1, 17)); // NOI18N
         jLabel23.setForeground(new java.awt.Color(255, 255, 255));
         jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel23.setText("jLabel23");
+        jLabel23.setText("Tổng tiền");
 
         javax.swing.GroupLayout jPanel42Layout = new javax.swing.GroupLayout(jPanel42);
         jPanel42.setLayout(jPanel42Layout);
@@ -2656,8 +2672,17 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
         jPanel43.setBackground(new java.awt.Color(255, 255, 255));
 
         radioButtonCustom8.setBackground(new java.awt.Color(4, 135, 217));
-        radioButtonCustom8.setText("radioButtonCustom8");
+        radioButtonCustom8.setSelected(true);
+        radioButtonCustom8.setText("Mặc định");
         radioButtonCustom8.setFont(new java.awt.Font("Arial", 0, 17)); // NOI18N
+
+        radioButtonCustom1.setBackground(new java.awt.Color(4, 135, 217));
+        radioButtonCustom1.setText("Tăng dần");
+        radioButtonCustom1.setFont(new java.awt.Font("Arial", 0, 17)); // NOI18N
+
+        radioButtonCustom2.setBackground(new java.awt.Color(4, 135, 217));
+        radioButtonCustom2.setText("Giảm dần");
+        radioButtonCustom2.setFont(new java.awt.Font("Arial", 0, 17)); // NOI18N
 
         javax.swing.GroupLayout jPanel43Layout = new javax.swing.GroupLayout(jPanel43);
         jPanel43.setLayout(jPanel43Layout);
@@ -2665,14 +2690,21 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
             jPanel43Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel43Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(radioButtonCustom8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel43Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(radioButtonCustom8, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
+                    .addComponent(radioButtonCustom1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(radioButtonCustom2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel43Layout.setVerticalGroup(
             jPanel43Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel43Layout.createSequentialGroup()
                 .addComponent(radioButtonCustom8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 151, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(radioButtonCustom1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(radioButtonCustom2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 87, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel37Layout = new javax.swing.GroupLayout(jPanel37);
@@ -2697,6 +2729,8 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
+        jPanel38.setBackground(new java.awt.Color(255, 255, 255));
+
         javax.swing.GroupLayout jPanel38Layout = new javax.swing.GroupLayout(jPanel38);
         jPanel38.setLayout(jPanel38Layout);
         jPanel38Layout.setHorizontalGroup(
@@ -2708,18 +2742,19 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
             .addGap(0, 40, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout jPanel39Layout = new javax.swing.GroupLayout(jPanel39);
-        jPanel39.setLayout(jPanel39Layout);
-        jPanel39Layout.setHorizontalGroup(
-            jPanel39Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 756, Short.MAX_VALUE)
-        );
-        jPanel39Layout.setVerticalGroup(
-            jPanel39Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 633, Short.MAX_VALUE)
-        );
-
-        jScrollPane5.setViewportView(jPanel39);
+        tableHoaDon.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        tableHoaDon.getTableHeader().setReorderingAllowed(false);
+        jScrollPane5.setViewportView(tableHoaDon);
 
         javax.swing.GroupLayout pNDQLHoaDonLayout = new javax.swing.GroupLayout(pNDQLHoaDon);
         pNDQLHoaDon.setLayout(pNDQLHoaDonLayout);
@@ -2731,7 +2766,7 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pNDQLHoaDonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel38, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane5)))
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 758, Short.MAX_VALUE)))
         );
         pNDQLHoaDonLayout.setVerticalGroup(
             pNDQLHoaDonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2759,7 +2794,7 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
         );
         pBackgroundMainLayout.setVerticalGroup(
             pBackgroundMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 747, Short.MAX_VALUE)
+            .addComponent(pMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 758, Short.MAX_VALUE)
             .addComponent(pNoiDung, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
@@ -3285,7 +3320,6 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
     private javax.swing.JPanel jPanel36;
     private javax.swing.JPanel jPanel37;
     private javax.swing.JPanel jPanel38;
-    private javax.swing.JPanel jPanel39;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel40;
     private javax.swing.JPanel jPanel41;
@@ -3346,6 +3380,9 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
     private javax.swing.JPanel pQLTraPhong;
     private javax.swing.JPanel pSoDoPhong;
     private component.PanelMoHinhPhong panelMoHinhPhong1;
+    private custom.RadioButtonCustom radioButtonCustom1;
+    private custom.RadioButtonCustom radioButtonCustom2;
+    private custom.RadioButtonCustom radioButtonCustom3;
     private custom.RadioButtonCustom radioButtonCustom7;
     private custom.RadioButtonCustom radioButtonCustom8;
     private custom.RadioButtonCustom rbtnCVNhanVienLeTan;
@@ -3374,6 +3411,7 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
     private custom.RadioButtonCustom rbtnTrangThaiPhong4;
     private custom.RadioButtonCustom rbtnTrangThaiPhong5;
     private javax.swing.JScrollPane scrKhachHang;
+    private javax.swing.JTable tableHoaDon;
     private javax.swing.JTable tableKH;
     private javax.swing.JTable tableNV;
     private custom.ButtonCustom tfChotDonDV;
@@ -3669,6 +3707,21 @@ public class GDChinh extends javax.swing.JFrame implements MouseListener{
         lblTenNVQLNhanVien.setText(tenNhanVien);
         lblTenNVQLKhachHang.setText(tenNhanVien);
         lblTenNhanVienQLHoaDon.setText(tenNhanVien);
+    }
+    
+    public void loadDuLieuTomTatSoDoPhong() {
+        
+        lblChuThichPT.setText(lblChuThichPT.getText() + " (" + lstDemLoaiPhong.get(0) + ")");
+        lblChuThichPDT.setText(lblChuThichPDT.getText() + " (" + lstDemLoaiPhong.get(1) + ")");
+        lblChuThichPCN.setText(lblChuThichPCN.getText() + " (" + lstDemLoaiPhong.get(2) + ")");
+        lblChuThichPDS.setText(lblChuThichPDS.getText() + " (" + lstDemLoaiPhong.get(3) + ")");
+    }
+    
+    public void loadDSHoaDonLenUI(ArrayList<HoaDon> dsHoaDon) {
+        modelHoaDon.setRowCount(0);
+        for (HoaDon item : dsHoaDon) {
+            modelHoaDon.addRow(new Object[] {item.getMaHD(), item.getTongTien(), item.getNgayNhanString(), item.getNgayTraString(), item.getMaNV(), item.getMaKH(), item.getMaPhong()});
+        }
     }
     
     /**

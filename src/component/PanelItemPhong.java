@@ -319,6 +319,7 @@ public class PanelItemPhong extends javax.swing.JPanel {
             new SoDoPhongDAO().updateTrangThaiPhong("pds", maPhong);
             Main.gdChinh.refreshSoDoPhong();
             Main.gdChinh.loadSoDoPhong(Main.gdChinh.getSoDoPhong());
+            
         } catch (Exception e) {
             e.printStackTrace();
         }
