@@ -1,5 +1,6 @@
 package gui;
 
+import component.CustomMessageDialog;
 import custom.Button;
 import custom.MyPasswordField;
 import custom.MyTextField;
@@ -59,7 +60,7 @@ public class GDDangNhap extends javax.swing.JFrame implements ActionListener {
         jPanel4.add(tfMatKhau);
         jPanel4.add(btnDangNhap);
         
-        tfTenDangNhap.setText("user");
+        tfTenDangNhap.setText("user1");
         tfMatKhau.setText("123456");
         
         btnDangNhap.addActionListener(this);
@@ -88,6 +89,8 @@ public class GDDangNhap extends javax.swing.JFrame implements ActionListener {
                     this.setVisible(false);
                 }
                 else {
+                    CustomMessageDialog cmdPhongChotDon = new CustomMessageDialog(this);
+                    cmdPhongChotDon.showMessage("Đăng nhập thất bại!", "Tên đăng nhập hoặc mật khẩu không đúng!\nVui lòng điền lại để đăng nhập ^^");
                     System.out.println("Dang nhap that bai");
                 }
             } catch (SQLException ex) {

@@ -17,7 +17,7 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws SQLException {
-        System.out.println("Cay cú tạo nên khác biệt!");
+//        System.out.println("Cay cú tạo nên khác biệt!");
         new GDDangNhap().setVisible(true);
     }
     
